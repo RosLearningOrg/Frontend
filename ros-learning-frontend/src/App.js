@@ -5,6 +5,7 @@ import CodeEditorContent from "./components/CodeEditorContent";
 import CodeEditorSidebar from "./components/CodeEditorSidebar";
 import InterfaceEditorContent from "./components/InterfaceEditorContent";
 import InterfaceEditorSidebar from "./components/InterfaceEditorSidebar";
+import InterfaceContextProvider from "./context/interfaceContext";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
@@ -29,34 +30,36 @@ const App = () => {
 					Edit Interface
 				</Button>
 			</header>
-			<aside>
-				<div
-					className="sidebar-wrapper"
-					state={selected == 0 ? "visible" : "hidden"}
-				>
-					<CodeEditorSidebar />
-				</div>
-				<div
-					className="sidebar-wrapper"
-					state={selected == 1 ? "visible" : "hidden"}
-				>
-					<InterfaceEditorSidebar />
-				</div>
-			</aside>
-			<main>
-				<div
-					className="content-wrapper"
-					state={selected == 0 ? "visible" : "hidden"}
-				>
-					<CodeEditorContent />
-				</div>
-				<div
-					className="content-wrapper"
-					state={selected == 1 ? "visible" : "hidden"}
-				>
-					<InterfaceEditorContent />
-				</div>
-			</main>
+			<InterfaceContextProvider>
+				<aside>
+					<div
+						className="sidebar-wrapper"
+						state={selected == 0 ? "visible" : "hidden"}
+					>
+						<CodeEditorSidebar />
+					</div>
+					<div
+						className="sidebar-wrapper"
+						state={selected == 1 ? "visible" : "hidden"}
+					>
+						<InterfaceEditorSidebar />
+					</div>
+				</aside>
+				<main>
+					<div
+						className="content-wrapper"
+						state={selected == 0 ? "visible" : "hidden"}
+					>
+						<CodeEditorContent />
+					</div>
+					<div
+						className="content-wrapper"
+						state={selected == 1 ? "visible" : "hidden"}
+					>
+						<InterfaceEditorContent />
+					</div>
+				</main>
+			</InterfaceContextProvider>
 		</div>
 	);
 };

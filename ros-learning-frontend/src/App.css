@@ -23,6 +23,10 @@ aside {
     border-right: 1px solid var(--outline-color);
 }
 
+.content-wrapper {
+    position: relative;
+}
+
 div[state="visible"] {
     display: block;
 }
