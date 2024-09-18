@@ -5,10 +5,13 @@ export const InterfaceContext = createContext(null);
 const InterfaceContextProvider = (props) => {
 	const [interfaceItems, setInterfaceItems] = useState([]);
 
-	const addInterfaceItem = () => {
+	const addInterfaceItem = (type) => {
 		setInterfaceItems((prev) => [
 			...prev,
-			prev == false ? 1 : prev[prev.length - 1] + 1,
+            {
+                id: prev == false ? 1 : prev[prev.length - 1].id + 1,
+                type: type
+            }
 		]);
 	};
 

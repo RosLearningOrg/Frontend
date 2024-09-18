@@ -1,3 +1,6 @@
-.interface-editor-sidebar-container {
+.sidebar-inner {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

@@ -1,14 +1,26 @@
 import React, { useContext } from "react";
-import { InterfaceContext } from "../context/interfaceContext";
+import "./InterfaceEditorSidebar.css";
 import Button from "./Button";
-import "./InterfaceEditorSidebar.css"
+import { InterfaceContext } from "../context/interfaceContext";
+import { interfaceItemsTypes } from "../interface/itemsTypes";
 
 const InterfaceEditorSidebar = () => {
-	const { interfaceItems, addInterfaceItem } = useContext(InterfaceContext);
+	const { addInterfaceItem } = useContext(InterfaceContext);
 
 	return (
-		<div className="interface-editor-sidebar-container">
-			<Button variant="unselected" onClick={addInterfaceItem}>Create element</Button>
+		<div className="sidebar-inner">
+			{interfaceItemsTypes.map((type) => {
+				return (
+					<Button
+						variant="unselected"
+						onClick={() => {
+							addInterfaceItem(type);
+						}}
+					>
+						Create {type.name}
+					</Button>
+				);
+			})}
 		</div>
 	);
 };

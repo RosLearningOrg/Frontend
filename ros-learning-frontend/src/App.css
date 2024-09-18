@@ -1,6 +1,7 @@
 body {
     background: var(--surface-color);
     min-width: 600px;
+    overflow: hidden;
 }
 
 .app {
@@ -25,13 +26,15 @@ aside {
 
 .content-wrapper {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-div[state="visible"] {
+[state="visible"] {
     display: block;
 }
 
-div[state="hidden"] {
+[state="hidden"] {
     display: none;
 }
 
