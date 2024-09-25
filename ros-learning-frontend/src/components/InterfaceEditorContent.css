@@ -1,3 +1,9 @@
-.draggable-element {
-    background: var(--primary-color);
+
+.interface-item[variant="selected"] {
+    outline: 1px dashed #282828;
+}
+
+.interface-content-inner {
+    width: 100%;
+    height: 100%;
 }
