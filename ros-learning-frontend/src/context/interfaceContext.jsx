@@ -42,7 +42,7 @@ const InterfaceContextProvider = (props) => {
 				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
 				selected: false,
 				width: itemProps.defaultWidth,
-				height: itemProps.defaultWidth,
+				height: itemProps.defaultHeight,
 				posX: 0,
 				posY: 0,
 				...itemProps,
