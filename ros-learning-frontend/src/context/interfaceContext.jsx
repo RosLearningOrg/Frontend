@@ -4,17 +4,80 @@ export const InterfaceContext = createContext(null);
 
 const InterfaceContextProvider = (props) => {
 	const [interfaceItems, setInterfaceItems] = useState([]);
+	const [selectedItem, setSelectedItem] = useState({});
 
-	const addInterfaceItem = () => {
+	const getItemById = (id) => {
+		return interfaceItems.find((item) => item.id == id);
+	};
+
+	const setSelectedWidth = (newWidth) => {
+		changeItem({ ...selectedItem, width: newWidth });
+	};
+
+	const setSelectedHeight = (newHeight) => {
+		changeItem({ ...selectedItem, height: newHeight });
+	};
+
+    const setSelectedX = (newPosX) => {
+		changeItem({ ...selectedItem, posX: newPosX });
+    }
+    
+    const setSelectedY = (newPosY) => {
+		changeItem({ ...selectedItem, posY: newPosY });
+    }
+
+	const changeItem = (newItem) => {
+		newItem.selected = true;
+		const newItems = interfaceItems.map((item) =>
+			item.id == newItem.id ? newItem : item
+		);
+		setInterfaceItems(newItems);
+		setSelectedItem(newItem);
+	};
+
+	const addItem = (itemProps) => {
 		setInterfaceItems((prev) => [
 			...prev,
-			prev == false ? 1 : prev[prev.length - 1] + 1,
+			{
+				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
+				selected: false,
+				width: itemProps.defaultWidth,
+				height: itemProps.defaultWidth,
+				posX: 0,
+				posY: 0,
+				...itemProps,
+			},
 		]);
+	};
+
+	const selectItem = (selId) => {
+		setInterfaceItems((prev) =>
+			prev.map(({ ...props }) => ({
+				...props,
+				selected: props.id == selId ? true : false,
+			}))
+		);
+		setSelectedItem(getItemById(selId));
+	};
+
+	const deselectItem = () => {
+		setSelectedItem({});
+		setInterfaceItems((prev) =>
+			prev.map(({ ...props }) => ({ ...props, selected: false }))
+		);
 	};
 
 	const contextValue = {
 		interfaceItems,
-		addInterfaceItem,
+		selectedItem,
+		addItem,
+		selectItem,
+		deselectItem,
+		changeItem,
+		setSelectedWidth,
+		setSelectedHeight,
+        setSelectedX,
+        setSelectedY
 	};
 
 	return (
