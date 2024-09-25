@@ -40,6 +40,8 @@ const InterfaceEditorContent = () => {
 								...selectedItem,
 								width: ref.offsetWidth,
 								height: ref.offsetHeight,
+                                posX: position.x,
+                                posY: position.y
 							});
 						}}
 					>
