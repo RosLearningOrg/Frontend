@@ -6,9 +6,9 @@ import "./InterfaceEditorContent.css";
 const InterfaceEditorContent = () => {
 	const {
 		interfaceItems,
-		selectedItem,
 		selectItem,
 		deselectItem,
+        getSelected,
 		setSelected,
 	} = useContext(InterfaceContext);
 
@@ -33,14 +33,14 @@ const InterfaceEditorContent = () => {
 						}}
 						onDrag={(e, d) => {
 							setSelected({
-								...selectedItem,
+								...getSelected(),
 								posX: d.x,
 								posY: d.y,
 							});
 						}}
 						onResize={(e, direction, ref, delta, position) => {
 							setSelected({
-								...selectedItem,
+								...getSelected(),
 								width: ref.offsetWidth,
 								height: ref.offsetHeight,
 								posX: position.x,

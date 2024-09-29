@@ -4,26 +4,25 @@ export const InterfaceContext = createContext(null);
 
 const InterfaceContextProvider = (props) => {
 	const [interfaceItems, setInterfaceItems] = useState([]);
-	const [selectedItem, setSelectedItem] = useState({});
 
 	const getItemById = (id) => {
 		return interfaceItems.find((item) => item.id == id);
 	};
 
 	const setSelectedWidth = (newWidth) => {
-		setSelected({ ...selectedItem, width: newWidth });
+		setSelected({ ...getSelected(), width: newWidth });
 	};
 
 	const setSelectedHeight = (newHeight) => {
-		setSelected({ ...selectedItem, height: newHeight });
+		setSelected({ ...getSelected(), height: newHeight });
 	};
 
 	const setSelectedX = (newPosX) => {
-		setSelected({ ...selectedItem, posX: newPosX });
+		setSelected({ ...getSelected(), posX: newPosX });
 	};
 
 	const setSelectedY = (newPosY) => {
-		setSelected({ ...selectedItem, posY: newPosY });
+		setSelected({ ...getSelected(), posY: newPosY });
 	};
 
 	const setSelected = (newItem) => {
@@ -32,8 +31,11 @@ const InterfaceContextProvider = (props) => {
 			item.selected ? newItem : item
 		);
 		setInterfaceItems(newItems);
-		setSelectedItem(newItem);
 	};
+
+    const getSelected = () => {
+        return (interfaceItems.find((item) => item.selected) ?? {})
+    }
 
 	const removeSelected = () => {
 		setInterfaceItems((prev) => prev.filter((item) => !item.selected));
@@ -46,11 +48,9 @@ const InterfaceContextProvider = (props) => {
 				selected: props.id == selId ? true : false,
 			}))
 		);
-		setSelectedItem(getItemById(selId));
 	};
 
 	const deselectItem = () => {
-		setSelectedItem({});
 		setInterfaceItems((prev) =>
 			prev.map(({ ...props }) => ({ ...props, selected: false }))
 		);
@@ -73,10 +73,10 @@ const InterfaceContextProvider = (props) => {
 
 	const contextValue = {
 		interfaceItems,
-		selectedItem,
 		addItem,
 		selectItem,
 		deselectItem,
+        getSelected,
 		setSelected,
 		removeSelected,
 		setSelectedWidth,

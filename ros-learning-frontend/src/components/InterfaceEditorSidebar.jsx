@@ -6,10 +6,10 @@ import { interfaceItemsTypes } from "../interface/itemsTypes";
 
 const InterfaceEditorSidebar = () => {
 	const {
-		selectedItem,
 		addItem,
 		deselectItem,
 		removeSelected,
+        getSelected,
 		setSelectedWidth,
 		setSelectedHeight,
 		setSelectedX,
@@ -35,34 +35,34 @@ const InterfaceEditorSidebar = () => {
 			</div>
 			<div
 				className="interface-sidebar-item-menu"
-				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
+				variant={Object.keys(getSelected()) == 0 ? "hidden" : "visible"}
 			>
 				<label htmlFor="width">Width</label>
 				<input
 					name="width"
 					type="number"
-					value={selectedItem.width}
+					value={getSelected().width}
 					onChange={(e) => setSelectedWidth(e.target.value)}
 				/>
 				<label htmlFor="height">Height</label>
 				<input
 					name="height"
 					type="number"
-					value={selectedItem.height}
+					value={getSelected().height}
 					onChange={(e) => setSelectedHeight(e.target.value)}
 				/>
 				<label htmlFor="posY">Position X</label>
 				<input
 					name="posX"
 					type="number"
-					value={selectedItem.posX}
+					value={getSelected().posX}
 					onChange={(e) => setSelectedX(e.target.value)}
 				/>
 				<label htmlFor="posY">Position Y</label>
 				<input
 					name="posY"
 					type="number"
-					value={selectedItem.posY}
+					value={getSelected().posY}
 					onChange={(e) => setSelectedY(e.target.value)}
 				/>
 				<Button onClick={removeSelected}>Remove</Button>
