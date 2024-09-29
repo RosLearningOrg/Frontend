@@ -11,43 +11,32 @@ const InterfaceContextProvider = (props) => {
 	};
 
 	const setSelectedWidth = (newWidth) => {
-		changeItem({ ...selectedItem, width: newWidth });
+		setSelected({ ...selectedItem, width: newWidth });
 	};
 
 	const setSelectedHeight = (newHeight) => {
-		changeItem({ ...selectedItem, height: newHeight });
+		setSelected({ ...selectedItem, height: newHeight });
 	};
 
-    const setSelectedX = (newPosX) => {
-		changeItem({ ...selectedItem, posX: newPosX });
-    }
-    
-    const setSelectedY = (newPosY) => {
-		changeItem({ ...selectedItem, posY: newPosY });
-    }
+	const setSelectedX = (newPosX) => {
+		setSelected({ ...selectedItem, posX: newPosX });
+	};
 
-	const changeItem = (newItem) => {
+	const setSelectedY = (newPosY) => {
+		setSelected({ ...selectedItem, posY: newPosY });
+	};
+
+	const setSelected = (newItem) => {
 		newItem.selected = true;
 		const newItems = interfaceItems.map((item) =>
-			item.id == newItem.id ? newItem : item
+			item.selected ? newItem : item
 		);
 		setInterfaceItems(newItems);
 		setSelectedItem(newItem);
 	};
 
-	const addItem = (itemProps) => {
-		setInterfaceItems((prev) => [
-			...prev,
-			{
-				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
-				selected: false,
-				width: itemProps.defaultWidth,
-				height: itemProps.defaultHeight,
-				posX: 0,
-				posY: 0,
-				...itemProps,
-			},
-		]);
+	const removeSelected = () => {
+		setInterfaceItems((prev) => prev.filter((item) => !item.selected));
 	};
 
 	const selectItem = (selId) => {
@@ -67,17 +56,33 @@ const InterfaceContextProvider = (props) => {
 		);
 	};
 
+	const addItem = (itemProps) => {
+		setInterfaceItems((prev) => [
+			...prev,
+			{
+				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
+				selected: false,
+				width: itemProps.defaultWidth,
+				height: itemProps.defaultHeight,
+				posX: 0,
+				posY: 0,
+				...itemProps,
+			},
+		]);
+	};
+
 	const contextValue = {
 		interfaceItems,
 		selectedItem,
 		addItem,
 		selectItem,
 		deselectItem,
-		changeItem,
+		setSelected,
+		removeSelected,
 		setSelectedWidth,
 		setSelectedHeight,
-        setSelectedX,
-        setSelectedY
+		setSelectedX,
+		setSelectedY,
 	};
 
 	return (
