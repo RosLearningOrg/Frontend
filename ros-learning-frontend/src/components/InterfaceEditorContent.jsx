@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Rnd } from "react-rnd";
-import { InterfaceContext } from "../context/interfaceContext";
 import "./InterfaceEditorContent.css";
 
-const InterfaceEditorContent = () => {
+const InterfaceEditorContent = (props) => {
 	const {
 		interfaceItems,
-		selectedItem,
+        selectedItem,
 		selectItem,
 		deselectItem,
 		setSelected,
-	} = useContext(InterfaceContext);
+	} = props.context;
 
 	return (
 		<div className="interface-content-inner" onMouseDown={deselectItem}>

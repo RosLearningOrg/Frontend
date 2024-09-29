@@ -1,38 +1,32 @@
-import { createContext, useState } from "react";
+import { useCallback, useState } from "react";
 
-export const InterfaceContext = createContext(null);
+function useInterface(items) {
+	const [interfaceItems, setInterfaceItems] = useState(items);
+	const selectedItem = useCallback(
+		() => interfaceItems.find((item) => item.selected) ?? {},
+		[interfaceItems]
+	)();
 
-const InterfaceContextProvider = (props) => {
-	const [interfaceItems, setInterfaceItems] = useState([]);
-	const [selectedItem, setSelectedItem] = useState({});
-
-	const getItemById = (id) => {
-		return interfaceItems.find((item) => item.id == id);
+	const setSelectedWidth = (width) => {
+		setSelected({ ...selectedItem, width: width });
 	};
 
-	const setSelectedWidth = (newWidth) => {
-		setSelected({ ...selectedItem, width: newWidth });
+	const setSelectedHeight = (height) => {
+		setSelected({ ...selectedItem, height: height });
 	};
 
-	const setSelectedHeight = (newHeight) => {
-		setSelected({ ...selectedItem, height: newHeight });
+	const setSelectedX = (posX) => {
+		setSelected({ ...selectedItem, posX: posX });
 	};
 
-	const setSelectedX = (newPosX) => {
-		setSelected({ ...selectedItem, posX: newPosX });
-	};
-
-	const setSelectedY = (newPosY) => {
-		setSelected({ ...selectedItem, posY: newPosY });
+	const setSelectedY = (posY) => {
+		setSelected({ ...selectedItem, posY: posY });
 	};
 
 	const setSelected = (newItem) => {
-		newItem.selected = true;
-		const newItems = interfaceItems.map((item) =>
-			item.selected ? newItem : item
+		setInterfaceItems((prev) =>
+			prev.map((item) => (item.selected ? newItem : item))
 		);
-		setInterfaceItems(newItems);
-		setSelectedItem(newItem);
 	};
 
 	const removeSelected = () => {
@@ -46,11 +40,9 @@ const InterfaceContextProvider = (props) => {
 				selected: props.id == selId ? true : false,
 			}))
 		);
-		setSelectedItem(getItemById(selId));
 	};
 
 	const deselectItem = () => {
-		setSelectedItem({});
 		setInterfaceItems((prev) =>
 			prev.map(({ ...props }) => ({ ...props, selected: false }))
 		);
@@ -71,7 +63,7 @@ const InterfaceContextProvider = (props) => {
 		]);
 	};
 
-	const contextValue = {
+	return {
 		interfaceItems,
 		selectedItem,
 		addItem,
@@ -84,12 +76,6 @@ const InterfaceContextProvider = (props) => {
 		setSelectedX,
 		setSelectedY,
 	};
-
-	return (
-		<InterfaceContext.Provider value={contextValue}>
-			{props.children}
-		</InterfaceContext.Provider>
-	);
 };
 
-export default InterfaceContextProvider;
+export default useInterface;
