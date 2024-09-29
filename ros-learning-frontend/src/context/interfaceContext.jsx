@@ -1,41 +1,35 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 
 export const InterfaceContext = createContext(null);
 
 const InterfaceContextProvider = (props) => {
 	const [interfaceItems, setInterfaceItems] = useState([]);
+	const selectedItem = useCallback(
+		() => interfaceItems.find((item) => item.selected) ?? {},
+		[interfaceItems]
+	)();
 
-	const getItemById = (id) => {
-		return interfaceItems.find((item) => item.id == id);
+	const setSelectedWidth = (width) => {
+		setSelected({ ...selectedItem, width: width });
 	};
 
-	const setSelectedWidth = (newWidth) => {
-		setSelected({ ...getSelected(), width: newWidth });
+	const setSelectedHeight = (height) => {
+		setSelected({ ...selectedItem, height: height });
 	};
 
-	const setSelectedHeight = (newHeight) => {
-		setSelected({ ...getSelected(), height: newHeight });
+	const setSelectedX = (posX) => {
+		setSelected({ ...selectedItem, posX: posX });
 	};
 
-	const setSelectedX = (newPosX) => {
-		setSelected({ ...getSelected(), posX: newPosX });
-	};
-
-	const setSelectedY = (newPosY) => {
-		setSelected({ ...getSelected(), posY: newPosY });
+	const setSelectedY = (posY) => {
+		setSelected({ ...selectedItem, posY: posY });
 	};
 
 	const setSelected = (newItem) => {
-		newItem.selected = true;
-		const newItems = interfaceItems.map((item) =>
-			item.selected ? newItem : item
+		setInterfaceItems((prev) =>
+			prev.map((item) => (item.selected ? newItem : item))
 		);
-		setInterfaceItems(newItems);
 	};
-
-    const getSelected = () => {
-        return (interfaceItems.find((item) => item.selected) ?? {})
-    }
 
 	const removeSelected = () => {
 		setInterfaceItems((prev) => prev.filter((item) => !item.selected));
@@ -73,10 +67,10 @@ const InterfaceContextProvider = (props) => {
 
 	const contextValue = {
 		interfaceItems,
+		selectedItem,
 		addItem,
 		selectItem,
 		deselectItem,
-        getSelected,
 		setSelected,
 		removeSelected,
 		setSelectedWidth,

@@ -6,10 +6,10 @@ import { interfaceItemsTypes } from "../interface/itemsTypes";
 
 const InterfaceEditorSidebar = () => {
 	const {
+        selectedItem,
 		addItem,
 		deselectItem,
 		removeSelected,
-        getSelected,
 		setSelectedWidth,
 		setSelectedHeight,
 		setSelectedX,
@@ -19,50 +19,51 @@ const InterfaceEditorSidebar = () => {
 	return (
 		<div className="interface-sidebar-inner">
 			<div className="interface-sidebar-items">
-				{interfaceItemsTypes.map((itemProps, index) => {
+				{interfaceItemsTypes.map((props, index) => {
 					return (
 						<Button
 							key={index}
 							variant="unselected"
 							onClick={() => {
-								addItem(itemProps);
+								addItem(props);
 							}}
 						>
-							Create {itemProps.name}
+							Create {props.name}
 						</Button>
 					);
 				})}
 			</div>
 			<div
 				className="interface-sidebar-item-menu"
-				variant={Object.keys(getSelected()) == 0 ? "hidden" : "visible"}
+				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
 			>
+                <p>{selectedItem.name}</p>
 				<label htmlFor="width">Width</label>
 				<input
 					name="width"
 					type="number"
-					value={getSelected().width}
+					value={selectedItem.width}
 					onChange={(e) => setSelectedWidth(e.target.value)}
 				/>
 				<label htmlFor="height">Height</label>
 				<input
 					name="height"
 					type="number"
-					value={getSelected().height}
+					value={selectedItem.height}
 					onChange={(e) => setSelectedHeight(e.target.value)}
 				/>
 				<label htmlFor="posY">Position X</label>
 				<input
 					name="posX"
 					type="number"
-					value={getSelected().posX}
+					value={selectedItem.posX}
 					onChange={(e) => setSelectedX(e.target.value)}
 				/>
 				<label htmlFor="posY">Position Y</label>
 				<input
 					name="posY"
 					type="number"
-					value={getSelected().posY}
+					value={selectedItem.posY}
 					onChange={(e) => setSelectedY(e.target.value)}
 				/>
 				<Button onClick={removeSelected}>Remove</Button>
