@@ -8,7 +8,8 @@ const InterfaceEditorSidebar = () => {
 	const {
 		selectedItem,
 		addItem,
-        removeItem,
+		deselectItem,
+		removeSelected,
 		setSelectedWidth,
 		setSelectedHeight,
 		setSelectedX,
@@ -64,7 +65,8 @@ const InterfaceEditorSidebar = () => {
 					value={selectedItem.posY}
 					onChange={(e) => setSelectedY(e.target.value)}
 				/>
-				<Button onClick={() => {removeItem(selectedItem.id)}}>Remove</Button>
+				<Button onClick={removeSelected}>Remove</Button>
+				<Button onClick={deselectItem}>Deselect</Button>
 			</div>
 		</div>
 	);

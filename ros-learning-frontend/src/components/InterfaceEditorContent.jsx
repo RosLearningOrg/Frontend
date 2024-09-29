@@ -7,9 +7,9 @@ const InterfaceEditorContent = () => {
 	const {
 		interfaceItems,
 		selectedItem,
-		changeItem,
 		selectItem,
 		deselectItem,
+		setSelected,
 	} = useContext(InterfaceContext);
 
 	return (
@@ -19,7 +19,7 @@ const InterfaceEditorContent = () => {
 					<Rnd
 						key={item.id}
 						size={{ width: item.width, height: item.height }}
-                        position={{ x: item.posX, y: item.posY}}
+						position={{ x: item.posX, y: item.posY }}
 						className="interface-item"
 						variant={item.selected ? "selected" : "unselected"}
 						bounds="parent"
@@ -28,20 +28,23 @@ const InterfaceEditorContent = () => {
 							selectItem(item.id);
 							e.stopPropagation();
 						}}
+						onResizeStart={() => {
+							selectItem(item.id);
+						}}
 						onDrag={(e, d) => {
-                            changeItem({
-                                ...selectedItem,
-                                posX: d.x,
-                                posY: d.y
-                            })
+							setSelected({
+								...selectedItem,
+								posX: d.x,
+								posY: d.y,
+							});
 						}}
 						onResize={(e, direction, ref, delta, position) => {
-							changeItem({
+							setSelected({
 								...selectedItem,
 								width: ref.offsetWidth,
 								height: ref.offsetHeight,
-                                posX: position.x,
-                                posY: position.y
+								posX: position.x,
+								posY: position.y,
 							});
 						}}
 					>
