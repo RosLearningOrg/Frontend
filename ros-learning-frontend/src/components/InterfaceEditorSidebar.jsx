@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
 import "./InterfaceEditorSidebar.css";
 import Button from "./Button";
-import { InterfaceContext } from "../context/interfaceContext";
 import { interfaceItemsTypes } from "../interface/itemsTypes";
 
-const InterfaceEditorSidebar = () => {
+const InterfaceEditorSidebar = (props) => {
 	const {
         selectedItem,
 		addItem,
@@ -14,8 +12,8 @@ const InterfaceEditorSidebar = () => {
 		setSelectedHeight,
 		setSelectedX,
 		setSelectedY,
-	} = useContext(InterfaceContext);
-
+	} = props.context;
+	
 	return (
 		<div className="interface-sidebar-inner">
 			<div className="interface-sidebar-items">
@@ -37,7 +35,7 @@ const InterfaceEditorSidebar = () => {
 				className="interface-sidebar-item-menu"
 				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
 			>
-                <p>{selectedItem.name}</p>
+	                <p>{selectedItem.name}</p>
 				<label htmlFor="width">Width</label>
 				<input
 					name="width"

@@ -5,10 +5,11 @@ import CodeEditorContent from "./components/CodeEditorContent";
 import CodeEditorSidebar from "./components/CodeEditorSidebar";
 import InterfaceEditorContent from "./components/InterfaceEditorContent";
 import InterfaceEditorSidebar from "./components/InterfaceEditorSidebar";
-import InterfaceContextProvider from "./context/interfaceContext";
+import useInterface from "./context/interfaceContext";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
+    const interfaceContext = useInterface([])
 
 	const switchSelected = (index) => {
 		setSelected(index);
@@ -30,7 +31,6 @@ const App = () => {
 					Edit Interface
 				</Button>
 			</header>
-			<InterfaceContextProvider>
 				<aside>
 					<div
 						className="sidebar-wrapper"
@@ -42,7 +42,7 @@ const App = () => {
 						className="sidebar-wrapper"
 						state={selected == 1 ? "visible" : "hidden"}
 					>
-						<InterfaceEditorSidebar />
+						<InterfaceEditorSidebar context={interfaceContext} />
 					</div>
 				</aside>
 				<main>
@@ -56,10 +56,9 @@ const App = () => {
 						className="content-wrapper"
 						state={selected == 1 ? "visible" : "hidden"}
 					>
-						<InterfaceEditorContent />
+						<InterfaceEditorContent context={interfaceContext} />
 					</div>
 				</main>
-			</InterfaceContextProvider>
 		</div>
 	);
 };

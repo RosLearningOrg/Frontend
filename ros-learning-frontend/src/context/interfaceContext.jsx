@@ -1,9 +1,7 @@
-import { createContext, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
-export const InterfaceContext = createContext(null);
-
-const InterfaceContextProvider = (props) => {
-	const [interfaceItems, setInterfaceItems] = useState([]);
+function useInterface(items) {
+	const [interfaceItems, setInterfaceItems] = useState(items);
 	const selectedItem = useCallback(
 		() => interfaceItems.find((item) => item.selected) ?? {},
 		[interfaceItems]
@@ -65,7 +63,7 @@ const InterfaceContextProvider = (props) => {
 		]);
 	};
 
-	const contextValue = {
+	return {
 		interfaceItems,
 		selectedItem,
 		addItem,
@@ -78,12 +76,6 @@ const InterfaceContextProvider = (props) => {
 		setSelectedX,
 		setSelectedY,
 	};
-
-	return (
-		<InterfaceContext.Provider value={contextValue}>
-			{props.children}
-		</InterfaceContext.Provider>
-	);
 };
 
-export default InterfaceContextProvider;
+export default useInterface;
