@@ -50,6 +50,10 @@ const InterfaceContextProvider = (props) => {
 		]);
 	};
 
+    const removeItem = (remId) => {
+        console.log(remId);
+    }
+
 	const selectItem = (selId) => {
 		setInterfaceItems((prev) =>
 			prev.map(({ ...props }) => ({
@@ -71,6 +75,7 @@ const InterfaceContextProvider = (props) => {
 		interfaceItems,
 		selectedItem,
 		addItem,
+        removeItem,
 		selectItem,
 		deselectItem,
 		changeItem,
