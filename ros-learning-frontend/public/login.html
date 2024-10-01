@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ros Learning</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <div class="background">
+            <p class="enter info">Вход</p>
+            <p class="text info">Войдите в ваш аккаунт, чтобы воспользоваться сервисом</p>
+            <input class="login block" type="text" placeholder="Логин" onclick="logLoginAndPassword(this)">
+            <input class="password block" type="password" placeholder="Пароль" required>
+            <button class="button" id="button">Продолжить</button>
+        </div>
+    </div>
+    <script>
+        const submitButton = document.getElementById("button");
+        function logLoginAndPassword(elem){
+            console.log(elem.value);
+        }
+    </script>
+</body>
+</html>
