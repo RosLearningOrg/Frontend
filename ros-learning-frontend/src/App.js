@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
 import useInterface from "./context/interfaceContext";
-import Button from "./components/Button";
 import CodeEditorContent from "./components/code-editor/Content";
 import CodeEditorSidebar from "./components/code-editor/Sidebar";
 import InterfaceEditorContent from "./components/interface-editor/Content";
@@ -9,7 +8,7 @@ import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
-    const interfaceContext = useInterface([])
+	const interfaceContext = useInterface([]);
 
 	const switchSelected = (index) => {
 		setSelected(index);
@@ -18,19 +17,20 @@ const App = () => {
 	return (
 		<div className="app">
 			<header className="editor-header">
-				<Button
+				<button
 					onClick={() => switchSelected(0)}
-					variant={selected == 0 ? "selected" : "unselected"}
+					variant={selected == 0 ? "primary" : "tonal"}
 				>
-					Edit Code
-				</Button>
-				<Button
+					Редактировать код
+				</button>
+				<button
 					onClick={() => switchSelected(1)}
-					variant={selected == 1 ? "selected" : "unselected"}
+					variant={selected == 1 ? "primary" : "tonal"}
 				>
-					Edit Interface
-				</Button>
+					Редактировать интерфейс
+				</button>
 			</header>
+			<div className="editor-wrapper">
 				<aside className="editor-sidebar">
 					<div
 						className="sidebar-wrapper"
@@ -59,6 +59,7 @@ const App = () => {
 						<InterfaceEditorContent context={interfaceContext} />
 					</div>
 				</main>
+			</div>
 		</div>
 	);
 };

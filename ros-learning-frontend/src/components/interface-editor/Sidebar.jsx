@@ -1,10 +1,10 @@
 import "./Sidebar.css";
-import Button from "../Button";
+import InterfaceEditorSidebarItem from "./SidebarItem";
 import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const InterfaceEditorSidebar = (props) => {
 	const {
-        selectedItem,
+		selectedItem,
 		addItem,
 		deselectItem,
 		removeSelected,
@@ -13,21 +13,19 @@ const InterfaceEditorSidebar = (props) => {
 		setSelectedX,
 		setSelectedY,
 	} = props.context;
-	
+
 	return (
 		<div className="interface-sidebar-inner">
 			<div className="interface-sidebar-items">
-				{interfaceItemsTypes.map((props, index) => {
+				{interfaceItemsTypes.map((item, index) => {
 					return (
-						<Button
+						<InterfaceEditorSidebarItem
 							key={index}
-							variant="unselected"
+							item={item}
 							onClick={() => {
-								addItem(props);
+								addItem(item);
 							}}
-						>
-							Create {props.name}
-						</Button>
+						/>
 					);
 				})}
 			</div>
@@ -35,37 +33,49 @@ const InterfaceEditorSidebar = (props) => {
 				className="interface-sidebar-item-menu"
 				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
 			>
-	                <p>{selectedItem.name}</p>
-				<label htmlFor="width">Width</label>
-				<input
-					name="width"
-					type="number"
-					value={selectedItem.width}
-					onChange={(e) => setSelectedWidth(e.target.value)}
-				/>
-				<label htmlFor="height">Height</label>
-				<input
-					name="height"
-					type="number"
-					value={selectedItem.height}
-					onChange={(e) => setSelectedHeight(e.target.value)}
-				/>
-				<label htmlFor="posY">Position X</label>
-				<input
-					name="posX"
-					type="number"
-					value={selectedItem.posX}
-					onChange={(e) => setSelectedX(e.target.value)}
-				/>
-				<label htmlFor="posY">Position Y</label>
-				<input
-					name="posY"
-					type="number"
-					value={selectedItem.posY}
-					onChange={(e) => setSelectedY(e.target.value)}
-				/>
-				<Button onClick={removeSelected}>Remove</Button>
-				<Button onClick={deselectItem}>Deselect</Button>
+				<div className="item-menu-info">
+					<p>{selectedItem.name}</p>
+					<p className="hint">{selectedItem.description}</p>
+				</div>
+				<div className="item-menu-properties">
+					<div className="item-menu-property">
+						<label htmlFor="width">W</label>
+						<input
+							name="width"
+							type="number"
+							value={selectedItem.width}
+							onChange={(e) => setSelectedWidth(e.target.value)}
+						/>
+					</div>
+					<div className="item-menu-property">
+						<label htmlFor="height">H</label>
+						<input
+							name="height"
+							type="number"
+							value={selectedItem.height}
+							onChange={(e) => setSelectedHeight(e.target.value)}
+						/>
+					</div>
+					<div className="item-menu-property">
+						<label htmlFor="posY">X</label>
+						<input
+							name="posX"
+							type="number"
+							value={selectedItem.posX}
+							onChange={(e) => setSelectedX(e.target.value)}
+						/>
+					</div>
+					<div className="item-menu-property">
+						<label htmlFor="posY">Y</label>
+						<input
+							name="posY"
+							type="number"
+							value={selectedItem.posY}
+							onChange={(e) => setSelectedY(e.target.value)}
+						/>
+					</div>
+				</div>
+				<button variant="tonal" onClick={removeSelected}>Удалить элемент</button>
 			</div>
 		</div>
 	);

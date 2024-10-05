@@ -6,7 +6,8 @@ export const style = {
     color: "#FFF",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderRadius: "8px"
 };
 
 
