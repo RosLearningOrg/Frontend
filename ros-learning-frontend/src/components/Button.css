@@ -1,13 +1,13 @@
 .bttn {
+    box-sizing: border-box;
 	width: 100%;
 	max-width: 250px;
-	height: 35px;
+    padding: 8px 24px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: 500;
-	font-size: 1.1em;
-	font-weight: 500;
+	font-size: 1em;
 	border-radius: 100px;
 	transition: 0.2s;
 	border: none;
@@ -23,7 +23,6 @@
 		"Open Sans",
 		"Helvetica Neue",
 		sans-serif;
-	font-weight: normal;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
