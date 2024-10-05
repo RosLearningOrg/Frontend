@@ -1,6 +1,6 @@
-import "./InterfaceEditorSidebar.css";
-import Button from "./Button";
-import { interfaceItemsTypes } from "../interface/itemsTypes";
+import "./Sidebar.css";
+import Button from "../Button";
+import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const InterfaceEditorSidebar = (props) => {
 	const {

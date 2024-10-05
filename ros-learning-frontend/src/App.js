@@ -1,10 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import Button from "./components/Button";
-import CodeEditorContent from "./components/CodeEditorContent";
-import CodeEditorSidebar from "./components/CodeEditorSidebar";
-import InterfaceEditorContent from "./components/InterfaceEditorContent";
-import InterfaceEditorSidebar from "./components/InterfaceEditorSidebar";
+import CodeEditorContent from "./components/code-editor/Content";
+import CodeEditorSidebar from "./components/code-editor/Sidebar";
+import InterfaceEditorContent from "./components/interface-editor/Content";
+import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
 import useInterface from "./context/interfaceContext";
 
 const App = () => {
