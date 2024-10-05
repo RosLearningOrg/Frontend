@@ -15,7 +15,7 @@
     overflow-y: scroll;
 }
 
-.interface-sidebar-item-menu {
+.interface-sidebar-menu {
     padding: 16px;
     border-top: 1px solid var(--outline-color);
     display: flex;
@@ -23,40 +23,10 @@
     gap: 16px;
 }
 
-.item-menu-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.item-menu-properties {
-    display: grid;
-    grid-template-columns: 100px 100px;
-    row-gap: 8px;
-    column-gap: 16px;
-    font-size: 0.9em;
-    line-height: 100%;
-}
-
-.item-menu-property {
-    display: flex;
-    align-items: center;
-}
-
-.item-menu-property label {
-    width: 20px;
-    padding-bottom: 3px;
-}
-
-.item-menu-property input {
-    width: 40px;
-    padding: 4px 8px;
-}
-
-.interface-sidebar-item-menu[variant="visible"] {
+.interface-sidebar-menu[variant="visible"] {
     display: flex;
 }
 
-.interface-sidebar-item-menu[variant="hidden"] {
+.interface-sidebar-menu[variant="hidden"] {
     display: none;
 }

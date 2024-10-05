@@ -1,0 +1,31 @@
+
+.menu-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-properties {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    row-gap: 8px;
+    column-gap: 16px;
+    font-size: 0.9em;
+    line-height: 100%;
+}
+
+.menu-property {
+    display: flex;
+    align-items: center;
+}
+
+.menu-property label {
+    width: 20px;
+    padding-bottom: 3px;
+}
+
+.menu-property input {
+    width: 40px;
+    padding: 4px 8px;
+}
+
