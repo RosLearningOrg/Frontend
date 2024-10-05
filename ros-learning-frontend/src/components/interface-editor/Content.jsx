@@ -1,6 +1,6 @@
+import "./Content.css";
 import React from "react";
 import { Rnd } from "react-rnd";
-import "./Content.css";
 
 const InterfaceEditorContent = (props) => {
 	const {
