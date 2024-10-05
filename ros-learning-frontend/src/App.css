@@ -1,46 +1,58 @@
-body {
-    background: var(--surface-color);
-    min-width: 600px;
-    overflow: hidden;
-}
-
 .app {
-    display: grid;
-    grid-template-columns: 250px auto;
-    grid-template-rows: 50px auto;
-    min-height: 100vh;
+	background: var(--bg-color);
+	min-width: 600px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	max-height: 100vh;
+	position: relative;
+	overflow: hidden;
 }
 
-header {
-    grid-column: span 2;
-    border-bottom: 1px solid var(--outline-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.editor-wrapper {
+	display: flex;
+	height: calc(100vh - 50px);
 }
 
-aside {
-    border-right: 1px solid var(--outline-color);
+.editor-header {
+	height: 50px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	border-bottom: 1px solid var(--outline-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }
 
-.content-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.editor-sidebar {
+	width: 280px;
+	flex-grow: 0;
+	border-right: 1px solid var(--outline-color);
 }
 
+.editor-content {
+	flex-grow: 2;
+}
+
+.content-wrapper,
 .sidebar-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 [state="visible"] {
-    display: block;
+	display: block;
 }
 
 [state="hidden"] {
-    display: none;
+	display: none;
+}
+
+.hint {
+    font-size: 0.9em;
+    color: var(--tonal-fg-color);
 }
 

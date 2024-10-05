@@ -1,15 +1,14 @@
 import "./App.css";
 import { useState } from "react";
-import Button from "./components/Button";
-import CodeEditorContent from "./components/CodeEditorContent";
-import CodeEditorSidebar from "./components/CodeEditorSidebar";
-import InterfaceEditorContent from "./components/InterfaceEditorContent";
-import InterfaceEditorSidebar from "./components/InterfaceEditorSidebar";
 import useInterface from "./context/interfaceContext";
+import CodeEditorContent from "./components/code-editor/Content";
+import CodeEditorSidebar from "./components/code-editor/Sidebar";
+import InterfaceEditorContent from "./components/interface-editor/Content";
+import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
-    const interfaceContext = useInterface([])
+	const interfaceContext = useInterface([]);
 
 	const switchSelected = (index) => {
 		setSelected(index);
@@ -17,21 +16,22 @@ const App = () => {
 
 	return (
 		<div className="app">
-			<header>
-				<Button
+			<header className="editor-header">
+				<button
 					onClick={() => switchSelected(0)}
-					variant={selected == 0 ? "selected" : "unselected"}
+					variant={selected == 0 ? "primary" : "tonal"}
 				>
-					Edit Code
-				</Button>
-				<Button
+					Редактировать код
+				</button>
+				<button
 					onClick={() => switchSelected(1)}
-					variant={selected == 1 ? "selected" : "unselected"}
+					variant={selected == 1 ? "primary" : "tonal"}
 				>
-					Edit Interface
-				</Button>
+					Редактировать интерфейс
+				</button>
 			</header>
-				<aside>
+			<div className="editor-wrapper">
+				<aside className="editor-sidebar">
 					<div
 						className="sidebar-wrapper"
 						state={selected == 0 ? "visible" : "hidden"}
@@ -45,7 +45,7 @@ const App = () => {
 						<InterfaceEditorSidebar context={interfaceContext} />
 					</div>
 				</aside>
-				<main>
+				<main className="editor-content">
 					<div
 						className="content-wrapper"
 						state={selected == 0 ? "visible" : "hidden"}
@@ -59,6 +59,7 @@ const App = () => {
 						<InterfaceEditorContent context={interfaceContext} />
 					</div>
 				</main>
+			</div>
 		</div>
 	);
 };
