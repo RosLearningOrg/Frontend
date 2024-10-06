@@ -1,7 +1,12 @@
 
-export const children = <></>;
+export const children = (props) => {
+    return <div style={props.state.value == "true" ? styleOn : styleOff}></div>
+};
 
-export const style = {
+const styleOn = {
     background: "#3a6",
-    borderRadius: "8px"
+};
+
+const styleOff = {
+    background: "#b22",
 };
