@@ -1,10 +1,10 @@
-import "./App.css";
 import { useState } from "react";
-import useInterface from "./context/interfaceContext";
+import "./App.css";
 import CodeEditorContent from "./components/code-editor/Content";
 import CodeEditorSidebar from "./components/code-editor/Sidebar";
 import InterfaceEditorContent from "./components/interface-editor/Content";
 import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
+import useInterface from "./context/interfaceContext";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
