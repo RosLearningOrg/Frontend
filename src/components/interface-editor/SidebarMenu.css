@@ -1,0 +1,42 @@
+
+.menu-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-properties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 8px;
+    font-size: 0.9em;
+    line-height: 100%;
+}
+
+.menu-property {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-custom-property {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-custom-property input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.menu-property label {
+    padding-bottom: 3px;
+}
+
+.menu-property input {
+    width: 33px;
+    padding: 4px 8px;
+}
+
