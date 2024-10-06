@@ -46,8 +46,8 @@ const InterfaceEditorContent = (props) => {
 							});
 						}}
 					>
-                        <div className="interface-item-id hint">id: {item.id}</div>
                         {item.children(item.properties)}
+                        <div className="interface-item-id hint">id: {item.id}</div>
 					</Rnd>
 				);
 			})}
