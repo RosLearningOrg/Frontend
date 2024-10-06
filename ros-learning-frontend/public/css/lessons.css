@@ -161,15 +161,6 @@ h2 {
     border-radius: 1000px;
 }
 
-.courses-block-stats {
-    background-color: #3F6836;
-    color: white;
-    padding: 8px 16px;
-    font-weight: 600;
-    font-size: 12px;
-    border-radius: 1000px;
-}
-
 .course-info {
     display: flex;
     flex-direction: column;
