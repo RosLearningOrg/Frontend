@@ -1,11 +1,8 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 function useInterface(items) {
 	const [interfaceItems, setInterfaceItems] = useState(items);
-	const selectedItem = useCallback(
-		() => interfaceItems.find((item) => item.selected) ?? {},
-		[interfaceItems]
-	)();
+    const selectedItem = interfaceItems.find((item) => item.selected) ?? {};
 
 	const setSelectedWidth = (width) => {
 		setSelected({ ...selectedItem, width: width });
@@ -48,17 +45,18 @@ function useInterface(items) {
 		);
 	};
 
-	const addItem = (itemProps) => {
+	const addItem = (item) => {
 		setInterfaceItems((prev) => [
 			...prev,
 			{
+				...item,
 				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
+                properties: JSON.parse(JSON.stringify(item.properties)),
 				selected: false,
-				width: itemProps.defaultWidth,
-				height: itemProps.defaultHeight,
+				width: item.defaultWidth,
+				height: item.defaultHeight,
 				posX: 0,
 				posY: 0,
-				...itemProps,
 			},
 		]);
 	};

@@ -5,7 +5,7 @@ import { Rnd } from "react-rnd";
 const InterfaceEditorContent = (props) => {
 	const {
 		interfaceItems,
-        selectedItem,
+		selectedItem,
 		selectItem,
 		deselectItem,
 		setSelected,
@@ -22,7 +22,6 @@ const InterfaceEditorContent = (props) => {
 						className="interface-item"
 						variant={item.selected ? "selected" : "unselected"}
 						bounds="parent"
-						style={item.style}
 						onMouseDown={(e) => {
 							selectItem(item.id);
 							e.stopPropagation();
@@ -47,7 +46,8 @@ const InterfaceEditorContent = (props) => {
 							});
 						}}
 					>
-						{item.children}
+                        <div className="interface-item-id hint">id: {item.id}</div>
+                        {item.children(item.properties)}
 					</Rnd>
 				);
 			})}

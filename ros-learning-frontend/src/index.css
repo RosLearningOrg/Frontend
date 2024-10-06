@@ -24,7 +24,7 @@ code {
     --bg-color: #FFFFFF;
     --fg-color: rgba(0, 0, 0, 0.9);
     --tonal-fg-color: rgba(0, 0, 0, 0.5);
-    --surface-color: rgba(0, 0, 0, 0.03);
+    --surface-color: rgba(0, 0, 0, 0.05);
     --primary-surface-color: rgba(63, 104, 54, 0.25);
     --primary-color: #3F6836;
     --primary-fg-color: #ffffff;
@@ -44,12 +44,13 @@ input[type="number"] {
 	border: 1px solid var(--outline-color);
     padding: 8px;
     border-radius: 4px;
-    font-size: 0.9em;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-	outline: 2px solid var(--primary-color);
+select {
+	border: 1px solid var(--outline-color);
+    background: var(--surface-color);
+    padding: 8px;
+    border-radius: 4px;
 }
 
 button {
@@ -83,12 +84,12 @@ button {
 	cursor: pointer;
 }
 
-button:focus {
+*:focus {
 	outline: 2px solid var(--primary-color);
 }
 
 button[variant="tonal"] {
-	background: var(--primary-surface-color);
+	background: var(--surface-color);
 	color: var(--fg-color);
 }
 
