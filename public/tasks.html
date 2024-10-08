@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
     <link rel="stylesheet" href="css/tasks.css">
-    <script defer src="./test.js"></script>
+    <script defer src="./js/taskPopup.js"></script>
 </head>
 <body>
     <div class="page">
@@ -30,6 +30,7 @@
                     <p>Описание урока многа текста про то какой же он классный и че в нем делать надо</p>
                 </div>
                 <div class="sidebar-links">
+                    <a class="sidebar-links-task-material" draggable="false">Материал урока</a>
                     <a href="#" draggable="false">Условия использования</a>
                     <a href="#" draggable="false">Написать в поддержку</a>
                     <a href="#" draggable="false">Выйти из профиля</a>
@@ -201,7 +202,67 @@
             </div>
         </main>
     </div>
-</div>
+
+    <div class="tint tint-hidden">
+        <div class="popup">
+            <div class="popup-header">
+                <p class="popup-left">Название задачи</p>
+                <p class="popup-right">Текст задания</p>
+            </div>
+            <div class="popup-main">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac  risus at risus fermentum blandit vitae at just
+                o. Praesent laoreet magna  ante, facilisis vulputate tortor tristique molestie. Integer a mauris  ultricies magna 
+                lobortis fringilla vel alis vel ligula.
+                Phasellus congue purus ac libero molestie, sagittis scelerisque nisi  gravida. Sed ligula nisl, hendrerit et cursus ac, 
+                que egestas  nisl. Nulla facilisi. Praesent vitae posuere magna, feugiat placerat  tortor. Etiam viverra ultricies risus,
+                eu tristique lorem feugtristique fel
+                spendisse at auctor ligula. Mauris in tempus  ligula, sodales viverra ex.
+                 Etiam tempor lectus et sapien finibus, in  finibus lect
+                us placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant morbi tristique senectus e
+                or.psum dolor sit amet, consectetur adipiscing elit. Suspendisse ac  risus at risus fermentum blandit vitae at justo.
+                aoreet magna  ante, facilisis vulputate tortor tristique molestie. Integer a mauris  ultricies magna lobortis
+                a dolor. Integer qhasellus conet  condimentum tortor pellentesque. Pellentesque tincidunt rutrum  fringilla. 
+                justo, mattis placerat porta nec, ullamcorper  vitae quam. Sed at pharetra mauris. Integer aliquam augue id magna  commodo, 
+                ac convallis metus suscipit.
+                Donec fringilla ex leo. Suspendisse at auctor ligula. Mauris in tempus  ligula, sodales viverra ex. Etiam tempor lectus et 
+                sapien finibus, in  finibus lectus placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant.
+            </div>
+            <div class="popup-btns">
+                <div class="close-btn">Закрыть</div>
+                <div class="open-btn">Приступить</div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="material-tint material-tint-hidden">
+        <div class="material-popup">
+            <div class="material-popup-header">
+                <p class="material-popup-left">Название урока</p>
+                <p class="material-popup-right">Справочные материалы</p>
+            </div>
+            <div class="material-popup-main">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac  risus at risus fermentum blandit vitae at just
+                o. Praesent laoreet magna  ante, facilisis vulputate tortor tristique molestie. Integer a mauris  ultricies magna 
+                lobortis fringilla vel alis vel ligula.
+                Phasellus congue purus ac libero molestie, sagittis scelerisque nisi  gravida. Sed ligula nisl, hendrerit et cursus ac, 
+                que egestas  nisl. Nulla facilisi. Praesent vitae posuere magna, feugiat placerat  tortor. Etiam viverra ultricies risus,
+                eu tristique lorem feugtristique fel
+                spendisse at auctor ligula. Mauris in tempus  ligula, sodales viverra ex.
+                 Etiam tempor lectus et sapien finibus, in  finibus lect
+                us placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant morbi tristique senectus e
+                or.psum dolor sit amet, consectetur adipiscing elit. Suspendisse ac  risus at risus fermentum blandit vitae at justo.
+                aoreet magna  ante, facilisis vulputate tortor tristique molestie. Integer a mauris  ultricies magna lobortis
+                a dolor. Integer qhasellus conet  condimentum tortor pellentesque. Pellentesque tincidunt rutrum  fringilla. 
+                justo, mattis placerat porta nec, ullamcorper  vitae quam. Sed at pharetra mauris. Integer aliquam augue id magna  commodo, 
+                ac convallis metus suscipit.
+                Donec fringilla ex leo. Suspendisse at auctor ligula. Mauris in tempus  ligula, sodales viverra ex. Etiam tempor lectus et 
+                sapien finibus, in  finibus lectus placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant.
+            </div>
+            <div class="material-popup-btns">
+                <div class="close-material-btn">Закрыть</div> 
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
