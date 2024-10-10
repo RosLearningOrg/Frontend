@@ -88,12 +88,12 @@ button {
 	outline: 2px solid var(--primary-color);
 }
 
-button[variant="tonal"] {
+button[data-variant="tonal"] {
 	background: var(--surface-color);
 	color: var(--fg-color);
 }
 
-button[variant="primary"] {
+button[data-variant="primary"] {
 	background: var(--primary-color);
 	color: var(--primary-fg-color);
 }

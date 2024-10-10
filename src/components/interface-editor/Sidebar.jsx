@@ -26,7 +26,7 @@ const InterfaceEditorSidebar = (props) => {
 			</div>
 			<div
 				className="interface-sidebar-menu"
-				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
+				data-variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
 			>
 				<InterfaceEditorSidebarMenu context={props.context} />
 			</div>

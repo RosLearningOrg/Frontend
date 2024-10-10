@@ -46,7 +46,7 @@ const InterfaceEditorSidebarMenu = (props) => {
                     onChange={(e) => setSelectedY(e.target.value)}
                 />
             </div>
-            <button variant="tonal" onClick={removeSelected}>
+            <button data-variant="tonal" onClick={removeSelected}>
                 Удалить элемент
             </button>
         </>

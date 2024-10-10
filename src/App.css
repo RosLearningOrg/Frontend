@@ -43,11 +43,11 @@
 	overflow: hidden;
 }
 
-[state="visible"] {
+[data-state="visible"] {
 	display: block;
 }
 
-[state="hidden"] {
+[data-state="hidden"] {
 	display: none;
 }
 

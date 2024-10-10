@@ -1,5 +1,4 @@
 import "./Content.css";
-import React from "react";
 import { Rnd } from "react-rnd";
 
 const InterfaceEditorContent = (props) => {
@@ -29,14 +28,14 @@ const InterfaceEditorContent = (props) => {
 						onResizeStart={() => {
 							selectItem(item.id);
 						}}
-						onDrag={(e, d) => {
+						onDrag={(_e, d) => {
 							setSelected({
 								...selectedItem,
 								posX: d.x,
 								posY: d.y,
 							});
 						}}
-						onResize={(e, direction, ref, delta, position) => {
+						onResize={(_e, _direction, ref, _delta, position) => {
 							setSelected({
 								...selectedItem,
 								width: ref.offsetWidth,
@@ -46,8 +45,10 @@ const InterfaceEditorContent = (props) => {
 							});
 						}}
 					>
-                        {item.children(item.properties)}
-                        <div className="interface-item-id hint">id: {item.id}</div>
+						{item.children(item.properties)}
+						<div className="interface-item-id hint">
+							id: {item.id}
+						</div>
 					</Rnd>
 				);
 			})}
