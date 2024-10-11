@@ -4,8 +4,6 @@ function useInterface(items) {
     const [interfaceItems, setInterfaceItems] = useState(items);
     const selectedItem = interfaceItems.find((item) => item.selected) ?? {};
 
-    console.log(interfaceItems)
-
     const setSelectedProperty = (property, value) => {
         setSelected({ ...selectedItem, [property]: value });
     };
