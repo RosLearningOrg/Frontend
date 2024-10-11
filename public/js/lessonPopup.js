@@ -2,7 +2,10 @@ const matTintDiv = document.querySelector(".material-tint");
 const matTaskDiv = document.querySelector(".note");
 const closeMaterialBtnDiv = document.querySelector(".close-material-btn");
 
-matTaskDiv.addEventListener("click", showMaterialPopup)
+matTaskDiv.addEventListener("click", (e) => {
+    e.preventDefault()
+    showMaterialPopup()
+})
 
 closeMaterialBtnDiv.addEventListener("click", closeMaterialPopup);
 
