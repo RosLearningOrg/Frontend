@@ -9,13 +9,7 @@ export const interfaceItemsTypes = [
         defaultWidth: 100,
         defaultHeight: 50,
         description: "Простой элемент интерфейса, служит для выполнения некоторых действий по нажатию на него",
-        properties: {
-            text: {
-                name: "Текст",
-                type: "text",
-                value: ""
-            }
-        }
+        properties: {}
     },
     {
         name: "Индикатор",

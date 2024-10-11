@@ -28,31 +28,33 @@
 .editor-sidebar {
 	width: 300px;
 	flex-grow: 0;
-	border-right: 1px solid var(--outline-color);
+	position: relative;
+	overflow: hidden;
 }
 
 .editor-content {
 	flex-grow: 2;
+	overflow: hidden;
+	background: var(--surface-color);
 }
 
-.content-wrapper,
-.sidebar-wrapper {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+.hint {
+	font-size: 0.9em;
+	color: var(--tonal-fg-color);
+}
+
+.editor-sidebar[data-pos="left"] {
+	border-right: 1px solid var(--outline-color);
+}
+
+.editor-sidebar[data-pos="right"] {
+	border-left: 1px solid var(--outline-color);
 }
 
 [data-state="visible"] {
-	display: block;
+	display: flex;
 }
 
 [data-state="hidden"] {
 	display: none;
 }
-
-.hint {
-    font-size: 0.9em;
-    color: var(--tonal-fg-color);
-}
-

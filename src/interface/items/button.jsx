@@ -10,5 +10,5 @@ export const children = (props) => {
 		boxSizing: "border-box",
 	};
 
-	return <div style={style}>{props.text.value}</div>;
+	return <div style={style}></div>;
 };
