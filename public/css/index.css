@@ -63,7 +63,7 @@ textarea {
     resize: none;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     color: var(--tonal-fg-color);
     font-size: 1em;
 }
