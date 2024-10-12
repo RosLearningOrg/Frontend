@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/tasks.css">
     <script defer src="./js/taskPopup.js"></script>
 </head>
@@ -41,7 +42,7 @@
         <main class="main">
             <div class="main-header">
                 <p class="main-title">Задачи</p>
-                <button class="return-button">← Вернуться к урокам</button>
+                <a class="return-button" href="lessons.html">← Вернуться к урокам</a>
             </div>
             <div class="main-content">
 
@@ -228,8 +229,8 @@
                 sapien finibus, in  finibus lectus placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant.
             </div>
             <div class="popup-btns">
-                <div class="close-btn">Закрыть</div>
-                <div class="open-btn">Приступить</div>  
+                <button class="close-btn" data-variant="tonal">Закрыть</button>
+                <button class="open-btn" data-variant="primary">Приступить</button>  
             </div>
         </div>
     </div>
@@ -259,7 +260,7 @@
                 sapien finibus, in  finibus lectus placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant.
             </div>
             <div class="material-popup-btns">
-                <div class="close-material-btn">Закрыть</div> 
+                <button class="close-material-btn" data-variant="primary">Закрыть</button> 
             </div>
         </div>
     </div>
