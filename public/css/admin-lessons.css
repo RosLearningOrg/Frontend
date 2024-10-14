@@ -201,7 +201,7 @@ h2 {
 }
 
 .tint-hidden {
-    display: none;
+    opacity: 0;
     pointer-events: none;
 }
 
