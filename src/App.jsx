@@ -51,9 +51,6 @@ const App = () => {
 					<main className="editor-content">
 						<CodeEditorContent />
 					</main>
-					<aside className="editor-sidebar" data-pos="right">
-						<CodeEditorSidebar />
-					</aside>
 				</div>
 			</CodeContextProvider>
 		</div>
