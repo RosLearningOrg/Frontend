@@ -24,7 +24,7 @@ code {
     --bg-color: #FFFFFF;
     --fg-color: rgba(0, 0, 0, 0.9);
     --tonal-fg-color: rgba(0, 0, 0, 0.5);
-    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color: #F2F2F2;
     --primary-surface-color: rgba(63, 104, 54, 0.25);
     --primary-color: #3F6836;
     --primary-fg-color: #ffffff;

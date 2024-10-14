@@ -10,7 +10,7 @@ const CodeEditorContent = () => {
 		<div className="code-container">
 			<div
 				className="code-container-inner"
-				style={{ height: codeItems.length * 70 + 50 }}
+				style={{ height: codeItems.length * 70 + 10 }}
 			>
 				{codeItems.map((item) => {
 					return (
