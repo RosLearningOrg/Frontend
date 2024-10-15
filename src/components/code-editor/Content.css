@@ -22,3 +22,10 @@
     height: 100%;
     overflow: scroll;
 }
+
+.line {
+    width: 1px;
+    height: 100%;
+    background: var(--outline-color);
+    margin: 0 20px;
+}
