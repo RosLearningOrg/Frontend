@@ -28,31 +28,34 @@
 .editor-sidebar {
 	width: 300px;
 	flex-grow: 0;
-	border-right: 1px solid var(--outline-color);
+	position: relative;
+	overflow: hidden;
 }
 
 .editor-content {
 	flex-grow: 2;
-}
-
-.content-wrapper,
-.sidebar-wrapper {
-	position: relative;
-	width: 100%;
-	height: 100%;
 	overflow: hidden;
-}
-
-[state="visible"] {
-	display: block;
-}
-
-[state="hidden"] {
-	display: none;
+	background: var(--surface-color);
+    position: relative;
 }
 
 .hint {
-    font-size: 0.9em;
-    color: var(--tonal-fg-color);
+	font-size: 0.9em;
+	color: var(--tonal-fg-color);
 }
 
+.editor-sidebar[data-pos="left"] {
+	border-right: 1px solid var(--outline-color);
+}
+
+.editor-sidebar[data-pos="right"] {
+	border-left: 1px solid var(--outline-color);
+}
+
+[data-state="visible"] {
+	display: flex;
+}
+
+[data-state="hidden"] {
+	display: none;
+}

@@ -1,15 +1,14 @@
-
 export const children = (props) => {
-    return <div style={style}>{props.text.value}</div>
-}
+	const style = {
+		background: "#000",
+		color: "#FFF",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: "8px",
+		textAlign: "center",
+		boxSizing: "border-box",
+	};
 
-export const style = {
-	background: "#000",
-	color: "#FFF",
-	display: "flex",
-	alignItems: "center",
-	justifyContent: "center",
-    padding: "8px",
-    textAlign: "center",
-    boxSizing: "border-box",
+	return <div style={style}></div>;
 };

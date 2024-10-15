@@ -7,7 +7,7 @@
     padding: 16px;
     box-sizing: border-box;
     border-radius: 8px;
-    /* border: 1px solid var(--outline-color); */
+    border: 1px solid var(--outline-color);
     cursor: pointer;
     gap: 8px;
 }

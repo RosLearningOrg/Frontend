@@ -1,7 +1,63 @@
-import React from "react";
+import { Rnd } from "react-rnd";
+import "./Content.css";
+import { useContext } from "react";
+import { CodeContext } from "../../context/codeContext";
 
 const CodeEditorContent = () => {
-    return <div>code content</div>;
-}
+	const { codeItems, moveItemDown, moveItemUp } = useContext(CodeContext);
+	const ITEM_HEIGHT = 50;
+
+	return (
+		<div className="code-container">
+			<div
+				className="code-container-inner"
+				style={{ height: codeItems.length * ITEM_HEIGHT + 10 }}
+			>
+				{codeItems.map((item) => {
+					return (
+						<Rnd
+							key={item.id}
+							bounds="parent"
+							className="code-item"
+							size={{ width: "100%", height: ITEM_HEIGHT }}
+							position={{ x: 0, y: item.order * ITEM_HEIGHT }}
+							dragGrid={[1, ITEM_HEIGHT]}
+							dragAxis="y"
+							style={{ position: "relative", display: "flex" }}
+							enableResizing={{
+								bottom: false,
+								bottomLeft: false,
+								bottomRight: false,
+								left: false,
+								right: false,
+								top: false,
+								topLeft: false,
+								topRight: false,
+							}}
+							onDrag={(_e, data) => {
+								if (
+									data.deltaY % ITEM_HEIGHT == 0 &&
+									data.deltaY > 0
+								) {
+									moveItemDown(item.id);
+								}
+								if (
+									data.deltaY % ITEM_HEIGHT == 0 &&
+									data.deltaY < 0
+								) {
+									moveItemUp(item.id);
+								}
+							}}
+						>
+							<div className="code-item-inner">
+								{item.name} | order: {item.order} id: {item.id}
+							</div>
+						</Rnd>
+					);
+				})}
+			</div>
+		</div>
+	);
+};
 
 export default CodeEditorContent;

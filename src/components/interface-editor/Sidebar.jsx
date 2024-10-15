@@ -1,13 +1,12 @@
 import "./Sidebar.css";
 import InterfaceEditorSidebarItem from "./SidebarItem";
 import InterfaceEditorSidebarMenu from "./SidebarMenu";
+import { useContext } from "react";
+import { InterfaceContext } from "../../context/interfaceContext";
 import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const InterfaceEditorSidebar = (props) => {
-	const {
-		selectedItem,
-		addItem,
-	} = props.context;
+	const { selectedItem, addItem } = useContext(InterfaceContext);
 
 	return (
 		<div className="interface-sidebar-inner">
@@ -26,7 +25,9 @@ const InterfaceEditorSidebar = (props) => {
 			</div>
 			<div
 				className="interface-sidebar-menu"
-				variant={Object.keys(selectedItem) == 0 ? "hidden" : "visible"}
+				data-variant={
+					Object.keys(selectedItem) == 0 ? "hidden" : "visible"
+				}
 			>
 				<InterfaceEditorSidebarMenu context={props.context} />
 			</div>
