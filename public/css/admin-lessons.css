@@ -1,33 +1,4 @@
-*{padding: 0;margin: 0;border: 0;}
-*,*:before,*:after{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-html,body{
-	height: 100%;
-	width: 100%;
-	line-height: 1;
-	font-size: 1em;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-}
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;}
-nav,footer,header,aside{display: block;}
-input,button,textarea{font-family:inherit;}
-input::-ms-clear{display: none;}
-button{cursor: pointer;}
-button::-moz-focus-inner {padding:0;border:0;}
-a, a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
-ul li{list-style: none;}
-img{vertical-align: top;}
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
-
 .page {
-    font-family: 'Inter', sans-serif;
     min-height: 100%;
     display: flex;
     justify-content: center;
@@ -55,7 +26,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 10px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: var(--bg-color);
 }
 
 .main-content {
@@ -83,7 +56,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 h2 {
     font-size: 28px;
     font-weight: 400;
-    margin-left: 20px;
 }
 
 .sidebar-header-profile {
@@ -133,7 +105,7 @@ h2 {
 }
 
 .info {
-    color: var(--fg-color);
+    color: var(--tonal-fg-color);
     font-size: 12px;
 }
 
@@ -142,7 +114,6 @@ h2 {
     flex-direction: column;
     background-color: var(--primary-surface-color);
     color: var(--fg-color);
-    font-family: "Inter", sans-serif;
     border-radius: 8px;
     gap: 10px;
     padding: 15px;
@@ -154,17 +125,15 @@ h2 {
 }
 
 .course-info p {
-    font-family: "Inter", sans-serif;
     font-size: 12px;
     color: var(--tonal-fg-color);
 }
 
 .return-button {
     font-size: 14px;
-    font-family: "Inter", sans-serif;
     color: var(--tonal-fg-color);
-    background-color: var(--bg-color);
 }
+
 
 .theory {
     display: flex;
@@ -179,7 +148,6 @@ h2 {
     border-radius: 8px;
     padding: 15px;
     font-size: 14px;
-    font-family: "Inter", sans-serif;
     justify-content: left;
 }
 
@@ -217,7 +185,6 @@ h2 {
 
 .popup p {
     font-size: 20px;
-    font-family: "Inter", sans-serif;
 }
 
 .popup-buttons {
