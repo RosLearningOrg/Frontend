@@ -19,9 +19,7 @@
     color: var(--fg-color);
     text-decoration: none;
     font-weight: normal;
-}
-
-body {
+    box-sizing: border-box;
 	font-family:
 		system-ui,
 		-apple-system,
@@ -34,6 +32,10 @@ body {
 		"Open Sans",
 		"Helvetica Neue",
 		sans-serif;
+}
+
+body {
+    min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -75,25 +77,6 @@ select {
     border-radius: 4px;
 }
 
-button {
-	box-sizing: border-box;
-	max-width: 300px;
-	padding: 8px 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 500;
-	font-size: 1em;
-	border-radius: 100px;
-	transition: 0.2s;
-	border: none;
-	font-family: inherit;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: pointer;
-}
-
 *:focus {
     outline: none;
 }
@@ -102,12 +85,52 @@ input:focus, select:focus, textarea:focus {
 	outline: 2px solid var(--primary-color);
 }
 
+button {
+	max-width: 300px;
+	display: flex;
+	font-weight: 500;
+	font-size: 1em;
+	transition: 0.2s;
+	border: none;
+	font-family: inherit;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+    box-sizing: content-box;
+}
+
+button img {
+    width: 22px;
+    height: 16px;
+    object-fit: contain;
+    object-position: center;
+}
+
+button[data-variant="square"] {
+    height: 50px;
+	padding: 0 16px;
+	align-items: center;
+    border-radius: 8px;
+    gap: 16px;
+	background: var(--surface-color);
+	color: var(--fg-color);
+}
+
 button[data-variant="tonal"] {
+	padding: 8px 24px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
 	background: var(--surface-color);
 	color: var(--fg-color);
 }
 
 button[data-variant="primary"] {
+	padding: 8px 24px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
 	background: var(--primary-color);
 	color: var(--primary-fg-color);
 }

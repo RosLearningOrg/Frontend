@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-courses.css">
-    <script defer src="./js/adminCoursesPopup.js"></script>
+    <script defer src="js/adminCoursesPopups.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -13,23 +15,19 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-header-profile">
-                    <div class="photo"></div>
-                    <p>Имя пользователя</p>
+                    <div class="profile-photo"></div>
+                    <p class="profile-name">Имя пользователя</p>
                 </div>
             </div>
-
             <div class="sidebar-content">
-
-                <div class="sidebar-content-head">
-                    <img src="./images/fluent_people-28-regular.svg" alt="">
+                <button data-variant="square" class="view-personal-btn">
+                    <img src="images/people.svg" alt="photo">
                     <p>Персонал</p>
-                </div>
-
-                <div class="sidebar-content-head add-course">
-                    <img src="./images/si_add-line.svg" alt="">
+                </button>
+                <button data-variant="square" class="add-course-btn">
+                    <img src="images/plus.svg" alt="photo">
                     <p>Создать курс</p>
-                </div>
-
+                </button>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
                     <a href="#" draggable="false">Написать в поддержку</a>
@@ -40,90 +38,74 @@
 
         <main class="main">
             <div class="main-header">
-                <h2>Курсы</h2>
+                <h2 class="main-header-title">Курсы</h2>
             </div>
 
             <div class="main-content">
-                <a href="lessons.html"  class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="course-item-desc hint">Небольшое описание курса буквально в одну строку</p>
                     </div>
 
-                    <div class="main-content-info">
-                        <img class="main-content-info-personal" src="./images/fluent_people-28-regular.svg" alt="">
-                        <img class="main-content-info-imgs" src="./images/Vector.svg" alt="">
+                    <div class="icon-container view-personal-icon">
+                        <img class="course-item-personal-icon" src="./images/fluent_people-28-regular.svg" alt="">
+                    </div>
+                    <div class="icon-container open-dropdown-icon">
+                        <img class="course-item-dots-icon" src="./images/Vector.svg" alt="">
                     </div>
                 </a>
-                <div class="menu" id="menu-id">
-                    <div class="menu-component edit-course" href="#">
-                        <p>Редактировать</p>
-                    </div>
-                    <div class="menu-component delte-course" href="#">
-                        <p>Удалить</p>
-                    </div>
-                </div>
             </div>
-
         </main>
     </div>
 
+    <div class="popup-tint popup-tint-hidden add-course-popup-tint">
+        <div class="popup-container add-course-popup-container">
 
- 
-
-    <div class="add-course-tint add-course-tint-hidden">
-        <div class="add-course-popup">
-
-            <div class="add-course-popup-header">
-                <p class="add-course-popup-header-text">Новый курс</p>
+            <div class="popup-header">
+                <p class="popup-header-title">Новый курс</p>
             </div>
 
-            <div class="add-course-popup-main">
-                <input class="add-course-popup-main-name" type="text" placeholder="Название">
-                <input class="add-course-popup-main-description" type="text" placeholder="Описание">
-            </div>
+            <input type="text" placeholder="Название">
+            <input type="text" placeholder="Описание">
 
-            <div class="add-course-popup-btns">
-                <button class="close-add-course-btn" data-variant="tonal">Отмена</button>
-                <button class="close-add-course-btn" data-variant="primary">Создать</button>
+            <div class="popup-footer">
+                <button data-variant="tonal">Отмена</button>
+                <button data-variant="primary">Создать</button>
             </div>
         </div>
     </div>
 
 
-    <div class="edit-course-tint edit-course-tint-hidden">
-        <div class="edit-course-popup">
+    <div class="popup-tint popup-tint-hidden edit-course-popup-tint">
+        <div class="popup-container edit-course-popup-container">
 
-            <div class="edit-course-popup-header">
-                <p class="edit-course-popup-header-text">Изменить курс</p>
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить курс</p>
             </div>
 
-            <div class="edit-course-popup-main">
-                <input class="edit-course-popup-main-name" type="text" placeholder="Название">
-                <input class="edit-course-popup-main-description" type="text" placeholder="Описание">
-            </div>
+            <input type="text" placeholder="Название">
+            <input type="text" placeholder="Описание">
 
-            <div class="edit-course-popup-btns">
-                <button class="close-edit-course-btn" data-variant="tonal">Отмена</button>
-                <button class="close-edit-course-btn" data-variant="primary">Сохранить</button>
+            <div class="popup-footer">
+                <button data-variant="tonal">Отмена</button>
+                <button data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>
 
-    <div class="delete-course-tint delete-course-tint-hidden">
-        <div class="delete-course-popup">
+    <div class="popup-tint popup-tint-hidden delete-course-popup-tint">
+        <div class="popup-container delete-course-popup-container">
 
-            <div class="delete-course-popup-header">
-                <p class="delete-course-popup-header-text">Удалить курс</p>
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить курс</p>
             </div>
 
-            <div class="delete-course-popup-main">
-                <p>Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
-            </div>
+            <p class="hint">Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
 
-            <div class="delete-course-popup-btns">
-                <button class="close-delete-course-btn" data-variant="tonal">Отмена</button>
-                <button class="close-delete-course-btn" data-variant="primary">Сохранить</button>
+            <div class="popup-footer">
+                <button data-variant="tonal">Отмена</button>
+                <button data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>  

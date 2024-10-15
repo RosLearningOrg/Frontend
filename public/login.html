@@ -9,19 +9,13 @@
 </head>
 <body>
     <div class="page">
-        <div class="background">
-            <p class="enter info">Вход</p>
-            <p class="text info">Войдите в ваш аккаунт, чтобы воспользоваться сервисом</p>
-            <input class="login block" type="text" placeholder="Логин" onclick="logLoginAndPassword(this)">
-            <input class="password block" type="password" placeholder="Пароль" required>
-            <button class="button" id="button" data-variant="primary">Продолжить</button>
+        <div class="login-container">
+            <p class="login-title">Вход</p>
+            <p class="login-text">Войдите в ваш аккаунт, чтобы воспользоваться сервисом</p>
+            <input type="text" placeholder="Логин" required>
+            <input type="password" placeholder="Пароль" required>
+            <button data-variant="primary">Продолжить</button>
         </div>
     </div>
-    <script>
-        const submitButton = document.getElementById("button");
-        function logLoginAndPassword(elem){
-            console.log(elem.value);
-        }
-    </script>
 </body>
 </html>

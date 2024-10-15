@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/courses.css">
 </head>
 <body>
@@ -12,14 +13,14 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-header-profile">
-                    <div class="photo"></div>
-                    <p>Имя пользователя</p>
+                    <div class="profile-photo"></div>
+                    <p class="profile-name">Имя пользователя</p>
                 </div>
             </div>
             <div class="sidebar-content">
-                <div class="progress-info">
-                    <p>Пройдено курсов</p>
-                    <p class="progress">2 / 10</p>
+                <div class="progress-container">
+                    <p class="progress-container-title">Пройдено курсов</p>
+                    <p class="progress-container-score">2 / 10</p>
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -31,183 +32,85 @@
 
         <main class="main">
             <div class="main-header">
-                <h2>Курсы</h2>
+                <h2 class="main-header-title">Курсы</h2>
             </div>
-            <div class="main-content">
-                <a href="lessons.html" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+            <div class="main-content main-content-flex">
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
+                <a href="lessons.html" class="course-item-container" draggable="false">
+                    <div class="course-item-info">
+                        <p class="course-item-title">Название</p>
+                        <p class="hint course-item-desc">Небольшое описание курса буквально в одну строку</p>
                     </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание курса буквально в одну строку</p>
-                    </div>
-                    <p class="courses-block-stats">2 / 15</p>
+                    <p class="course-item-stats">2 / 15</p>
                 </a>
             </div>
         </main>

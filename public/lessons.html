@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lessons</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/lessons.css">
-    <script defer src="./js/lessonPopup.js"></script>
-
+    <script defer src="js/lessonsPopups.js"></script>
 </head>
 <body>
     <div class="page">
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-header-profile">
-                    <div class="photo"></div>
-                    <p>Имя пользователя</p>
+                    <div class="profile-photo"></div>
+                    <p class="profile-name">Имя пользователя</p>
                 </div>
             </div>
             <div class="sidebar-content">
-                <div class="progress-info">
-                    <p>Пройдено уроков</p>
-                    <p class="progress">2 / 10</p>
+                <div class="progress-container">
+                    <p class="progress-container-title">Пройдено курсов</p>
+                    <p class="progress-container-score">2 / 10</p>
                 </div>
-                <div class="course-info">
-                    <h2>Название курса</h2>
-                    <p>Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+                <div class="sidebar-info-box">
+                    <p class="sidebar-info-box-title">Название курса</p>
+                    <p class="sidebar-info-box-desc hint">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -37,196 +38,31 @@
 
         <main class="main">
             <div class="main-header">
-                <h2>Уроки</h2>
-                <a href="courses.html" class="return-button">← Вернуться к курсам</a>
+                <h2 class="main-header-title">Уроки</h2>
+                <a href="courses.html" class="main-header-return-button">← Вернуться к курсам</a>
             </div>
-            <div class="main-content">
-                <a href="tasks.html" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
+            <div class="main-content main-content-flex">
+                <a href="tasks.html" class="lesson-item-container" draggable="false">
+                    <div class="lesson-item-info">
+                        <p class="lesson-item-title">Название</p>
+                        <p class="lesson-item-desc hint">Небольшое описание урока буквально в одну строку</p>
                     </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
+                    <div class="icon-container open-materials-btn">
+                        <img class="lesson-item-materials-icon" src="./images/info.svg" alt="">
                     </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img class="note" src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
-                </a>
-
-                <a href="#" class="courses-block" draggable="false">
-                    <div class="courses-block-text">
-                        <p class="title">Название</p>
-                        <p class="info">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="theory">
-                        <img src="./images/note.svg" alt="">
-                        <p class="courses-block-stats">2 / 15</p>
-                    </div>
+                    <p class="lesson-item-stats">2 / 15</p>
                 </a>
             </div>
         </main>
     </div>
 
-    <div class="material-tint material-tint-hidden">
-        <div class="material-popup">
-            <div class="material-popup-header">
-                <p class="material-popup-left">Название урока</p>
-                <p class="material-popup-right">Справочные материалы</p>
+    <div class="popup-tint popup-tint-hidden material-popup-tint">
+        <div class="popup-container material-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Название урока</p>
+                <p class="popup-header-subtitle">Справочные материалы</p>
             </div>
-            <div class="material-popup-main">
+            <div class="text-box">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac  risus at risus fermentum blandit vitae at just
                 o. Praesent laoreet magna  ante, facilisis vulputate tortor tristique molestie. Integer a mauris  ultricies magna 
                 lobortis fringilla vel alis vel ligula.
@@ -244,12 +80,10 @@
                 Donec fringilla ex leo. Suspendisse at auctor ligula. Mauris in tempus  ligula, sodales viverra ex. Etiam tempor lectus et 
                 sapien finibus, in  finibus lectus placerat. Vestibulum id diam a ipsum posuere cursus.  Pellentesque habitant.
             </div>
-            <div class="material-popup-btns">
-                <button class="close-material-btn" data-variant="primary">Закрыть</button>
+            <div class="popup-footer">
+                <button class="close-material-popup-btn" data-variant="primary">Закрыть</button>
             </div>
         </div>
     </div>
-
-</div>
 </body>
 </html>

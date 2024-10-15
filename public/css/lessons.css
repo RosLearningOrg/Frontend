@@ -1,102 +1,4 @@
-
-.page {
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    transform: translateX(-150px);
-}
-
-.sidebar {
-    width: 300px;
-    height: 100%;
-    position: sticky;
-    top: 0;
-}
-
-.main {
-    width: 600px;
-}
-
-.sidebar-header, .main-header {
-    height: 100px;
-    background: #fff;
-}
-
-.main-header {
-    top: 0;
-    position: sticky;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-}
-
-.main-content {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-bottom: 20px;
-}
-
-.sidebar-header {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-}
-
-.sidebar-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 16px;
-    gap: 16px;
-}
-
-h2 {
-    font-size: 28px;
-    font-weight: 400;
-}
-
-.sidebar-header-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.photo {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    background-color: var(--primary-surface-color);
-}
-
-.sidebar-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.sidebar-links a {
-    color: var(--tonal-fg-color);
-    padding: 0 15px;
-}
-
-.progress-info {
-    display: flex;
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    justify-content: space-between;
-    padding: 15px 15px;
-}
-
-.progress {
-    color: var(--tonal-fg-color);
-    font-weight: 600;
-}
-
-.courses-block {
+.lesson-item-container {
     box-sizing: border-box;
     display: flex;
     background-color: var(--surface-color);
@@ -104,24 +6,21 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 16px 16px;
+    gap: 8px;
 }
 
-.courses-block-text {
+.lesson-item-info {
+    flex-grow: 2;
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.title {
+.lesson-item-title {
     font-size: 16px;
 }
 
-.info {
-    color: var(--tonal-fg-color);
-    font-size: 12px;
-}
-
-.courses-block-stats {
+.lesson-item-stats {
     background-color: var(--primary-color);
     color: white;
     padding: 8px 16px;
@@ -131,96 +30,18 @@ h2 {
     font-weight: bold;
 }
 
-.course-info {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--primary-surface-color);
-    color: #171E0A;
-    border-radius: 8px;
-    gap: 10px;
-    padding: 15px;
-}
-
-.course-info h2 {
-    font-size: 16px;
-    margin: 0px;
-}
-
-.course-info p {
-    font-size: 12px;
-    color: var(--tonal-fg-color);
-}
-
-.return-button {
-    font-size: 14px;
-    color: var(--tonal-fg-color);
-    background-color: white;
-}
-
-.theory {
+.lesson-item-rigth-section {
     display: flex;
     gap: 17px;
 }
 
-.material-tint {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: var(--tint-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
-}
-
-.material-tint-hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.material-popup {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: space-between;
+.material-popup-container {
     height: 80%;
     width: 50%;
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
 }
 
-.material-popup-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.material-popup-left{
-    font-size: 20px;
-}
-.material-popup-right{
-    font-size: 14px;
-    color: var(--tonal-fg-color);
-}
-
-.material-popup-main{
-    border-radius: 8px;
-    overflow: auto;
-    height: 100%;
-    padding: 15px;
-    background: var(--surface-color);
-    font-size: 14px;
-    line-height: 130%;
-}
-
-.material-popup-btns{
-    height: auto;
-    display: flex;
-    gap: 15px;
-    justify-content: end;
-    align-items: end;
+.lesson-item-materials-icon {
+    height: 20px;
+    width: 20px;
 }
 

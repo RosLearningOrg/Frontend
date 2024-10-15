@@ -1,101 +1,4 @@
-
-.page {
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    transform: translateX(-150px);
-}
-
-.sidebar {
-    width: 300px;
-    height: 100%;
-    position: sticky;
-    top: 0;
-}
-
-.main {
-    width: 600px;
-}
-
-.sidebar-header, .main-header {
-    height: 100px;
-    margin: 0 16px;
-}
-
-.main-header {
-    top: 0;
-    position: sticky;
-    display: flex;
-    align-items: center;
-    background: var(--bg-color);
-}
-
-.main-content {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-bottom: 20px;
-}
-
-.sidebar-header {
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 16px;
-    gap: 16px;
-}
-
-h2 {
-    font-size: 28px;
-    font-weight: 400;
-}
-
-.sidebar-header-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.photo {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    background-color: var(--primary-surface-color);
-}
-
-.sidebar-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.sidebar-links a {
-    color: var(--tonal-fg-color);
-    padding: 0 15px;
-}
-
-.progress-info {
-    display: flex;
-    background-color: var(--surface-color);
-    border-radius: 8px;
-    justify-content: space-between;
-    padding: 15px 15px;
-}
-
-.progress {
-    color: var(--tonal-fg-color);
-    font-weight: 600;
-}
-
-.courses-block {
-    box-sizing: border-box;
+.course-item-container {
     display: flex;
     background-color: var(--surface-color);
     border-radius: 8px;
@@ -104,13 +7,13 @@ h2 {
     padding: 16px 16px;
 }
 
-.courses-block-text {
+.course-item-info {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.courses-block-stats {
+.course-item-stats {
     background-color: var(--primary-color);
     color: var(--primary-fg-color);
     border-radius: 1000px;
@@ -118,11 +21,7 @@ h2 {
     font-size: 12px;
     font-weight: bold;
 }
-.title {
-    font-size: 16px;
-}
 
-.info {
-    color: var(--tonal-fg-color);
-    font-size: 12px;
+.course-item-title {
+    font-size: 16px;
 }
