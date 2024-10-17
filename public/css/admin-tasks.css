@@ -1,0 +1,5 @@
+.task-item-edit {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
