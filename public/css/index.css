@@ -134,3 +134,8 @@ button[data-variant="primary"] {
 	background: var(--primary-color);
 	color: var(--primary-fg-color);
 }
+
+button:disabled {
+    opacity: 0.3;
+}
+

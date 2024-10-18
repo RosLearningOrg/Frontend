@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.login-container {
+#login-form {
     background-color: var(--surface-color);
     border-radius: 12px;
     display: flex;

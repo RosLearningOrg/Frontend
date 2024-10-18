@@ -1,21 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ros Learning</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-    <div class="page">
-        <div class="login-container">
-            <p class="login-title">Вход</p>
-            <p class="login-text">Войдите в ваш аккаунт, чтобы воспользоваться сервисом</p>
-            <input type="text" placeholder="Логин" required>
-            <input type="password" placeholder="Пароль" required>
-            <button data-variant="primary">Продолжить</button>
-        </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ros Learning</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<script defer src="js/login.js"></script>
+	</head>
+	<body>
+		<div class="page">
+			<form action="/login" method="post" id="login-form">
+				<p class="login-title">Вход</p>
+				<p class="login-text">
+					Войдите в ваш аккаунт, чтобы воспользоваться сервисом
+				</p>
+				<input type="text" placeholder="Логин" id="login-input" />
+				<input type="password" placeholder="Пароль" id="passwd-input" />
+				<button type="submit" data-variant="primary" id="login-btn">
+					Продолжить
+				</button>
+			</form>
+		</div>
+	</body>
 </html>
