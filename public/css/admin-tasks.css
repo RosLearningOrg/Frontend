@@ -1,15 +1,5 @@
-/* .task-item-edit {
+.icon-buttons {
     display: flex;
-    justify-content: right;
     gap: 5px;
-} */
-
-.task-edit-button {
-    width: 24px;
-    height: 24px;
-}
-
-.task-delete-button {
-    width: 24px;
-    height: 24px;
+    justify-content: end;
 }
