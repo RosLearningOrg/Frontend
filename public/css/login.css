@@ -28,3 +28,17 @@
     text-align: center;
     color: var(--tonal-fg-color);
 }
+
+#error-msg {
+    font-size: 12px;
+    text-align: center;
+    color: red;
+}
+
+#error-msg[data-visible="false"] {
+    display: none;
+}
+
+#error-msg[data-visible="true"] {
+    display: inline;
+}
