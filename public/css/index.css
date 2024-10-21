@@ -7,6 +7,7 @@
     --primary-color: #3F6836;
     --primary-fg-color: #ffffff;
     --outline-color: #c1c9be;
+    --error-color: #BA1A1A;
     --tint-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -134,3 +135,8 @@ button[data-variant="primary"] {
 	background: var(--primary-color);
 	color: var(--primary-fg-color);
 }
+
+button:disabled {
+    opacity: 0.3;
+}
+
