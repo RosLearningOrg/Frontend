@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-courses.css">
+    <script defer src="js/adminCoursesPopups.js"></script>
+    <script defer src="js/adminCoursesDropdown.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="page">
         <aside class="sidebar">
@@ -41,17 +45,20 @@
             </div>
 
             <div class="main-content">
-                <a href="lessons.html" class="course-item-container" draggable="false">
+                <a href="#" class="course-item-container" draggable="false">
                     <div class="course-item-info">
                         <p class="course-item-title">Название</p>
                         <p class="course-item-desc hint">Небольшое описание курса буквально в одну строку</p>
                     </div>
-
                     <div class="icon-container view-personal-icon">
                         <img class="course-item-personal-icon" src="./images/fluent_people-28-regular.svg" alt="">
                     </div>
                     <div class="icon-container open-dropdown-icon">
                         <img class="course-item-dots-icon" src="./images/Vector.svg" alt="">
+                    </div>
+                    <div class="dropdown-menu">
+                        <button class="dropdown-menu-delete">Удалить</button>
+                        <button class="dropdown-menu-edit">Редактировать</button>
                     </div>
                 </a>
             </div>
@@ -69,7 +76,7 @@
             <input type="text" placeholder="Описание">
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
+                <button class="close-add-course-btn" data-variant="tonal">Отмена</button>
                 <button data-variant="primary">Создать</button>
             </div>
         </div>
@@ -87,7 +94,7 @@
             <input type="text" placeholder="Описание">
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
+                <button class="close-edit-course-btn" data-variant="tonal">Отмена</button>
                 <button data-variant="primary">Сохранить</button>
             </div>
         </div>
@@ -103,10 +110,11 @@
             <p class="hint">Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
+                <button class="close-delete-course-btn" data-variant="tonal">Отмена</button>
                 <button data-variant="primary">Сохранить</button>
             </div>
         </div>
-    </div>  
+    </div>
 </body>
+
 </html>

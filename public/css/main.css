@@ -165,3 +165,26 @@
     font-size: 20px;
 }
 
+.dropdown-menu{
+    display: none;
+    flex-direction: column;
+    border-radius: 4px;
+    position: absolute;
+    background-color: var(--bg-color);
+    right: 0;
+    bottom: 0;
+    filter: drop-shadow(hwb(from var(--fg-color) h w b / 0.25)  0px 2px 4px);
+}
+
+.dropdown-menu-delete{
+    border-radius: 4px 4px 0 0;
+    padding: 8px 12px 8px 12px;
+    background-color: var(--surface-color);
+}
+
+.dropdown-menu-edit{
+    border-radius: 0 0 4px 4px;
+    padding: 8px 12px 8px 12px;
+    background-color: var(--bg-color);
+
+}
