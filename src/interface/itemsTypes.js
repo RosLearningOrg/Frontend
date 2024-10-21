@@ -19,7 +19,7 @@ export const interfaceItemsTypes = [
         description: "Имеет два состояния, вкл. и выкл. и отображает зеленый или красный цвет соответственно",
         properties: { 
             state: {
-                name: "Состояние",
+                label: "Состояние",
                 type: "select",
                 value: "false",
                 options: [
@@ -43,17 +43,17 @@ export const interfaceItemsTypes = [
         description: "Отображает заданный текст в прямоугольной области",
         properties: { 
             text: {
-                name: "Текст",
+                label: "Текст",
                 type: "text",
                 value: "Введите текст"
             },
             fontsize: {
-                name: "Размер шрифта",
+                label: "Размер шрифта",
                 type: "number",
                 value: 14
             },
             textalign: {
-                name: "Выравнивание текста",
+                label: "Выравнивание текста",
                 type: "select",
                 value: "center",
                 options: [

@@ -1,6 +1,8 @@
 import "./SidebarMenu.css";
 import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
+import PlainProperty from "../PlainProperty";
+import SelectProperty from "../SelectProperty";
 
 const InterfaceEditorSidebarMenu = () => {
 	const {
@@ -70,13 +72,13 @@ const CustomProperties = ({ item, setFunc }) => {
 	if (!item?.properties) return null;
 	return (
 		<>
-			{Object.entries(item.properties).map(([name, def], index) => {
-				if (def.type == "select")
+			{Object.entries(item.properties).map(([name, prop], index) => {
+				if (prop.type == "select")
 					return (
 						<SelectProperty
 							key={index}
 							name={name}
-							def={def}
+							prop={prop}
 							item={item}
 							setFunc={setFunc}
 						/>
@@ -86,52 +88,12 @@ const CustomProperties = ({ item, setFunc }) => {
 						<PlainProperty
 							key={index}
 							name={name}
-							def={def}
+							prop={prop}
 							item={item}
 							setFunc={setFunc}
 						/>
 					);
 			})}
-		</>
-	);
-};
-
-const PlainProperty = ({ name, def, item, setFunc }) => {
-	return (
-		<>
-			<label htmlFor={name}>{def.name}</label>
-			<input
-				name={name}
-				type={def.type}
-				value={def.value}
-				onChange={(e) => {
-					item.properties[name].value = e.target.value;
-					setFunc(item);
-				}}
-			/>
-		</>
-	);
-};
-
-const SelectProperty = ({ name, def, item, setFunc }) => {
-	return (
-		<>
-			<label htmlFor={name}>{def.name}</label>
-			<select
-				value={def.value}
-				onChange={(e) => {
-					item.properties[name].value = e.target.value;
-					setFunc(item);
-				}}
-			>
-				{def.options.map((opt, index) => {
-					return (
-						<option key={index} value={opt.value}>
-							{opt.name}
-						</option>
-					);
-				})}
-			</select>
 		</>
 	);
 };

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
 
 const CodeEditorContent = () => {
-	const { codeItems, moveItemDown, moveItemUp } = useContext(CodeContext);
+	const { codeItems, moveItemDown, moveItemUp, setItem } = useContext(CodeContext);
 	const ITEM_HEIGHT = 50;
 
 	return (
@@ -50,7 +50,7 @@ const CodeEditorContent = () => {
 							}}
 						>
 							<div className="code-item-inner">
-								{item.name} | order: {item.order} id: {item.id}
+								{item.children(item, setItem)}
 							</div>
 						</Rnd>
 					);

@@ -1,15 +1,21 @@
+import "./Sidebar.css"
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
+import { codeItemsTypes } from "../../code/itemsTypes";
 
 const CodeEditorSidebar = () => {
 	const { addItem } = useContext(CodeContext);
 
 	return (
-		<>
-			<button onClick={() => addItem("Item")}>add item</button>
-			<button onClick={() => addItem("If start")}>add if start</button>
-			<button onClick={() => addItem("If end")}>add if end </button>
-		</>
+		<div className="code-sidebar-inner">
+			{codeItemsTypes.map((item, index) => {
+				return (
+					<button key={index} onClick={() => addItem(item)}>
+						{item.name}
+					</button>
+				);
+			})}
+		</div>
 	);
 };
 

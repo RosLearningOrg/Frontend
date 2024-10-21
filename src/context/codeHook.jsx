@@ -3,15 +3,22 @@ import { useState } from "react";
 function useCode(items) {
 	const [codeItems, setCodeItems] = useState(items);
 
-	const addItem = (name) => {
+	const addItem = (item) => {
 		setCodeItems((prev) => [
 			...prev,
 			{
 				id: prev == false ? 1 : prev[prev.length - 1].id + 1,
 				order: prev.length,
-				name: name,
+				children: item.children,
+				properties: JSON.parse(JSON.stringify(item.properties)),
 			},
 		]);
+	};
+
+	const setItem = (newItem) => {
+		setCodeItems((prev) =>
+			prev.map((item) => (item.id == newItem.id ? newItem : item))
+		);
 	};
 
 	const moveItemDown = (id) => {
@@ -58,6 +65,7 @@ function useCode(items) {
 		codeItems,
 		setCodeItems,
 		addItem,
+        setItem,
 		moveItemDown,
 		moveItemUp,
 	};
