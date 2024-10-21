@@ -6,7 +6,7 @@
 		<title>Ros Learning</title>
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/login.css" />
-		<script defer src="js/login.js"></script>
+		<script src="js/login.js" type="module"></script>
 	</head>
 	<body>
 		<div class="page">
@@ -17,7 +17,7 @@
 				</p>
 				<input type="text" placeholder="Логин" id="login-input" />
 				<input type="password" placeholder="Пароль" id="passwd-input" />
-				<button type="submit" data-variant="primary" id="login-btn">
+				<button type="submit" data-variant="primary" id="login-btn" disabled>
 					Продолжить
 				</button>
                 <p id="error-msg" data-visible="false"></p>

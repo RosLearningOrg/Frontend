@@ -32,7 +32,7 @@
 #error-msg {
     font-size: 12px;
     text-align: center;
-    color: red;
+    color: var(--error-color);
 }
 
 #error-msg[data-visible="false"] {

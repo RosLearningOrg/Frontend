@@ -1,13 +1,15 @@
+import { API_URL, getCurrentUser, getCSRF } from "/public/js/main.js";
+
 const form = document.getElementById("login-form");
 const submitBtn = document.getElementById("login-btn");
 const loginInput = document.getElementById("login-input");
 const passwdInput = document.getElementById("passwd-input");
 const errorMsg = document.getElementById("error-msg");
 
-const API_URL = "http://localhost:8080/api";
-const NETWORK_ERROR_MSG = "Произошла ошибка, проверьте ваше интернет-соединение";
-const SERVER_ERROR_MSG = "Ошибка сервера, попробуйте повторить попытку позже";
-const INVALID_DATA_MSG = "Вы ввели несуществующий логин или пароль, проверьте данные и повторите попытку";
+const NETWORK_ERROR_MSG =
+	"Произошла ошибка, проверьте ваше интернет-соединение или повторите попытку позже";
+const INVALID_DATA_MSG =
+	"Вы ввели несуществующий логин или пароль, проверьте данные и повторите попытку";
 
 const disableBtn = () => {
 	submitBtn.disabled = true;
@@ -32,21 +34,6 @@ const handleInput = () => {
 	loginInput.value.length < 1 || passwdInput.value.length < 1
 		? disableBtn()
 		: enableBtn();
-};
-
-const getCSRF = async () => {
-	const init = {
-		method: "GET",
-		credentials: "include",
-	};
-
-	try {
-		const resp = await fetch(API_URL + "/csrf", init);
-		const data = await resp.json();
-		return data.token;
-	} catch {
-		return null;
-	}
 };
 
 const reqLogin = async (csrf) => {
@@ -81,27 +68,12 @@ const reqLogin = async (csrf) => {
 			showErrorMsg(NETWORK_ERROR_MSG);
 		}
 		if (error.name == "TypeError") {
-			showErrorMsg(SERVER_ERROR_MSG);
+			showErrorMsg(NETWORK_ERROR_MSG);
 		}
 		if (error.name == "InvalidDataError") {
 			showErrorMsg(INVALID_DATA_MSG);
 		}
 
-		return null;
-	}
-};
-
-const getCurrentUser = async () => {
-	const init = {
-		method: "GET",
-		credentials: "include",
-	};
-
-	try {
-		const resp = await fetch(API_URL + "/current-user", init);
-		const data = await resp.json();
-		return data;
-	} catch {
 		return null;
 	}
 };
@@ -112,9 +84,7 @@ const login = async (e) => {
 	const csrf = await getCSRF();
 	await reqLogin(csrf);
 	const user = await getCurrentUser();
-
-	localStorage.setItem("user", JSON.stringify(user));
-    redirect(user);
+	redirect(user);
 };
 
 const redirect = (user) => {
@@ -123,11 +93,11 @@ const redirect = (user) => {
 	} else {
 		window.location.replace(window.location.origin + "/courses.html");
 	}
-}
+};
 
 (async () => {
-    const user = await getCurrentUser();
-    if (user) redirect(user);
+	const user = await getCurrentUser();
+	if (user) redirect(user);
 })();
 
 loginInput.value = "";
