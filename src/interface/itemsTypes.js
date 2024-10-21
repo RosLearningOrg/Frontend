@@ -5,6 +5,7 @@ import * as TextBox from "./items/textBox";
 export const interfaceItemsTypes = [
     {
         name: "Кнопка",
+        type: "interactive",
         children: Button.children,
         defaultWidth: 100,
         defaultHeight: 50,
@@ -13,6 +14,7 @@ export const interfaceItemsTypes = [
     },
     {
         name: "Индикатор",
+        type: "display",
         children: Indicator.children,
         defaultWidth: 50,
         defaultHeight: 50,
@@ -37,6 +39,7 @@ export const interfaceItemsTypes = [
     },
     {
         name: "Текстовое поле",
+        type: "display",
         children: TextBox.children,
         defaultWidth: 100,
         defaultHeight: 50,

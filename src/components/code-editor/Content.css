@@ -21,7 +21,14 @@
 
 .code-item-inner input {
     padding: 4px 8px;
-    width: 100px;
+    width: 150px;
+    box-sizing: border-box;
+}
+
+.code-item-inner select {
+    padding: 4px 8px;
+    width: 150px;
+    box-sizing: border-box;
 }
 
 .code-container {

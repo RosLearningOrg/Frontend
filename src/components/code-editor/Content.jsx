@@ -2,9 +2,11 @@ import { Rnd } from "react-rnd";
 import "./Content.css";
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
+import { EditorContext } from "../../context/editorContext";
 
 const CodeEditorContent = () => {
 	const { codeItems, moveItemDown, moveItemUp, setItem } = useContext(CodeContext);
+	const { displayItems } = useContext(EditorContext);
 	const ITEM_HEIGHT = 50;
 
 	return (
@@ -50,7 +52,7 @@ const CodeEditorContent = () => {
 							}}
 						>
 							<div className="code-item-inner">
-								{item.children(item, setItem)}
+								{item.children(item, setItem, displayItems)}
 							</div>
 						</Rnd>
 					);

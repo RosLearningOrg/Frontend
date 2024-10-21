@@ -11,7 +11,7 @@ const CodeEditorSidebar = () => {
 			{codeItemsTypes.map((item, index) => {
 				return (
 					<button key={index} onClick={() => addItem(item)}>
-						{item.name}
+						{item.title}
 					</button>
 				);
 			})}

@@ -2,19 +2,22 @@ import * as Set from "./items/set"
 
 export const codeItemsTypes = [
     {
-        name: "Установить значение компонента",
+        title: "Установить значение компонента",
+        name: "setItem",
         children: Set.children,
         properties: {
-            value: {
-                label: "Установить значение",
-                type: "text",
-                value: ""
+            item: {
+                label: "Установить для",
+                value: null
             },
-            var: {
-                label: "для",
-                type: "text",
-                value: ""
-            }
+            property: {
+                label: "значение",
+                value: null
+            },
+            value: {
+                label: "равное",
+                value: null,
+            },
         }
     }
 ]
