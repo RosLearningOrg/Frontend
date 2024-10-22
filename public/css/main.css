@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    position: relative;
 }
 
 .icon-container:hover {
@@ -135,7 +136,6 @@
 }
 
 .main-content {
-    overflow: hidden;
     padding-bottom: 20px;
 }
 
@@ -170,21 +170,24 @@
     flex-direction: column;
     border-radius: 4px;
     position: absolute;
-    background-color: var(--bg-color);
+    top: 100%;
     right: 0;
-    bottom: 0;
-    filter: drop-shadow(hwb(from var(--fg-color) h w b / 0.25)  0px 2px 4px);
+    background-color: var(--bg-color);
+    filter: drop-shadow(hwb(from var(--fg-color) h w b / 0.25) 0px 2px 4px);
 }
 
 .dropdown-menu-delete{
     border-radius: 4px 4px 0 0;
     padding: 8px 12px 8px 12px;
     background-color: var(--surface-color);
+    /* position: absolute; */
 }
 
 .dropdown-menu-edit{
     border-radius: 0 0 4px 4px;
     padding: 8px 12px 8px 12px;
     background-color: var(--bg-color);
-
+    /* position: absolute; */
 }
+
+/* bootstrap dropdown */
