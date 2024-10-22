@@ -13,3 +13,4 @@ import { getCSRF, getCurrentUser, logout } from "/public/js/main.js";
 	sessionStorage.setItem("csrf", csrf);
 	sessionStorage.setItem("user", JSON.stringify(user));
 })();
+
