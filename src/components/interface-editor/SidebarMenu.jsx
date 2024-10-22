@@ -1,14 +1,11 @@
 import "./SidebarMenu.css";
 import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
+import SelectInput from "../SelectInput";
 
 const InterfaceEditorSidebarMenu = () => {
-	const {
-		selectedItem,
-		removeSelected,
-		setSelected,
-		setSelectedProperty,
-	} = useContext(InterfaceContext);
+	const { selectedItem, removeSelected, setSelected, setSelectedProperty } =
+		useContext(InterfaceContext);
 
 	return (
 		<>
@@ -24,25 +21,33 @@ const InterfaceEditorSidebarMenu = () => {
 					name="width"
 					title="Ширина"
 					value={selectedItem.width}
-					onChange={(e) => setSelectedProperty("width", e.target.value) }
+					onChange={(e) =>
+						setSelectedProperty("width", e.target.value)
+					}
 				/>
 				<DefaultProperty
 					name="height"
 					title="Высота"
 					value={selectedItem.height}
-					onChange={(e) => setSelectedProperty("height", e.target.value)}
+					onChange={(e) =>
+						setSelectedProperty("height", e.target.value)
+					}
 				/>
 				<DefaultProperty
 					name="posX"
 					title="Позиция X"
 					value={selectedItem.posX}
-					onChange={(e) => setSelectedProperty("posX", e.target.value)}
+					onChange={(e) =>
+						setSelectedProperty("posX", e.target.value)
+					}
 				/>
 				<DefaultProperty
 					name="posY"
 					title="Позиция Y"
 					value={selectedItem.posY}
-					onChange={(e) => setSelectedProperty("posY", e.target.value)}
+					onChange={(e) =>
+						setSelectedProperty("posY", e.target.value)
+					}
 				/>
 			</div>
 			<button data-variant="tonal" onClick={removeSelected}>
@@ -70,68 +75,43 @@ const CustomProperties = ({ item, setFunc }) => {
 	if (!item?.properties) return null;
 	return (
 		<>
-			{Object.entries(item.properties).map(([name, def], index) => {
-				if (def.type == "select")
+			{Object.entries(item.properties).map(([name, prop]) => {
+				if (prop.type == "select")
 					return (
-						<SelectProperty
-							key={index}
-							name={name}
-							def={def}
-							item={item}
-							setFunc={setFunc}
-						/>
+						<div key={name}>
+							<label htmlFor={name}>{prop.label}</label>
+							<SelectInput
+								name={name}
+								items={prop.options.map((opt) => ({
+									value: opt.value,
+									text: opt.name,
+								}))}
+                                noDefault={true}
+								selected={item.properties[name].value}
+								onChange={(value) => {
+									item.properties[name].value = value;
+									setFunc(item);
+								}}
+							/>
+						</div>
 					);
 				else
 					return (
-						<PlainProperty
-							key={index}
-							name={name}
-							def={def}
-							item={item}
-							setFunc={setFunc}
-						/>
+						<div key={name}>
+							<label htmlFor={name}>{prop.label}</label>
+							<input
+								name={name}
+								type={prop.type}
+								value={prop.value}
+								onChange={(e) => {
+									item.properties[name].value =
+										e.target.value;
+									setFunc(item);
+								}}
+							/>
+						</div>
 					);
 			})}
-		</>
-	);
-};
-
-const PlainProperty = ({ name, def, item, setFunc }) => {
-	return (
-		<>
-			<label htmlFor={name}>{def.name}</label>
-			<input
-				name={name}
-				type={def.type}
-				value={def.value}
-				onChange={(e) => {
-					item.properties[name].value = e.target.value;
-					setFunc(item);
-				}}
-			/>
-		</>
-	);
-};
-
-const SelectProperty = ({ name, def, item, setFunc }) => {
-	return (
-		<>
-			<label htmlFor={name}>{def.name}</label>
-			<select
-				value={def.value}
-				onChange={(e) => {
-					item.properties[name].value = e.target.value;
-					setFunc(item);
-				}}
-			>
-				{def.options.map((opt, index) => {
-					return (
-						<option key={index} value={opt.value}>
-							{opt.name}
-						</option>
-					);
-				})}
-			</select>
 		</>
 	);
 };
