@@ -37,6 +37,7 @@ const getAllLessons = async () => {
 
 	try {
 		const resp = await fetch(API_URL + "/admin/getAllThemes", init);
+        // const resp = await fetch(API_URL + `/admin/getCourseThemes/?course_id=${sessionStorage.getItem("course_id")}`, init);
 		const data = await resp.json();
 		setContent(data);
 	} catch {
@@ -49,7 +50,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
         content += `
-                <a href="tasks.html" class="lesson-item-container" draggable="false" data-lesson-id=${item.id}>
+                <a href="admin-tasks.html" class="lesson-item-container" draggable="false" data-lesson-id=${item.id}>
                     <div class="lesson-item-info">
                         <p class="lesson-item-title">${item.title}</p>
                         <p class="lesson-item-desc hint">${item.description}</p>

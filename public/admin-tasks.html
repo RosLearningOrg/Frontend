@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-tasks.css">
-    <script defer src="js/adminTasksPopups.js"></script>
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/adminTasks.js" type="module"></script>
+    <!-- <script defer src="js/adminTasksPopups.js"></script> -->
 </head>
 <body>
     <div class="page">
@@ -29,12 +31,12 @@
                     <p>Создать задачу</p>
                 </button>
                 <div class="sidebar-info-box">
-                    <h2>Название курса</h2>
-                    <p class="hint">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+                    <h2 class="sidebar-info-box-name">Название курса</h2>
+                    <p class="hint sidebar-info-box-desc">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
                 </div>
                 <div class="sidebar-info-box">
-                    <h2>Название курса</h2>
-                    <p class="hint">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+                    <h2 class="sidebar-lesson-info-box-name">Название курса</h2>
+                    <p class="hint sidebar-lesson-info-box-desc">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -49,25 +51,7 @@
                 <h2 class="main-header-title">Задачи</h2>
                 <a class="main-header-return-button" href="admin-courses.html">← Вернуться к урокам</a>
             </div>
-            <div class="main-content main-content-grid">
-                <div class="task-item-container">
-                    <p class="task-item-name">Название</p>
-                    <p class="task-item-desc hint">
-                        Небольшое описание курса буквально в одну строку
-                        типа таво
-                    </p>
-                    <div class="icon-buttons">
-                        <div class="icon-container">
-                            <img src="images/edit.svg" alt="">
-                        </div>
-                        <div class="icon-container">
-                            <img src="images/delete.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </div>
+            <div class="main-content main-content-grid"></div>
         </main>
     </div>
 
