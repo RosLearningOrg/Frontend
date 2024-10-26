@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-lessons.css">
-    <script defer src="js/adminLessonsPopups.js"></script>
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/adminLessons.js" type="module"></script>
+    <!-- <script defer src="js/adminLessonsPopups.js"></script> -->
 </head>
 <body>
     <div class="page">
@@ -16,7 +18,7 @@
             <div class="sidebar-header">
                 <div class="sidebar-header-profile">
                     <div class="profile-photo"></div>
-                    <p class="profile-name">Имя пользователя</p>
+                    <p class="profile-name"></p>
                 </div>
             </div>
             <div class="sidebar-content">
@@ -29,8 +31,10 @@
                     <p>Создать урок</p>
                 </button>
                 <div class="sidebar-info-box">
-                    <h2>Название курса</h2>
-                    <p class="hint">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+
+                    <h2 class="sidebar-info-box-name"></h2>
+                    <p class="hint sidebar-info-box-desc"></p>
+
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -45,19 +49,8 @@
                 <h2 class="main-header-title">Уроки</h2>
                 <a class="main-header-return-button" href="admin-courses.html">← Вернуться к курсам</a>
             </div>
-            <div class="main-content">
-                <a href="#" class="lesson-item-container" draggable="false">
-                    <div class="lesson-item-info">
-                        <p class="lesson-item-title">Название</p>
-                        <p class="lesson-item-desc hint">Небольшое описание урока буквально в одну строку</p>
-                    </div>
-                    <div class="icon-container open-materials-icon">
-                        <img class="lesson-item-note-icon" src="images/info.svg" alt="">
-                    </div>
-                    <div class="icon-container open-dropdown-icon">
-                        <img class="lesson-item-dots-icon" src="images/dots.svg" alt="">
-                    </div>
-                </a>
+            <div class="main-content main-content-flex">
+
             </div>
         </main>
     </div>
