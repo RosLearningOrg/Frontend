@@ -22,7 +22,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <div href="lessons.html" class="course-item-container" draggable="false">
+            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
                 <div class="course-item-info">
                     <p class="course-item-title">${item.title}</p>
                     <p class="course-item-desc hint">${item.description}</p>
@@ -39,6 +39,16 @@ const setContent = (data) => {
 	}
 	contentContainer.innerHTML = content;
 };
+
+document.addEventListener("click", (e) => {
+    const courseItem = e.target.closest(".course-item-container");
+
+    if (courseItem) {
+        const id = courseItem.getAttribute("data-course-id")
+        sessionStorage.setItem("course_id", id)
+		window.location.replace(window.location.origin + "/admin-lessons.html");
+    }
+});
 
 (async () => {
 	await getAllCourses();
