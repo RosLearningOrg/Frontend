@@ -46,7 +46,7 @@ document.addEventListener("click", (e) => {
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
         sessionStorage.setItem("course_id", id)
-		window.location.replace(window.location.origin + "/admin-lessons.html");
+		window.location.href = window.location.origin + "/admin-lessons.html";
     }
 });
 
