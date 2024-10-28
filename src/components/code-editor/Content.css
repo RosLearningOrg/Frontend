@@ -29,16 +29,31 @@
     width: max(100%, fit-content);
 }
 
+.code-item-order {
+    width: 20px;
+}
+
 .code-item-inner input {
     padding: 4px 8px;
     width: 150px;
     box-sizing: border-box;
 }
 
+.code-item-inner input[value=""] {
+    border-color: var(--error-color);
+    background: var(--error-surface-color);
+}
+
 .code-item-inner select {
     padding: 4px 8px;
     width: 150px;
     box-sizing: border-box;
+}
+
+.code-item-inner select[data-value=""] {
+    color: var(--error-color);
+    background: var(--error-surface-color);
+    border-color: var(--error-color);
 }
 
 .code-item-inner p {
