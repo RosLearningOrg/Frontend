@@ -1,31 +1,6 @@
 import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
-const sideBarInfoName = document.querySelector(".sidebar-info-box-name");
-const sideBarInfoHint = document.querySelector(".sidebar-info-box-desc");
-
-const setInfo = (course) => {
-    sideBarInfoName.innerText = course.title;
-    sideBarInfoHint.innerText = course.description;
-}
-
-
-const getCourse = async () => {
-	const init = {
-		method: "GET",
-		credentials: "include",
-	};
-
-	try {
-        const resp = await fetch(API_URL + `/admin/getCourse?course_id=${sessionStorage.getItem("course_id")}`,init);
-		const data = await resp.json();
-        console.log(resp);
-		setContent(data);
-	} catch {
-		logout();
-	}
-};
-
 
 const getLessons = async () => {
 	const init = {
@@ -80,7 +55,4 @@ document.addEventListener("click", (e) => {
         return
     } 
 	await getLessons();  
-    // await getCourse();
-    // const course = await getCourse();  
-    // await setInfo(course);
 })();
