@@ -4,6 +4,7 @@ const SelectInput = ({ name, items, selected, onChange, noDefault }) => {
 			<select
 				name={name}
 				value={selected ? selected : ""}
+				data-value={selected ? selected : ""}
 				onChange={(e) => {
 					onChange(e.target.value);
 				}}

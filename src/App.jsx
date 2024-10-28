@@ -7,6 +7,7 @@ import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
 import InterfaceContextProvider from "./context/interfaceContext";
 import CodeContextProvider from "./context/codeContext";
 import EditorContextProvider from "./context/editorContext";
+import CodeEditorRightSidebar from "./components/code-editor/RightSidebar";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
@@ -52,6 +53,9 @@ const App = () => {
 						</aside>
 						<main className="editor-content">
 							<CodeEditorContent />
+						</main>
+						<main className="editor-sidebar" data-pos="right">
+							<CodeEditorRightSidebar />
 						</main>
 					</div>
 				</CodeContextProvider>
