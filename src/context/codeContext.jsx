@@ -4,7 +4,7 @@ import useCode from "./codeHook";
 export const CodeContext = createContext(null);
 
 const CodeContextProvider = (props) => {
-	const codeContext = useCode([]);
+	const codeContext = useCode([], {});
 
 	return (
 		<CodeContext.Provider value={{ ...codeContext }}>

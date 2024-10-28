@@ -1,7 +1,20 @@
 import { useState } from "react";
 
-function useCode(items) {
+function useCode(items, vars) {
 	const [codeItems, setCodeItems] = useState(items);
+	const [variables, setVariables] = useState(vars);
+
+	const setVar = (name, value) => {
+		setVariables((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	};
+
+	const removeVar = (name) => {
+        const {[name]: _, ...newItem} = variables;
+        setVariables(newItem)
+	};
 
 	const addItem = (item) => {
 		setCodeItems((prev) => [
@@ -62,10 +75,13 @@ function useCode(items) {
 	};
 
 	return {
+        variables,
+        setVar,
+        removeVar,
 		codeItems,
 		setCodeItems,
 		addItem,
-        setItem,
+		setItem,
 		moveItemDown,
 		moveItemUp,
 	};
