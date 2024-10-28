@@ -4,10 +4,11 @@
     position: relative;
     padding: 10px 10px 0;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .code-item-inner {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     display: flex;
     padding: 0 16px;
@@ -17,6 +18,15 @@
     background: var(--bg-color);
     box-sizing: border-box;
     border: 1px solid var(--outline-color);
+}
+
+.code-container {
+    height: 100%;
+    overflow: auto;
+}
+
+.code-container-inner {
+    width: max(100%, fit-content);
 }
 
 .code-item-inner input {
@@ -31,9 +41,8 @@
     box-sizing: border-box;
 }
 
-.code-container {
-    height: 100%;
-    overflow: scroll;
+.code-item-inner p {
+    text-wrap: nowrap;
 }
 
 .line {

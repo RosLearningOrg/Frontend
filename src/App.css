@@ -28,6 +28,7 @@
 .editor-sidebar {
 	width: 300px;
 	flex-grow: 0;
+    flex-shrink: 0;
 	position: relative;
 	overflow: hidden;
 }
