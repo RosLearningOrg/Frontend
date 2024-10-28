@@ -4,40 +4,37 @@ const contentContainer = document.getElementsByClassName("main-content")[0];
 const sideBarInfoName = document.querySelector(".sidebar-info-box-name");
 const sideBarInfoHint = document.querySelector(".sidebar-info-box-desc");
 
-const setInfoName = (course) => {
+const setInfo = (course) => {
     sideBarInfoName.innerText = course.title;
-}
-const setInfoDesc = (course) => {
     sideBarInfoHint.innerText = course.description;
 }
 
 
 const getCourse = async () => {
-	try {
-        console.log("ge");
-        
-		const resp = await fetch(API_URL + `/admin/getCourse/${sessionStorage.getItem("course_id")}`);
-		return resp;
-	} catch {
-		logout();
-	}
-};
-
-(async () => {
-    console.log(sessionStorage.getItem("course_id"));
-    setInfoName(getCourse);
-    setInfoDesc(getCourse);
-})();
-
-const getAllLessons = async () => {
 	const init = {
 		method: "GET",
 		credentials: "include",
 	};
 
 	try {
-		const resp = await fetch(API_URL + "/admin/getAllThemes", init);
-        // const resp = await fetch(API_URL + `/admin/getCourseThemes/?course_id=${sessionStorage.getItem("course_id")}`, init);
+        const resp = await fetch(API_URL + `/admin/getCourse?course_id=${sessionStorage.getItem("course_id")}`,init);
+		const data = await resp.json();
+        console.log(resp);
+		setContent(data);
+	} catch {
+		logout();
+	}
+};
+
+
+const getLessons = async () => {
+	const init = {
+		method: "GET",
+		credentials: "include",
+	};
+
+	try {
+        const resp = await fetch(API_URL + `/admin/getCourseThemes?course_id=${sessionStorage.getItem("course_id")}`,init);
 		const data = await resp.json();
 		setContent(data);
 	} catch {
@@ -78,5 +75,12 @@ document.addEventListener("click", (e) => {
 });
 
 (async () => {
-	await getAllLessons();
+    if(sessionStorage.getItem("course_id")==undefined) {
+        window.location.href = window.location.origin + "/admin-courses.html";
+        return
+    } 
+	await getLessons();  
+    // await getCourse();
+    // const course = await getCourse();  
+    // await setInfo(course);
 })();
