@@ -30,3 +30,7 @@
     color: var(--tonal-fg-color);
     font-size: 12px;
 }
+
+.task-item-container:hover {
+    background: var(--primary-surface-color);
+}

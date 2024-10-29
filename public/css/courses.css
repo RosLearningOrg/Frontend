@@ -25,3 +25,7 @@
 .course-item-title {
     font-size: 16px;
 }
+
+.course-item-container:hover {
+    background: var(--primary-surface-color);
+}
