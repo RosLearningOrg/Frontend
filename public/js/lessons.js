@@ -40,6 +40,17 @@ const setContent = (data) => {
 	contentContainer.innerHTML = content;
 };
 
+document.addEventListener("click", (e) => {
+    const courseItem = e.target.closest(".lesson-item-container");
+
+    if (courseItem) {
+        const id = courseItem.getAttribute("data-lesson-id")
+        console.log(id);
+        sessionStorage.setItem("lesson_id", id)
+		window.location.href = window.location.origin + "/tasks.html";
+    }
+});
+
 (async () => {
     await getCourseLessons();
 })();
