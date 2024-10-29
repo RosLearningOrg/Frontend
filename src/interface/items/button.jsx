@@ -1,4 +1,4 @@
-export const children = (props) => {
+export const children = () => {
 	const style = {
 		background: "#000",
 		color: "#FFF",

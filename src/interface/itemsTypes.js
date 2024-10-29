@@ -5,6 +5,7 @@ import * as TextBox from "./items/textBox";
 export const interfaceItemsTypes = [
     {
         name: "Кнопка",
+        type: "interactive",
         children: Button.children,
         defaultWidth: 100,
         defaultHeight: 50,
@@ -13,13 +14,14 @@ export const interfaceItemsTypes = [
     },
     {
         name: "Индикатор",
+        type: "display",
         children: Indicator.children,
         defaultWidth: 50,
         defaultHeight: 50,
         description: "Имеет два состояния, вкл. и выкл. и отображает зеленый или красный цвет соответственно",
         properties: { 
             state: {
-                name: "Состояние",
+                label: "Состояние",
                 type: "select",
                 value: "false",
                 options: [
@@ -37,23 +39,24 @@ export const interfaceItemsTypes = [
     },
     {
         name: "Текстовое поле",
+        type: "display",
         children: TextBox.children,
         defaultWidth: 100,
         defaultHeight: 50,
         description: "Отображает заданный текст в прямоугольной области",
         properties: { 
             text: {
-                name: "Текст",
+                label: "Текст",
                 type: "text",
                 value: "Введите текст"
             },
             fontsize: {
-                name: "Размер шрифта",
+                label: "Размер шрифта",
                 type: "number",
                 value: 14
             },
             textalign: {
-                name: "Выравнивание текста",
+                label: "Выравнивание текста",
                 type: "select",
                 value: "center",
                 options: [

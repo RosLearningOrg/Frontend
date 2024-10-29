@@ -2,18 +2,23 @@ import { Rnd } from "react-rnd";
 import "./Content.css";
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
+import { EditorContext } from "../../context/editorContext";
 
 const CodeEditorContent = () => {
-	const { codeItems, moveItemDown, moveItemUp } = useContext(CodeContext);
+	const { codeItems, moveItemDown, moveItemUp, setItem, selectedTab } =
+		useContext(CodeContext);
+	const { displayItems } = useContext(EditorContext);
 	const ITEM_HEIGHT = 50;
 
 	return (
 		<div className="code-container">
 			<div
 				className="code-container-inner"
-				style={{ height: codeItems.length * ITEM_HEIGHT + 10 }}
+				style={{
+					height: codeItems[selectedTab].length * ITEM_HEIGHT + 10,
+				}}
 			>
-				{codeItems.map((item) => {
+				{codeItems[selectedTab].map((item) => {
 					return (
 						<Rnd
 							key={item.id}
@@ -50,7 +55,7 @@ const CodeEditorContent = () => {
 							}}
 						>
 							<div className="code-item-inner">
-								{item.name} | order: {item.order} id: {item.id}
+								{item.children(item, setItem, displayItems)}
 							</div>
 						</Rnd>
 					);

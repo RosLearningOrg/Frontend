@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.login-container {
+#login-form {
     background-color: var(--surface-color);
     border-radius: 12px;
     display: flex;
@@ -27,4 +27,18 @@
     font-size: 14px;
     text-align: center;
     color: var(--tonal-fg-color);
+}
+
+#error-msg {
+    font-size: 12px;
+    text-align: center;
+    color: var(--error-color);
+}
+
+#error-msg[data-visible="false"] {
+    display: none;
+}
+
+#error-msg[data-visible="true"] {
+    display: inline;
 }

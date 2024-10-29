@@ -4,14 +4,16 @@
     position: relative;
     padding: 10px 10px 0;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .code-item-inner {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     display: flex;
+    padding: 0 16px;
+    gap: 16px;
     align-items: center;
-    justify-content: center;
     border-radius: 4px;
     background: var(--bg-color);
     box-sizing: border-box;
@@ -20,7 +22,42 @@
 
 .code-container {
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
+}
+
+.code-container-inner {
+    width: max(100%, fit-content);
+}
+
+.code-item-order {
+    width: 20px;
+}
+
+.code-item-inner input {
+    padding: 4px 8px;
+    width: 150px;
+    box-sizing: border-box;
+}
+
+.code-item-inner input[value=""] {
+    border-color: var(--error-color);
+    background: var(--error-surface-color);
+}
+
+.code-item-inner select {
+    padding: 4px 8px;
+    width: 150px;
+    box-sizing: border-box;
+}
+
+.code-item-inner select[data-value=""] {
+    color: var(--error-color);
+    background: var(--error-surface-color);
+    border-color: var(--error-color);
+}
+
+.code-item-inner p {
+    text-wrap: nowrap;
 }
 
 .line {

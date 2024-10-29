@@ -7,6 +7,7 @@
     --primary-color: #3F6836;
     --primary-fg-color: #ffffff;
     --outline-color: #c1c9be;
+    --error-color: #BA1A1A;
     --tint-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -137,5 +138,9 @@ button[data-variant="primary"] {
 
 button[data-variant="square"]:hover {
     background: var(--primary-surface-color);
+}
+
+button:disabled {
+  opacity: 0.3;
 }
 
