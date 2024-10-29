@@ -32,6 +32,14 @@
     background: var(--surface-color);
     padding: 12px 16px;
     border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-func-bttn {
+    height: 18px;
+    width: 18px;
 }
 
 .code-sidebar-func[data-selected="true"] {

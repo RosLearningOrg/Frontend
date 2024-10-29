@@ -5,7 +5,7 @@ import { useState, useContext, useRef } from "react";
 const CodeEditorRightSidebar = () => {
 	const [selected, setSelected] = useState(0);
 	const [creatingTab, setCreatingTab] = useState(false);
-	const { codeItems, selectedTab, addTab, setSelectedTab } =
+	const { codeItems, selectedTab, addTab, removeTab, setSelectedTab } =
 		useContext(CodeContext);
 	const tabNameInput = useRef(null);
 
@@ -40,6 +40,18 @@ const CodeEditorRightSidebar = () => {
 							}}
 						>
 							{tab}
+							{tab != "Главная" && (
+								<img
+									onClick={(e) => {
+                                        e.stopPropagation()
+										if(selectedTab == tab) setSelectedTab("Главная");
+										removeTab(tab);
+									}}
+									src="/images/delete.svg"
+									alt="photo"
+									className="remove-func-bttn"
+								/>
+							)}
 						</div>
 					);
 				})}
