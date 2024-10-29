@@ -10,7 +10,7 @@ function useEditor(display, interactive) {
 			{
 				id: item.id,
 				name: item.name,
-                properties: JSON.parse(JSON.stringify(item.properties))
+				properties: JSON.parse(JSON.stringify(item.properties)),
 			},
 		]);
 	};
@@ -21,9 +21,23 @@ function useEditor(display, interactive) {
 			{
 				id: item.id,
 				name: item.name,
-                properties: JSON.parse(JSON.stringify(item.properties))
+				properties: JSON.parse(JSON.stringify(item.properties)),
+				funcName: null,
 			},
 		]);
+	};
+
+	const assignFunc = (itemId, funcName) => {
+		setInteractiveItems((prev) =>
+			prev.map((item) => {
+				if (item.id != itemId) return item;
+				else
+					return {
+						...item,
+						funcName: funcName == "" ? null : funcName,
+					};
+			})
+		);
 	};
 
 	const removeDisplayItem = (id) => {
@@ -43,6 +57,7 @@ function useEditor(display, interactive) {
 		addInteractiveItem,
 		removeDisplayItem,
 		removeInteractiveItem,
+		assignFunc,
 	};
 }
 
