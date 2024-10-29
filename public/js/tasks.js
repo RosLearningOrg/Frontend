@@ -1,4 +1,4 @@
-import { API_URL } from "/js/main.js";
+import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
@@ -35,6 +35,21 @@ const setContent = (data) => {
 	}
 	contentContainer.innerHTML = content;
 };
+
+document.addEventListener("click", (e) => {
+    const logoutDiv = e.target.closest(".sidebar-links-logout");
+
+    if (logoutDiv) {
+        logout();
+        window.location.href = window.location.origin + "/login.html";
+		const cookieNames = document.cookie.split('; ').map(cookie => cookie.split('=')[0]);
+		sessionStorage.clear();
+		  
+		cookieNames.forEach(name => {
+		  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+		});
+    }
+});
 
 (async () => {
     await getLessonTasks();
