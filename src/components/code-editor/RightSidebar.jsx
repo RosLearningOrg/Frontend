@@ -1,12 +1,14 @@
 import { CodeContext } from "../../context/codeContext";
+import { EditorContext } from "../../context/editorContext";
 import "./RightSidebar.css";
 import { useState, useContext, useRef } from "react";
 
 const CodeEditorRightSidebar = () => {
 	const [selected, setSelected] = useState(0);
 	const [creatingTab, setCreatingTab] = useState(false);
-	const { codeItems, selectedTab, addTab, setSelectedTab } =
+	const { codeItems, selectedTab, addTab, removeTab, setSelectedTab } =
 		useContext(CodeContext);
+	const { interactiveItems, assignFunc } = useContext(EditorContext);
 	const tabNameInput = useRef(null);
 
 	return (
@@ -40,6 +42,19 @@ const CodeEditorRightSidebar = () => {
 							}}
 						>
 							{tab}
+							{tab != "Главная" && (
+								<img
+									onClick={(e) => {
+										e.stopPropagation();
+										if (selectedTab == tab)
+											setSelectedTab("Главная");
+										removeTab(tab);
+									}}
+									src="/images/delete.svg"
+									alt="photo"
+									className="remove-func-bttn"
+								/>
+							)}
 						</div>
 					);
 				})}
@@ -80,7 +95,31 @@ const CodeEditorRightSidebar = () => {
 			<div
 				className="code-sidebar-inner"
 				data-state={selected == 1 ? "visible" : "hidden"}
-			></div>
+			>
+				{interactiveItems.map((item) => {
+					return (
+						<>
+							<p key={item.id}>
+								{item.id}: {item.name}
+							</p>
+							<select
+								onChange={(e) =>
+									assignFunc(item.id, e.target.value)
+								}
+							>
+								<option value="">- не выбрано -</option>
+								{Object.keys(codeItems).map((name) => {
+									return (
+										<option value={name} key={name}>
+											{name}
+										</option>
+									);
+								})}
+							</select>
+						</>
+					);
+				})}
+			</div>
 		</>
 	);
 };
