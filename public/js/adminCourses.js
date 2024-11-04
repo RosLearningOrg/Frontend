@@ -2,7 +2,7 @@ import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
-const getAllCourses = async () => {
+export const getAllCourses = async () => {
 	const init = {
 		method: "GET",
 		credentials: "include",
@@ -22,7 +22,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
+            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id} data-course-title=${item.title} data-course-desc=${item.description}>
                 <div class="course-item-info">
                     <p class="course-item-title">${item.title}</p>
                     <p class="course-item-desc hint">${item.description}</p>
@@ -45,7 +45,11 @@ document.addEventListener("click", (e) => {
 
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
+        const title = courseItem.getAttribute("data-course-title")
+        const desc = courseItem.getAttribute("data-course-desc")
         sessionStorage.setItem("course_id", id)
+        sessionStorage.setItem("course_title", title)
+        sessionStorage.setItem("course_desc", desc)
 		window.location.href = window.location.origin + "/admin-lessons.html";
     }
 });
