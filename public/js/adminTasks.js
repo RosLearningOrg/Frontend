@@ -51,11 +51,11 @@ document.addEventListener("click", (e) => {
 });
 
 (async () => {
-    if(sessionStorage.getItem("course_id")==null) {
+    if(sessionStorage.getItem("course_id")==undefined || sessionStorage.getItem("course_title")==undefined || sessionStorage.getItem("course_desc")==undefined) {
         window.location.href = window.location.origin + "/admin-courses.html";
         return
     } 
-    if(sessionStorage.getItem("lesson_id")==null){
+    if(sessionStorage.getItem("lesson_id")==undefined || sessionStorage.getItem("lesson_title")==undefined || sessionStorage.getItem("lesson_desc")==undefined){
         window.location.href = window.location.origin + "/admin-lessons.html";
         return
     }
