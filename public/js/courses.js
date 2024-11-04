@@ -31,8 +31,9 @@ const setContent = (data) => {
                  <p class="course-item-stats">2 / 15</p>
             </daiv>
         `;
-	}
-	contentContainer.innerHTML = content;
+	}    
+    contentContainer.innerHTML = content;
+    
 };
 
 document.addEventListener("click", (e) => {
@@ -41,6 +42,13 @@ document.addEventListener("click", (e) => {
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
         sessionStorage.setItem("course_id", id)
+
+        const courseTitle = courseItem.getElementsByClassName("course-item-title")[0].innerHTML;
+        sessionStorage.setItem("course_title", courseTitle);
+
+        const courseDescription = courseItem.getElementsByClassName("course-item-desc")[0].innerHTML;
+        sessionStorage.setItem("course_description", courseDescription);
+        
 		window.location.href = window.location.origin + "/lessons.html";
     }
 });
