@@ -34,3 +34,22 @@
 .task-item-container:hover {
     background: var(--primary-surface-color);
 }
+
+.material-open-btn {
+    cursor: pointer;
+}
+
+.popup-header-title-left {
+    display: flex;
+    gap: 8px;
+}
+
+.back_popup-image {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.back_popup-image:hover {
+    background: var(--primary-surface-color);
+}
