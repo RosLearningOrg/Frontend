@@ -22,7 +22,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id} data-course-title=${item.title} data-course-desc=${item.description}>
+            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
                 <div class="course-item-info">
                     <p class="course-item-title">${item.title}</p>
                     <p class="course-item-desc hint">${item.description}</p>
@@ -45,8 +45,8 @@ document.addEventListener("click", (e) => {
 
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
-        const title = courseItem.getAttribute("data-course-title")
-        const desc = courseItem.getAttribute("data-course-desc")
+        const title = courseItem.getElementsByClassName("course-item-title")[0].childNodes[0].data;
+        const desc = courseItem.getElementsByClassName("course-item-desc")[0].childNodes[0].data;
         sessionStorage.setItem("course_id", id)
         sessionStorage.setItem("course_title", title)
         sessionStorage.setItem("course_desc", desc)

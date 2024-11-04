@@ -44,15 +44,26 @@ document.addEventListener("click", (e) => {
 
     if (lessonItem) {
         const id = lessonItem.getAttribute("data-lesson-id")
+        const title = lessonItem.getElementsByClassName("lesson-item-title")[0].childNodes[0].data;
+        const desc = lessonItem.getElementsByClassName("lesson-item-desc")[0].childNodes[0].data;
         sessionStorage.setItem("lesson_id", id)
+        sessionStorage.setItem("lesson_title", title)
+        sessionStorage.setItem("lesson_desc", desc)
 		window.location.href = window.location.origin + "/admin-tasks.html";
     }
 });
 
 (async () => {
-    if(sessionStorage.getItem("course_id")==undefined) {
+    if(sessionStorage.getItem("course_id")==undefined || sessionStorage.getItem("course_title")==undefined || sessionStorage.getItem("course_desc")==undefined) {
         window.location.href = window.location.origin + "/admin-courses.html";
-        return
+        return;
     } 
 	await getLessons();  
+})();
+
+(async () => {
+    const name = document.getElementsByClassName("sidebar-info-box-course-name");
+    name[0].innerHTML = sessionStorage.getItem("course_title");
+    const desc = document.getElementsByClassName("sidebar-info-box-course-desc");
+    desc[0].innerHTML = sessionStorage.getItem("course_title");
 })();
