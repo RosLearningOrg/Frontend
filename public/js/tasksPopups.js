@@ -8,6 +8,9 @@ const materialPopupTint = document.querySelector(".material-popup-tint");
 const backButton = document.querySelector(".back_popup-image");
 const materialCloseButton = document.querySelector(".material-close-btn-end");
 
+var taskTitle = "";
+var taskDescription = "";
+
 materialOpenBtn.addEventListener("click", showMaterialSelectPopup);
 taskPopupCloseBtn.addEventListener("click", closeTaskPopup);
 materialPopupCloseBtn.addEventListener("click", closeMaterialSelectPopup);
@@ -29,11 +32,21 @@ taskPopupTint.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
     const item = e.target.closest(".task-item-container");
-	if (item) showTaskPopup();
+	if (item) {
+		taskTitle = item.querySelector(".task-item-name").innerHTML;
+		taskDescription = item.querySelector(".task-item-desc").innerHTML;
+		showTaskPopup();
+	}
 });
 
 function showTaskPopup() {
 	taskPopupTint.classList.remove("popup-tint-hidden");
+
+	const taskTitleDiv = document.getElementsByClassName("popup-header-title")[0];
+	taskTitleDiv.innerHTML = taskTitle;
+
+	const taskDescDiv = document.getElementsByClassName("popup-container-description")[0];
+	taskDescDiv.innerHTML = taskDescription;
 }
 
 function closeTaskPopup() {
