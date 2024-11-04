@@ -53,3 +53,15 @@
 .back_popup-image:hover {
     background: var(--primary-surface-color);
 }
+
+.material-popup-container-select {
+    width: 750px;
+}
+
+.text-box-select {
+    cursor: pointer;
+}
+
+.text-box-select:hover {
+    background: var(--primary-surface-color);
+}
