@@ -65,5 +65,5 @@ document.addEventListener("click", (e) => {
     const name = document.getElementsByClassName("sidebar-info-box-course-name");
     name[0].innerHTML = sessionStorage.getItem("course_title");
     const desc = document.getElementsByClassName("sidebar-info-box-course-desc");
-    desc[0].innerHTML = sessionStorage.getItem("course_title");
+    desc[0].innerHTML = sessionStorage.getItem("course_desc");
 })();
