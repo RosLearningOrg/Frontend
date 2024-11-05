@@ -74,7 +74,6 @@ function showMaterialSelectPopup() {
 		try { 
 			const resp = await fetch(API_URL + `/user/getThemeMaterials?course_id=${sessionStorage.getItem("course_id")}&theme_id=${sessionStorage.getItem("lesson_id")}`, init)
 			const data = await resp.json();
-			console.log(data);
 			setContent(data);
 		} catch {
 			return null;

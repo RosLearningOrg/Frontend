@@ -1,4 +1,5 @@
 import { API_URL, logout } from "/js/main.js";
+import { showMaterialSelectPopup } from "/js/lessonsPopups.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
@@ -31,7 +32,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <a href="tasks.html" class="lesson-item-container" draggable="false" data-lesson-id=${item.id}>
+            <div href="tasks.html" class="lesson-item-container" draggable="false" data-lesson-id=${item.id}>
                 <div class="lesson-item-info">
                     <p class="lesson-item-title">${item.title}</p>
                     <p class="lesson-item-desc hint">${item.description}</p>
@@ -40,23 +41,32 @@ const setContent = (data) => {
                     <img class="lesson-item-materials-icon" src="./images/info.svg" alt="">
                 </div>
                 <p class="lesson-item-stats">2 / 15</p>
-            </a>
+            </div>
         `;
 	}
 	contentContainer.innerHTML = content;
 };
 
 document.addEventListener("click", (e) => {
-    const courseItem = e.target.closest(".lesson-item-container");
+    const materialIcon = e.target.closest(".open-materials-btn")
 
-    if (courseItem) {
-        const id = courseItem.getAttribute("data-lesson-id");
+    if (materialIcon) {
+        const lesson_div = materialIcon.parentElement.tagName === 'DIV' ? materialIcon.parentElement : null;
+        const lesson_id = lesson_div.getAttribute("data-lesson-id");
+        showMaterialSelectPopup(lesson_id);
+        return;
+    }
+
+    const lessonItem = e.target.closest(".lesson-item-container");
+
+    if (lessonItem) {
+        const id = lessonItem.getAttribute("data-lesson-id");
         sessionStorage.setItem("lesson_id", id);
 
-        const lessonTitle = courseItem.getElementsByClassName("lesson-item-title")[0].innerHTML;
+        const lessonTitle = lessonItem.getElementsByClassName("lesson-item-title")[0].innerHTML;
         sessionStorage.setItem("lesson_title", lessonTitle);
 
-        const lessonDescription = courseItem.getElementsByClassName("lesson-item-desc")[0].innerHTML;
+        const lessonDescription = lessonItem.getElementsByClassName("lesson-item-desc")[0].innerHTML;
         sessionStorage.setItem("lesson_description", lessonDescription);
 
 		window.location.href = window.location.origin + "/tasks.html";
