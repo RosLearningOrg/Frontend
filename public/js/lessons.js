@@ -1,4 +1,4 @@
-import { API_URL } from "/js/main.js";
+import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
@@ -45,9 +45,17 @@ document.addEventListener("click", (e) => {
 
     if (courseItem) {
         const id = courseItem.getAttribute("data-lesson-id")
-        console.log(id);
         sessionStorage.setItem("lesson_id", id)
 		window.location.href = window.location.origin + "/tasks.html";
+    }
+});
+
+document.addEventListener("click", (e) => {
+    const logoutDiv = e.target.closest(".sidebar-links-logout");
+
+    if (logoutDiv) {
+        logout();
+        window.location.href = window.location.origin + "/login.html";
     }
 });
 
