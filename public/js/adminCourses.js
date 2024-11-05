@@ -2,7 +2,7 @@ import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
-const getAllCourses = async () => {
+export const getAllCourses = async () => {
 	const init = {
 		method: "GET",
 		credentials: "include",
@@ -45,7 +45,11 @@ document.addEventListener("click", (e) => {
 
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
+        const title = courseItem.getElementsByClassName("course-item-title")[0].childNodes[0].data;
+        const desc = courseItem.getElementsByClassName("course-item-desc")[0].childNodes[0].data;
         sessionStorage.setItem("course_id", id)
+        sessionStorage.setItem("course_title", title)
+        sessionStorage.setItem("course_desc", desc)
 		window.location.href = window.location.origin + "/admin-lessons.html";
     }
 });
