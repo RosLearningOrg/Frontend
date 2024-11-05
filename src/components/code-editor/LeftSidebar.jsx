@@ -1,9 +1,9 @@
-import "./RightSidebar.css";
+import "./LeftSidebar.css";
 import { useState } from "react";
-import SidebarFunctions from "./SidebarFunctions";
-import SidebarAssignes from "./SidebarAssignes";
+import SidebarItems from "./SidebarItems";
+import SidebarVariables from "./SidebarVariables";
 
-const CodeEditorRightSidebar = () => {
+const CodeEditorLeftSidebar = () => {
 	const [selected, setSelected] = useState(0);
 
 	return (
@@ -13,29 +13,29 @@ const CodeEditorRightSidebar = () => {
 					onClick={() => setSelected(0)}
 					data-selected={selected == 0 ? true : false}
 				>
-					Функции
+					Елементы
 				</div>
 				<div
 					onClick={() => setSelected(1)}
 					data-selected={selected == 1 ? true : false}
 				>
-					Назначение
+					Переменные
 				</div>
 			</div>
 			<div
 				className="code-sidebar-inner"
 				data-state={selected == 0 ? "visible" : "hidden"}
 			>
-				<SidebarFunctions />
+                <SidebarItems />
 			</div>
 			<div
 				className="code-sidebar-inner"
 				data-state={selected == 1 ? "visible" : "hidden"}
 			>
-				<SidebarAssignes />
+                <SidebarVariables />
 			</div>
 		</>
 	);
 };
 
-export default CodeEditorRightSidebar;
+export default CodeEditorLeftSidebar;

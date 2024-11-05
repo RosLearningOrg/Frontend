@@ -1,13 +1,13 @@
 import "./App.css";
 import { useState } from "react";
 import CodeEditorContent from "./components/code-editor/Content";
-import CodeEditorSidebar from "./components/code-editor/Sidebar";
+import CodeEditorLeftSidebar from "./components/code-editor/LeftSidebar";
+import CodeEditorRightSidebar from "./components/code-editor/RightSidebar";
 import InterfaceEditorContent from "./components/interface-editor/Content";
 import InterfaceEditorSidebar from "./components/interface-editor/Sidebar";
 import InterfaceContextProvider from "./context/interfaceContext";
 import CodeContextProvider from "./context/codeContext";
 import EditorContextProvider from "./context/editorContext";
-import CodeEditorRightSidebar from "./components/code-editor/RightSidebar";
 
 const App = () => {
 	const [selected, setSelected] = useState(0);
@@ -49,7 +49,7 @@ const App = () => {
 						data-state={selected == 0 ? "visible" : "hidden"}
 					>
 						<aside className="editor-sidebar" data-pos="left">
-							<CodeEditorSidebar />
+							<CodeEditorLeftSidebar />
 						</aside>
 						<main className="editor-content">
 							<CodeEditorContent />

@@ -3,7 +3,7 @@ import { useState } from "react";
 function useCode(items, vars) {
 	const [codeItems, setCodeItems] = useState(items);
 	const [variables, setVariables] = useState(vars);
-	const [selectedTab, setSelectedTab] = useState("Главная");
+	const [selectedFunc, setSelectedFunc] = useState("Главная");
 
 	const setVar = (name, value) => {
 		setVariables((prev) => ({
@@ -17,21 +17,21 @@ function useCode(items, vars) {
 		setVariables(newVars);
 	};
 
-    const addTab = (name) => {
+    const addFunc = (name) => {
         setCodeItems((prev) => ({
             ...prev,
             [name]: []
         }))
     }
 
-    const removeTab = (name) => {
+    const removeFunc = (name) => {
         const {[name]: _, ...newTabs} = codeItems;
         setCodeItems(newTabs);
     }
 
 	const addItem = (item) => {
 		setCodeItems((prev) => {
-			const prevTab = prev[selectedTab];
+			const prevTab = prev[selectedFunc];
 			const id =
 				prevTab.length == 0 ? 1 : prevTab[prevTab.length - 1].id + 1;
 
@@ -44,30 +44,30 @@ function useCode(items, vars) {
 
 			return {
 				...prev,
-				[selectedTab]: [...prevTab, newItem],
+				[selectedFunc]: [...prevTab, newItem],
 			};
 		});
 	};
 
 	const setItem = (newItem) => {
 		setCodeItems((prev) => {
-			const prevTab = prev[selectedTab];
+			const prevTab = prev[selectedFunc];
 			const newTab = prevTab.map((item) =>
 				item.id == newItem.id ? newItem : item
 			);
 
 			return {
 				...prev,
-				[selectedTab]: [...newTab],
+				[selectedFunc]: [...newTab],
 			};
 		});
 	};
 
 	const moveItemDown = (id) => {
-		const currItem = codeItems[selectedTab].find((item) => item.id == id);
+		const currItem = codeItems[selectedFunc].find((item) => item.id == id);
 
 		setCodeItems((prev) => {
-			const prevTab = prev[selectedTab];
+			const prevTab = prev[selectedFunc];
 
 			const newTab = prevTab.map((item) => {
 				if (item.order == currItem.order)
@@ -85,16 +85,16 @@ function useCode(items, vars) {
 
 			return {
 				...prev,
-				[selectedTab]: [...newTab],
+				[selectedFunc]: [...newTab],
 			};
 		});
 	};
 
 	const moveItemUp = (id) => {
-		const currItem = codeItems[selectedTab].find((item) => item.id == id);
+		const currItem = codeItems[selectedFunc].find((item) => item.id == id);
 
 		setCodeItems((prev) => {
-			const prevTab = prev[selectedTab];
+			const prevTab = prev[selectedFunc];
 
 			const newTab = prevTab.map((item) => {
 				if (item.order == currItem.order)
@@ -112,16 +112,16 @@ function useCode(items, vars) {
 
 			return {
 				...prev,
-				[selectedTab]: [...newTab],
+				[selectedFunc]: [...newTab],
 			};
 		});
 	};
 
 	return {
-        addTab,
-        removeTab,
-		selectedTab,
-		setSelectedTab,
+        addFunc,
+        removeFunc,
+		selectedFunc,
+		setSelectedFunc,
 		variables,
 		setVar,
 		removeVar,
