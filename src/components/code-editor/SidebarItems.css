@@ -1,0 +1,5 @@
+.code-sidebar-item {
+    border-radius: 4px;
+    background: var(--surface-color);
+    padding: 16px;
+}

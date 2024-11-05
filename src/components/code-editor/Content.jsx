@@ -5,7 +5,7 @@ import { CodeContext } from "../../context/codeContext";
 import { EditorContext } from "../../context/editorContext";
 
 const CodeEditorContent = () => {
-	const { codeItems, moveItemDown, moveItemUp, setItem, selectedTab } =
+	const { codeItems, moveItemDown, moveItemUp, setItem, selectedFunc } =
 		useContext(CodeContext);
 	const { displayItems } = useContext(EditorContext);
 	const ITEM_HEIGHT = 50;
@@ -15,10 +15,10 @@ const CodeEditorContent = () => {
 			<div
 				className="code-container-inner"
 				style={{
-					height: codeItems[selectedTab].length * ITEM_HEIGHT + 10,
+					height: codeItems[selectedFunc].length * ITEM_HEIGHT + 10,
 				}}
 			>
-				{codeItems[selectedTab].map((item) => {
+				{codeItems[selectedFunc].map((item) => {
 					return (
 						<Rnd
 							key={item.id}
