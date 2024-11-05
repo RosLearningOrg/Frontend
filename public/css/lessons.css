@@ -45,3 +45,7 @@
     width: 20px;
 }
 
+.popup-container-description {
+    color: var(--tonal-fg-color);
+    font-size: 12px;
+}

@@ -136,7 +136,11 @@ button[data-variant="primary"] {
 	color: var(--primary-fg-color);
 }
 
+button[data-variant="square"]:hover {
+    background: var(--primary-surface-color);
+}
+
 button:disabled {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 

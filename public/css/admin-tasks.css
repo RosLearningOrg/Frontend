@@ -3,3 +3,24 @@
     gap: 5px;
     justify-content: end;
 }
+
+.add-lesson-popup-textarea {
+    height: 296px;
+    width: auto;
+}
+
+.edit-task-popup-textarea {
+    width: 552px;
+    height: 296px;
+}
+
+.add-emulation-popup-btn {
+    width: 552px;
+    min-width: 552px;
+} 
+
+.popup-warning {
+    width: 352px;
+    font-size: 14px;
+    color: var(--tonal-fg-color);
+}

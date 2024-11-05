@@ -51,13 +51,24 @@ document.addEventListener("click", (e) => {
 });
 
 (async () => {
-    if(sessionStorage.getItem("course_id")==null) {
+    if(sessionStorage.getItem("course_id")==undefined || sessionStorage.getItem("course_title")==undefined || sessionStorage.getItem("course_desc")==undefined) {
         window.location.href = window.location.origin + "/admin-courses.html";
         return
     } 
-    if(sessionStorage.getItem("lesson_id")==null){
+    if(sessionStorage.getItem("lesson_id")==undefined || sessionStorage.getItem("lesson_title")==undefined || sessionStorage.getItem("lesson_desc")==undefined){
         window.location.href = window.location.origin + "/admin-lessons.html";
         return
     }
 	await getTasks();  
+})();
+
+(async () => {
+    const course_name = document.getElementsByClassName("sidebar-info-box-name");
+    course_name[0].innerHTML = sessionStorage.getItem("course_title");
+    const course_desc = document.getElementsByClassName("sidebar-info-box-desc");
+    course_desc[0].innerHTML = sessionStorage.getItem("course_desc");
+    const lesson_name = document.getElementsByClassName("sidebar-lesson-info-box-name");
+    lesson_name[0].innerHTML = sessionStorage.getItem("lesson_title");
+    const lesson_desc = document.getElementsByClassName("sidebar-lesson-info-box-desc");
+    lesson_desc[0].innerHTML = sessionStorage.getItem("lesson_desc");
 })();

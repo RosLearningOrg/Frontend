@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/admin-courses.css">
     <script src="js/auth.js" type="module"></script>
     <script defer src="js/adminCourses.js" type="module"></script>
+    <script defer src="js/adminCoursesPopups.js" type="module"></script>
+    <!-- <script defer src="js/adminCoursesCrud.js" type="module"></script> -->
     <title>Document</title>
 </head>
 <body>
@@ -21,13 +23,17 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <button data-variant="square" class="view-personal-btn">
-                    <img src="images/people.svg" alt="photo">
-                    <p>Персонал</p>
-                </button>
                 <button data-variant="square" class="add-course-btn">
                     <img src="images/plus.svg" alt="photo">
                     <p>Создать курс</p>
+                </button>
+                <button data-variant="square" class="manage-materials-btn">
+                    <img src="images/info.svg" alt="photo here">
+                    <p>Материалы</p>
+                </button>
+                <button data-variant="square" class="view-personal-btn">
+                    <img src="images/people.svg" alt="photo">
+                    <p>Персонал</p>
                 </button>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -54,12 +60,12 @@
                 <p class="popup-header-title">Новый курс</p>
             </div>
 
-            <input type="text" placeholder="Название">
-            <input type="text" placeholder="Описание">
+            <input class="add-course-popup-input-name" type="text" placeholder="Название">
+            <input class="add-course-popup-input-desc" type="text" placeholder="Описание">
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
-                <button data-variant="primary">Создать</button>
+                <button class="close-add-course-popup-btn" data-variant="tonal">Отмена</button>
+                <button class="add-course-popup-btn" data-variant="primary">Создать</button>
             </div>
         </div>
     </div>

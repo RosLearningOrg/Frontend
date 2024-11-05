@@ -22,21 +22,25 @@
                 </div>
             </div>
             <div class="sidebar-content">
+                <button data-variant="square" class="add-lesson-btn add-button">
+                    <img src="images/plus.svg" alt="photo again">
+                    <p>Создать задачу</p>
+                </button>
+                <button data-variant="square" class="manage-materials-btn">
+                    <img src="images/info.svg" alt="photo here">
+                    <p>Материалы</p>
+                </button>
                 <button data-variant="square" class="view-personal-btn">
                     <img src="images/people.svg" alt="photo here">
                     <p>Персонал</p>
                 </button>
-                <button data-variant="square" class="add-lesson-btn">
-                    <img src="images/plus.svg" alt="photo again">
-                    <p>Создать задачу</p>
-                </button>
                 <div class="sidebar-info-box">
-                    <h2 class="sidebar-info-box-name">Название курса</h2>
-                    <p class="hint sidebar-info-box-desc">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+                    <h2 class="sidebar-info-box-name"></h2>
+                    <p class="hint sidebar-info-box-desc"></p>
                 </div>
                 <div class="sidebar-info-box">
-                    <h2 class="sidebar-lesson-info-box-name">Название курса</h2>
-                    <p class="hint sidebar-lesson-info-box-desc">Описание курса многа текста про то какой же он классный и че в нем делать надо</p>
+                    <h2 class="sidebar-lesson-info-box-name"></h2>
+                    <p class="hint sidebar-lesson-info-box-desc"></p>
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false">Условия использования</a>
@@ -61,13 +65,47 @@
                 <p class="popup-header-title">Новый урок</p>
             </div>
             <input type="text" placeholder="Название">
-            <textarea class="add-lesson-popup-textarea" placeholder="Описание"></textarea>
+            <input type="text" class="add-lesson-popup-input-desc" placeholder="Описание">
+            <textarea class="add-lesson-popup-textarea" placeholder="Текст задания"></textarea>
+            <button data-variant="square" class="add-emulation-popup-btn add-button">
+                <img src="images/plus.svg" alt="photo again">
+                <p>Создать эмуляцию</p>
+            </button>
             <div class="popup-footer">
                 <button data-variant="tonal" class="add-lesson-popup-close-button">Отмена</button>
                 <button data-variant="primary" class="add-lesson-popup-create-button">Создать</button>
             </div>
         </div>
     </div>
+
+    <div class="popup-tint popup-tint-hidden edit-task-popup-tint">
+        <div class="popup-container edit-task-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить задачу</p>
+            </div>
+            <input type="text" placeholder="Название">
+            <input type="text" class="edit-task-popup-input-desc" placeholder="Описание">
+            <textarea class="edit-task-popup-textarea" placeholder="Текст задания"></textarea>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="edit-task-popup-close-button">Отмена</button>
+                <button data-variant="primary" class="edit-task-popup-create-button">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-task-popup-tint">
+        <div class="popup-container delete-task-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить задачу</p>
+            </div>
+            <p class="popup-warning">Вы уверены, что хотите удалить задачу? Данное действие необратимо</p>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="delete-task-popup-close-button">Отмена</button>
+                <button data-variant="primary" class="delete-task-popup-delete-button">Удалить</button>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

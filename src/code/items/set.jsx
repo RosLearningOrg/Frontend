@@ -12,7 +12,7 @@ export const children = (item, setItem, displayItems) => {
 
 	return (
 		<>
-			<p>{item.order + 1}.</p>
+			<p className="code-item-order">{item.order + 1}</p>
 			<p>{item.properties.item.label}</p>
 			<SelectInput
 				name="item"
