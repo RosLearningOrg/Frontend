@@ -25,3 +25,8 @@
     height: 80%;
     width: 50%;
 }
+
+.popup-container-description {
+    color: var(--tonal-fg-color);
+    font-size: 12px;
+}

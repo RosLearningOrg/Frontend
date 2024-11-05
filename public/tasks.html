@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="css/popups.css" />
 		<link rel="stylesheet" href="css/tasks.css" />
 		<script defer src="./js/tasksPopups.js"></script>
+		<script src="js/auth.js" type="module"></script>
+    	<script defer src="js/tasks.js" type="module"></script>
 	</head>
 	<body>
 		<div class="page">
@@ -55,22 +57,7 @@
 					>
 				</div>
 				<div class="main-content main-content-grid">
-					<div class="task-item-container">
-                        <p class="task-item-name">Название</p>
-                        <p class="task-item-desc hint">
-                            Небольшое описание курса буквально в одну строку
-                            типа таво
-                        </p>
-                        <div class="task-item-status" data-variant="completed">Успешно пройдено</div>
-					</div>
-					<div class="task-item-container">
-                        <p class="task-item-name">Название</p>
-                        <p class="task-item-desc hint">
-                            Небольшое описание курса буквально в одну строку
-                            типа таво
-                        </p>
-                        <div class="task-item-status" data-variant="uncompleted">Успешно пройдено</div>
-					</div>
+					
 				</div>
 			</main>
 		</div>
@@ -80,6 +67,9 @@
 				<div class="popup-header">
 					<p class="popup-header-title">Название задачи</p>
 					<p class="popup-header-subtitle">Текст задания</p>
+				</div>
+				<div class="popup-container-description">
+					Небольшое описание задачи буквально в одну строку типа таво
 				</div>
 				<div class="text-box">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
