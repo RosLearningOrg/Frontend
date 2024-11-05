@@ -1,9 +1,11 @@
+const API_URL = "http://localhost:8080/api";
+
 const taskPopupTint = document.querySelector(".task-popup-tint");
 const materialPopupSelectTint = document.querySelector(".material-popup-tint-select");
 const taskPopupCloseBtn = document.querySelector(".task-close-btn");
 const materialPopupCloseBtn = document.querySelector(".material-close-btn");
 const materialOpenBtn = document.querySelector(".material-open-btn");
-const selectButton = document.querySelector(".text-box-select");
+var selectButton;
 const materialPopupTint = document.querySelector(".material-popup-tint");
 const backButton = document.querySelector(".back_popup-image");
 const materialCloseButton = document.querySelector(".material-close-btn-end");
@@ -11,7 +13,17 @@ const materialCloseButton = document.querySelector(".material-close-btn-end");
 var taskTitle = "";
 var taskDescription = "";
 
-materialOpenBtn.addEventListener("click", showMaterialSelectPopup);
+materialOpenBtn.addEventListener("click", (e) => {
+	showMaterialSelectPopup();
+
+	selectButton = document.getElementsByClassName("text-box-select")[0];
+	console.log(selectButton);
+	selectButton.addEventListener("click", (e) => {
+		closeMaterialSelectPopup();
+		console.log("suchka");
+		showMaterialPopup();
+	});
+});
 taskPopupCloseBtn.addEventListener("click", closeTaskPopup);
 materialPopupCloseBtn.addEventListener("click", closeMaterialSelectPopup);
 materialCloseButton.addEventListener("click", (e) => {
@@ -55,6 +67,43 @@ function closeTaskPopup() {
 
 function showMaterialSelectPopup() {
 	materialPopupSelectTint.classList.remove("popup-tint-hidden");
+	const popupContainer = document.getElementsByClassName("popup-select-materials")[0];
+	const sidebarLessonTitle = document.querySelector(".popup-lesson-title");
+	sidebarLessonTitle.innerHTML = sessionStorage.getItem("lesson_title");
+	
+	const getThemeMaterials = async () => {
+		const init = {
+			method: "GET",
+			credentials: "include"
+		};
+	
+		try { 
+			const resp = await fetch(API_URL + `/user/getThemeMaterials?course_id=${sessionStorage.getItem("course_id")}&theme_id=${sessionStorage.getItem("lesson_id")}`, init)
+			const data = await resp.json();
+			console.log(data);
+			setContent(data);
+		} catch {
+			return null;
+		}
+	};
+	
+	const setContent = (data) => {
+		let content = "";
+	
+		for (let item of data) {
+			content += `
+				<div class="text-box text-box-select">
+					<p>${item.title}</p>
+				</div>
+			`;
+		}
+		popupContainer.innerHTML = content;
+	};
+
+	(async () => {
+		await getThemeMaterials();
+	})();
+
 }
 
 function closeMaterialSelectPopup() {
@@ -63,16 +112,13 @@ function closeMaterialSelectPopup() {
 
 function showMaterialPopup() {
 	materialPopupTint.classList.remove("popup-tint-hidden");
+	const lessonTitle = document.querySelector(".popup-lesson-title-selected");
+	lessonTitle.innerHTML = sessionStorage.getItem("lesson_title");
 }
 
 function closeMaterialPopup() {
 	materialPopupTint.classList.add("popup-tint-hidden");
 }
-
-selectButton.addEventListener("click", (e) => {
-    closeMaterialSelectPopup();
-	showMaterialPopup();
-});
 
 backButton.addEventListener("click", (e) => {
     closeMaterialPopup();

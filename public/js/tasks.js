@@ -11,7 +11,7 @@ const siderbarDescription = document.querySelector(".course-desc");
 sidebarTitle.innerHTML = sessionStorage.getItem("course_title");
 siderbarDescription.innerHTML = sessionStorage.getItem("course_description");
 
-const sidebarLessonTitle = document.querySelector(".lesson-title");;
+const sidebarLessonTitle = document.querySelector(".lesson-title");
 const siderbarLessonDescription = document.querySelector(".lesson-desc");
 
 sidebarLessonTitle.innerHTML = sessionStorage.getItem("lesson_title");
