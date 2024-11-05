@@ -2,4 +2,5 @@
     border-radius: 4px;
     background: var(--surface-color);
     padding: 16px;
+    cursor: pointer;
 }
