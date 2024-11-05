@@ -15,14 +15,6 @@ var taskDescription = "";
 
 materialOpenBtn.addEventListener("click", (e) => {
 	showMaterialSelectPopup();
-
-	selectButton = document.getElementsByClassName("text-box-select")[0];
-	console.log(selectButton);
-	selectButton.addEventListener("click", (e) => {
-		closeMaterialSelectPopup();
-		console.log("suchka");
-		showMaterialPopup();
-	});
 });
 taskPopupCloseBtn.addEventListener("click", closeTaskPopup);
 materialPopupCloseBtn.addEventListener("click", closeMaterialSelectPopup);
@@ -98,6 +90,16 @@ function showMaterialSelectPopup() {
 			`;
 		}
 		popupContainer.innerHTML = content;
+
+		selectButton = document.getElementsByClassName("text-box-select")[0];
+		
+		if (selectButton) {
+			selectButton.addEventListener("click", (e) => {
+				closeMaterialSelectPopup();
+				console.log("suchka");
+				showMaterialPopup();
+			});
+		}
 	};
 
 	(async () => {
