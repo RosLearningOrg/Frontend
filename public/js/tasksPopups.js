@@ -6,6 +6,7 @@ const taskPopupCloseBtn = document.querySelector(".task-close-btn");
 const materialPopupCloseBtn = document.querySelector(".material-close-btn");
 const materialOpenBtn = document.querySelector(".material-open-btn");
 var selectButton;
+var themeDiv;
 const materialPopupTint = document.querySelector(".material-popup-tint");
 const backButton = document.querySelector(".back_popup-image");
 const materialCloseButton = document.querySelector(".material-close-btn-end");
@@ -16,6 +17,7 @@ var taskDescription = "";
 materialOpenBtn.addEventListener("click", (e) => {
 	showMaterialSelectPopup();
 });
+
 taskPopupCloseBtn.addEventListener("click", closeTaskPopup);
 materialPopupCloseBtn.addEventListener("click", closeMaterialSelectPopup);
 materialCloseButton.addEventListener("click", (e) => {
@@ -84,22 +86,22 @@ function showMaterialSelectPopup() {
 	
 		for (let item of data) {
 			content += `
-				<div class="text-box text-box-select">
+				<div class="text-box text-box-select" data-material-id=${item.id}>
 					<p>${item.title}</p>
 				</div>
 			`;
 		}
 		popupContainer.innerHTML = content;
 
-		selectButton = document.getElementsByClassName("text-box-select")[0];
-		
-		if (selectButton) {
-			selectButton.addEventListener("click", (e) => {
+		document.addEventListener("click", (e) => {
+			const selectButton = e.target.closest(".text-box-select");
+
+			if (selectButton) {
+				themeDiv = selectButton;
 				closeMaterialSelectPopup();
-				console.log("suchka");
 				showMaterialPopup();
-			});
-		}
+			}
+		});
 	};
 
 	(async () => {
@@ -115,7 +117,7 @@ function closeMaterialSelectPopup() {
 function showMaterialPopup() {
 	materialPopupTint.classList.remove("popup-tint-hidden");
 	const lessonTitle = document.querySelector(".popup-lesson-title-selected");
-	lessonTitle.innerHTML = sessionStorage.getItem("lesson_title");
+	lessonTitle.innerHTML = themeDiv.innerHTML;	
 }
 
 function closeMaterialPopup() {

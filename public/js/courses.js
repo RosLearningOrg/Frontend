@@ -43,10 +43,10 @@ document.addEventListener("click", (e) => {
         const id = courseItem.getAttribute("data-course-id")
         sessionStorage.setItem("course_id", id)
 
-        const courseTitle = courseItem.getElementsByClassName("course-item-title")[0].innerHTML;
+        const courseTitle = courseItem.getElementsByClassName("course-item-title")[0].innerText;
         sessionStorage.setItem("course_title", courseTitle);
 
-        const courseDescription = courseItem.getElementsByClassName("course-item-desc")[0].innerHTML;
+        const courseDescription = courseItem.getElementsByClassName("course-item-desc")[0].innerText;
         sessionStorage.setItem("course_description", courseDescription);
         
 		window.location.href = window.location.origin + "/lessons.html";
