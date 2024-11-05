@@ -5,6 +5,18 @@ const contentContainer = document.getElementsByClassName("main-content")[0];
 const course_id = sessionStorage.getItem("course_id");
 const lesson_id = sessionStorage.getItem("lesson_id");
 
+const sidebarTitle = document.querySelector(".course-title");
+const siderbarDescription = document.querySelector(".course-desc");
+
+sidebarTitle.innerHTML = sessionStorage.getItem("course_title");
+siderbarDescription.innerHTML = sessionStorage.getItem("course_description");
+
+const sidebarLessonTitle = document.querySelector(".lesson-title");
+const siderbarLessonDescription = document.querySelector(".lesson-desc");
+
+sidebarLessonTitle.innerHTML = sessionStorage.getItem("lesson_title");
+siderbarLessonDescription.innerHTML = sessionStorage.getItem("lesson_description");
+
 const getLessonTasks = async () => {
 	const init = {
 		method: "GET",

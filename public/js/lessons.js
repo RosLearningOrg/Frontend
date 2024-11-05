@@ -2,6 +2,12 @@ import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
+const sidebarTitle = document.getElementsByClassName("sidebar-info-box-title")[0];
+const siderbarDescription = document.getElementsByClassName("sidebar-info-box-desc")[0];
+
+sidebarTitle.innerHTML = sessionStorage.getItem("course_title");
+siderbarDescription.innerHTML = sessionStorage.getItem("course_description");
+
 const course_id = sessionStorage.getItem("course_id");
 
 const getCourseLessons = async () => {
@@ -44,8 +50,15 @@ document.addEventListener("click", (e) => {
     const courseItem = e.target.closest(".lesson-item-container");
 
     if (courseItem) {
-        const id = courseItem.getAttribute("data-lesson-id")
-        sessionStorage.setItem("lesson_id", id)
+        const id = courseItem.getAttribute("data-lesson-id");
+        sessionStorage.setItem("lesson_id", id);
+
+        const lessonTitle = courseItem.getElementsByClassName("lesson-item-title")[0].innerHTML;
+        sessionStorage.setItem("lesson_title", lessonTitle);
+
+        const lessonDescription = courseItem.getElementsByClassName("lesson-item-desc")[0].innerHTML;
+        sessionStorage.setItem("lesson_description", lessonDescription);
+
 		window.location.href = window.location.origin + "/tasks.html";
     }
 });
