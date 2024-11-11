@@ -17,18 +17,24 @@ const Editor = () => {
 		<div className="editor-layout">
 			<EditorContextProvider>
 				<header className="editor-header">
-					<button
-						onClick={() => switchSelected(0)}
-						data-variant={selected == 0 ? "primary" : "tonal"}
-					>
-						Редактировать код
-					</button>
-					<button
-						onClick={() => switchSelected(1)}
-						data-variant={selected == 1 ? "primary" : "tonal"}
-					>
-						Редактировать интерфейс
-					</button>
+					<div className="editor-header-left-section"></div>
+					<div className="editor-header-buttons">
+						<button
+							onClick={() => switchSelected(0)}
+							data-variant={selected == 0 ? "primary" : "tonal"}
+						>
+							Редактировать код
+						</button>
+						<button
+							onClick={() => switchSelected(1)}
+							data-variant={selected == 1 ? "primary" : "tonal"}
+						>
+							Редактировать интерфейс
+						</button>
+					</div>
+					<div className="editor-header-right-section">
+						<div className="icon-container">save</div>
+					</div>
 				</header>
 				<InterfaceContextProvider>
 					<div

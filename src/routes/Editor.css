@@ -21,8 +21,19 @@
 	border-bottom: 1px solid var(--outline-color);
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 10px;
+    padding: 0 24px;
+}
+
+.editor-header-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .editor-sidebar {
