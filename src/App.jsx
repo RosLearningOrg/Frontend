@@ -7,6 +7,7 @@ import Courses from "./routes/Courses";
 const router = createBrowserRouter([
 	{
 		path: "/",
+		element: <NotFound />,
 		errorElement: <NotFound />,
 	},
 	{
