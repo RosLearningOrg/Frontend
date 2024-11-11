@@ -1,3 +1,4 @@
+import "./SidebarFunctions.css"
 import { useContext, useRef, useState } from "react";
 import { CodeContext } from "../../context/codeContext";
 

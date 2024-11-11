@@ -13,7 +13,7 @@ const CodeEditorLeftSidebar = () => {
 					onClick={() => setSelected(0)}
 					data-selected={selected == 0 ? true : false}
 				>
-					Елементы
+					Элементы
 				</div>
 				<div
 					onClick={() => setSelected(1)}
