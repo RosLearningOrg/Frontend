@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-tasks.css">
     <script src="js/auth.js" type="module"></script>
+
+    <script defer src="js/adminTasksPopups.js" type="module"></script>
     <script defer src="js/adminTasks.js" type="module"></script>
-    <!-- <script defer src="js/adminTasksPopups.js"></script> -->
+    
 </head>
 <body>
     <div class="page">
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <button data-variant="square" class="add-lesson-btn add-button">
+                <button data-variant="square" class="add-task-btn add-button">
                     <img src="images/plus.svg" alt="photo again">
                     <p>Создать задачу</p>
                 </button>
@@ -59,21 +61,21 @@
         </main>
     </div>
 
-    <div class="popup-tint popup-tint-hidden add-lesson-popup-tint">
-        <div class="popup-container add-lesson-popup-container">
+    <div class="popup-tint popup-tint-hidden add-task-popup-tint">
+        <div class="popup-container add-task-popup-container">
             <div class="popup-header">
                 <p class="popup-header-title">Новый урок</p>
             </div>
             <input type="text" placeholder="Название">
-            <input type="text" class="add-lesson-popup-input-desc" placeholder="Описание">
-            <textarea class="add-lesson-popup-textarea" placeholder="Текст задания"></textarea>
+            <input type="text" class="add-task-popup-input-desc" placeholder="Описание">
+            <textarea class="add-task-popup-textarea" placeholder="Текст задания"></textarea>
             <button data-variant="square" class="add-emulation-popup-btn add-button">
                 <img src="images/plus.svg" alt="photo again">
                 <p>Создать эмуляцию</p>
             </button>
             <div class="popup-footer">
-                <button data-variant="tonal" class="add-lesson-popup-close-button">Отмена</button>
-                <button data-variant="primary" class="add-lesson-popup-create-button">Создать</button>
+                <button data-variant="tonal" class="close-add-task-popup-btn">Отмена</button>
+                <button data-variant="primary" class="add-task-popup-create-btn">Создать</button>
             </div>
         </div>
     </div>
@@ -87,8 +89,8 @@
             <input type="text" class="edit-task-popup-input-desc" placeholder="Описание">
             <textarea class="edit-task-popup-textarea" placeholder="Текст задания"></textarea>
             <div class="popup-footer">
-                <button data-variant="tonal" class="edit-task-popup-close-button">Отмена</button>
-                <button data-variant="primary" class="edit-task-popup-create-button">Создать</button>
+                <button data-variant="tonal" class="close-edit-task-popup-btn">Отмена</button>
+                <button data-variant="primary" class="edit-task-popup-create-btn">Создать</button>
             </div>
         </div>
     </div>
@@ -100,8 +102,8 @@
             </div>
             <p class="popup-warning">Вы уверены, что хотите удалить задачу? Данное действие необратимо</p>
             <div class="popup-footer">
-                <button data-variant="tonal" class="delete-task-popup-close-button">Отмена</button>
-                <button data-variant="primary" class="delete-task-popup-delete-button">Удалить</button>
+                <button data-variant="tonal" class="close-delete-task-popup-btn">Отмена</button>
+                <button data-variant="primary" class="delete-task-popup-delete-btn">Удалить</button>
             </div>
         </div>
     </div>

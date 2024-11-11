@@ -1,56 +1,56 @@
-const addLessonPopupTint = document.querySelector(".add-lesson-popup-tint");
-const addLessonCloseBtn = document.querySelector(".add-lesson-popup-close-button");
-const addLessonBtn = document.querySelector(".add-lesson-btn");
+const addTaskTint = document.querySelector(".add-task-popup-tint");
+const editTaskTint = document.querySelector(".edit-task-popup-tint");
+const deleteTaskTint = document.querySelector(".delete-task-popup-tint");
 
-addLessonBtn.addEventListener("click", showAddLessonPopup);
-addLessonCloseBtn.addEventListener("click", closeAddLessonPopup);
+const closeAddTaskBtnDiv = document.querySelector(".close-add-task-popup-btn");
+const closeEditTaskBtnDiv = document.querySelector(".close-edit-task-popup-btn");
+const closeDeleteTaskBtnDiv = document.querySelector(".close-delete-task-popup-btn");
 
-function showAddLessonPopup() {
-	addLessonPopupTint.classList.remove("popup-tint-hidden");
-}
-
-function closeAddLessonPopup() {
-	addLessonPopupTint.classList.add("popup-tint-hidden");
-}
-
-addLessonPopupTint.addEventListener("click", (e) => {
-	if (e.target.classList.contains("popup-tint")) closeAddLessonPopup();
+document.addEventListener("click", (e) => {
+    const item = e.target.closest(".add-task-btn");
+    if (item) {
+        showAddTaskPopup();
+    }
 });
 
-const deleteTaskPopupTint = document.querySelector(".delete-task-popup-tint");
-const deleteTaskCloseBtn = document.querySelector(".delete-task-popup-close-button");
-const deleteTaskBtn = document.querySelector(".icon-conatiner-delete");
+closeAddTaskBtnDiv.addEventListener("click", closeAddPopup);
+closeEditTaskBtnDiv.addEventListener("click", closeEditPopup);
+closeDeleteTaskBtnDiv.addEventListener("click", closeDeletePopup);
 
-deleteTaskBtn.addEventListener("click", showDeleteTaskPopup);
-deleteTaskCloseBtn.addEventListener("click", closeDeleteTaskPopup);
-
-function showDeleteTaskPopup() {
-	deleteTaskPopupTint.classList.remove("popup-tint-hidden");
-}
-
-function closeDeleteTaskPopup() {
-	deleteTaskPopupTint.classList.add("popup-tint-hidden");
-}
-
-deleteTaskPopupTint.addEventListener("click", (e) => {
-	if (e.target.classList.contains("popup-tint")) closeDeleteTaskPopup();
+addTaskTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-task-popup-tint")) closeAddPopup();
 });
 
-const editTaskPopupTint = document.querySelector(".edit-task-popup-tint");
-const editTaskCloseBtn = document.querySelector(".edit-task-popup-close-button");
-const editTaskBtn = document.querySelector(".icon-conatiner-edit");
-
-editTaskBtn.addEventListener("click", showEditTaskPopup);
-editTaskCloseBtn.addEventListener("click", closeEditTaskPopup);
-
-function showEditTaskPopup() {
-	editTaskPopupTint.classList.remove("popup-tint-hidden");
-}
-
-function closeEditTaskPopup() {
-	editTaskPopupTint.classList.add("popup-tint-hidden");
-}
-
-editTaskPopupTint.addEventListener("click", (e) => {
-	if (e.target.classList.contains("popup-tint")) closeEditTaskPopup();
+editTaskTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("edit-task-popup-tint")) closeEditPopup();
 });
+
+deleteTaskTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-task-popup-tint")) closeDeletePopup();
+});
+
+
+
+function showAddTaskPopup() {
+    addTaskTint.classList.remove("popup-tint-hidden");
+}
+
+function closeAddPopup() {
+    addTaskTint.classList.add("popup-tint-hidden");
+}
+
+export function showEditTaskPopup() {
+    editTaskTint.classList.remove("popup-tint-hidden");
+}
+
+function closeEditPopup() {
+    editTaskTint.classList.add("popup-tint-hidden");
+}
+
+export function showDeleteTaskPopup() {
+    deleteTaskTint.classList.remove("popup-tint-hidden");
+}
+
+function closeDeletePopup() {
+    deleteTaskTint.classList.add("popup-tint-hidden");
+}

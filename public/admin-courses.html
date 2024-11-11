@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-courses.css">
     <script src="js/auth.js" type="module"></script>
-    <script defer src="js/adminCourses.js" type="module"></script>
+    
     <script defer src="js/adminCoursesPopups.js" type="module"></script>
-    <!-- <script defer src="js/adminCoursesCrud.js" type="module"></script> -->
+    <script defer src="js/adminCoursesCrud.js" type="module"></script>
+    <script defer src="js/adminCourses.js" type="module"></script>
     <title>Document</title>
 </head>
 <body>
@@ -82,7 +83,7 @@
             <input type="text" placeholder="Описание">
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
+                <button class="close-edit-course-popup-btn" data-variant="tonal">Отмена</button>
                 <button data-variant="primary">Сохранить</button>
             </div>
         </div>
@@ -98,7 +99,7 @@
             <p class="hint">Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
+                <button class="close-delete-course-popup-btn" data-variant="tonal">Отмена</button>
                 <button data-variant="primary">Сохранить</button>
             </div>
         </div>

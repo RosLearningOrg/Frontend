@@ -23,6 +23,28 @@ const addNewCourse = async (name,desc) => {
 	}
 };
 
+const deleteNewCourse = async (name,desc) => {
+    const csrf = await getCSRF();
+	const init = {
+		method: "POST",
+        credentials: "include",
+        headers: {
+			"Content-Type": "application/json",
+			"X-CSRF-TOKEN": csrf,
+		},
+        body: JSON.stringify({
+            title: name,
+            description: desc,
+        }),
+	};
+
+	try {
+		await fetch(API_URL + "/admin/createCourse", init);
+	} catch {
+		logout();
+	}
+};
+
 document.addEventListener("click", (e) => {
     const addCourseBtn = e.target.closest(".add-course-popup-btn");
     if (addCourseBtn) {

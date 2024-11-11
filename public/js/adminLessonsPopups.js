@@ -1,18 +1,56 @@
-const addLessonPopupTint = document.querySelector(".add-lesson-popup-tint");
-const addLessonCloseBtn = document.querySelector(".add-lesson-popup-close-button");
-const addLessonBtn = document.querySelector(".add-lesson-btn")
+const addLessonTint = document.querySelector(".add-lesson-popup-tint");
+const editLessonTint = document.querySelector(".edit-lesson-popup-tint");
+const deleteLessonTint = document.querySelector(".delete-lesson-popup-tint");
 
-addLessonBtn.addEventListener("click", showAddLessonPopup);
-addLessonCloseBtn.addEventListener("click", closeAddLessonPopup);
+const closeAddLessonBtnDiv = document.querySelector(".close-add-lesson-popup-btn");
+const closeEditLessonBtnDiv = document.querySelector(".close-edit-lesson-popup-btn");
+const closeDeleteLessonBtnDiv = document.querySelector(".close-delete-lesson-popup-btn");
 
-addLessonPopupTint.addEventListener("click", (e) => {
-	if (e.target.classList.contains("popup-tint")) closeAddLessonPopup();
+document.addEventListener("click", (e) => {
+    const item = e.target.closest(".add-lesson-btn");
+    if (item) {
+        showAddLessonPopup();
+    }
 });
 
+closeAddLessonBtnDiv.addEventListener("click", closeAddPopup);
+closeEditLessonBtnDiv.addEventListener("click", closeEditPopup);
+closeDeleteLessonBtnDiv.addEventListener("click", closeDeletePopup);
+
+addLessonTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-lesson-popup-tint")) closeAddPopup();
+});
+
+editLessonTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("edit-lesson-popup-tint")) closeEditPopup();
+});
+
+deleteLessonTint.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-lesson-popup-tint")) closeDeletePopup();
+});
+
+
+
 function showAddLessonPopup() {
-	addLessonPopupTint.classList.remove("popup-tint-hidden");
+    addLessonTint.classList.remove("popup-tint-hidden");
 }
 
-function closeAddLessonPopup() {
-	addLessonPopupTint.classList.add("popup-tint-hidden");
+function closeAddPopup() {
+    addLessonTint.classList.add("popup-tint-hidden");
+}
+
+export function showEditLessonPopup() {
+    editLessonTint.classList.remove("popup-tint-hidden");
+}
+
+function closeEditPopup() {
+    editLessonTint.classList.add("popup-tint-hidden");
+}
+
+export function showDeleteLessonPopup() {
+    deleteLessonTint.classList.remove("popup-tint-hidden");
+}
+
+function closeDeletePopup() {
+    deleteLessonTint.classList.add("popup-tint-hidden");
 }

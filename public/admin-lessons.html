@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-lessons.css">
     <script src="js/auth.js" type="module"></script>
+    
+    <script defer src="js/adminLessonsPopups.js" type="module"></script>
     <script defer src="js/adminLessons.js" type="module"></script>
-    <!-- <script defer src="js/adminLessonsPopups.js"></script> -->
 </head>
 <body>
     <div class="page">
@@ -67,11 +68,44 @@
             <input type="text" placeholder="Название">
             <input type="text" class="add-lesson-popup-textarea" placeholder="Описание">
             <div class="popup-footer">
-                <button data-variant="tonal" class="add-lesson-popup-close-button">Отмена</button>
-                <button data-variant="primary" class="add-lesson-popup-create-button">Создать</button>
+                <button data-variant="tonal" class="close-add-lesson-popup-btn">Отмена</button>
+                <button data-variant="primary" class="add-lesson-popup-create-btn">Создать</button>
             </div>
         </div>
     </div>
+
+    <div class="popup-tint popup-tint-hidden edit-lesson-popup-tint">
+        <div class="popup-container edit-lesson-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить урок</p>
+            </div>
+
+            <input type="text" placeholder="Название">
+            <input type="text" placeholder="Описание">
+
+            <div class="popup-footer">
+                <button class="close-edit-lesson-popup-btn" data-variant="tonal">Отмена</button>
+                <button data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-lesson-popup-tint">
+        <div class="popup-container delete-lesson-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить урок</p>
+            </div>
+
+            <p class="hint">Вы уверены, что хотите удалить урок? Данное действие необратимо</p>
+
+            <div class="popup-footer">
+                <button class="close-delete-lesson-popup-btn" data-variant="tonal">Отмена</button>
+                <button data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>  
 </div>
 </body>
 </html>
