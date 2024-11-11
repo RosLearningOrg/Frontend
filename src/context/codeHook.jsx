@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { EditorContext } from "./editorContext";
 
 function useCode(items, vars) {
+	const { savingCode, setSavingCode } = useContext(EditorContext);
 	const [codeItems, setCodeItems] = useState(items);
 	const [variables, setVariables] = useState(vars);
 	const [selectedFunc, setSelectedFunc] = useState("Главная");
+
+	useEffect(() => {
+		console.log(codeItems);
+		return setSavingCode(false);
+	}, [savingCode]);
 
 	const setVar = (name, value) => {
 		setVariables((prev) => ({
@@ -17,17 +24,17 @@ function useCode(items, vars) {
 		setVariables(newVars);
 	};
 
-    const addFunc = (name) => {
-        setCodeItems((prev) => ({
-            ...prev,
-            [name]: []
-        }))
-    }
+	const addFunc = (name) => {
+		setCodeItems((prev) => ({
+			...prev,
+			[name]: [],
+		}));
+	};
 
-    const removeFunc = (name) => {
-        const {[name]: _, ...newTabs} = codeItems;
-        setCodeItems(newTabs);
-    }
+	const removeFunc = (name) => {
+		const { [name]: _, ...newTabs } = codeItems;
+		setCodeItems(newTabs);
+	};
 
 	const addItem = (item) => {
 		setCodeItems((prev) => {
@@ -118,8 +125,8 @@ function useCode(items, vars) {
 	};
 
 	return {
-        addFunc,
-        removeFunc,
+		addFunc,
+		removeFunc,
 		selectedFunc,
 		setSelectedFunc,
 		variables,

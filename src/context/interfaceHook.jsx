@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EditorContext } from "./editorContext";
 
 function useInterface(items) {
+	const { savingInterface, setSavingInterface } = useContext(EditorContext);
 	const [interfaceItems, setInterfaceItems] = useState(items);
 	const selectedItem = interfaceItems.find((item) => item.selected) ?? {};
 
@@ -11,6 +12,11 @@ function useInterface(items) {
 		removeDisplayItem,
 		removeInteractiveItem,
 	} = useContext(EditorContext);
+
+	useEffect(() => {
+		console.log(interfaceItems);
+		return setSavingInterface(false);
+	}, [savingInterface]);
 
 	const setSelectedProperty = (property, value) => {
 		setSelected({ ...selectedItem, [property]: value });
