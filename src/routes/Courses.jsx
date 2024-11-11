@@ -1,5 +1,3 @@
-import "../App.css";
-
 const Courses = () => {
     return (
         <div className="main-layout">
