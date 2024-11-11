@@ -1,5 +1,4 @@
-
-.editor {
+.editor-layout {
 	background: var(--bg-color);
 	min-width: 600px;
 	display: flex;
@@ -39,11 +38,6 @@
 	overflow: hidden;
 	background: var(--surface-color);
     position: relative;
-}
-
-.hint {
-	font-size: 0.9em;
-	color: var(--tonal-fg-color);
 }
 
 .editor-sidebar[data-pos="left"] {

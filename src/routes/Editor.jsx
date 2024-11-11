@@ -14,7 +14,7 @@ const Editor = () => {
     const switchSelected = (index) => setSelected(index);
 
     return (
-        <div className="editor">
+        <div className="editor-layout">
             <header className="editor-header">
                 <button
                     onClick={() => switchSelected(0)}
