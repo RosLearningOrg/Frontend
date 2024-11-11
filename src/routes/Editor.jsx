@@ -8,6 +8,7 @@ import InterfaceEditorSidebar from "../components/interface-editor/Sidebar";
 import InterfaceContextProvider from "../context/interfaceContext";
 import CodeContextProvider from "../context/codeContext";
 import EditorContextProvider from "../context/editorContext";
+import EditorHeaderButtons from "../components/EditorHeaderButtons";
 
 const Editor = () => {
 	const [selected, setSelected] = useState(0);
@@ -18,7 +19,7 @@ const Editor = () => {
 			<EditorContextProvider>
 				<header className="editor-header">
 					<div className="editor-header-left-section"></div>
-					<div className="editor-header-buttons">
+					<div className="editor-header-tabs">
 						<button
 							onClick={() => switchSelected(0)}
 							data-variant={selected == 0 ? "primary" : "tonal"}
@@ -32,9 +33,7 @@ const Editor = () => {
 							Редактировать интерфейс
 						</button>
 					</div>
-					<div className="editor-header-right-section">
-						<div className="icon-container">save</div>
-					</div>
+                    <EditorHeaderButtons />
 				</header>
 				<InterfaceContextProvider>
 					<div
