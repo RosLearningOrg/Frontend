@@ -35,12 +35,11 @@ function showAddCoursePopup() {
     addCourseTint.classList.remove("popup-tint-hidden");
 }
 
-function closeAddPopup() {
+export function closeAddPopup() {
     addCourseTint.classList.add("popup-tint-hidden");
 }
 
 export function showEditCoursePopup() {
-    console.log("show");
     editCourseTint.classList.remove("popup-tint-hidden");
 }
 

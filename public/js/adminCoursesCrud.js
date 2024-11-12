@@ -1,5 +1,6 @@
 import { API_URL, logout, getCSRF } from "/js/main.js";
 import { getAllCourses } from "/js/adminCourses.js";
+import { closeAddPopup } from "/js/adminCoursesPopups.js";
 
 const addNewCourse = async (name,desc) => {
     const csrf = await getCSRF();
@@ -45,12 +46,13 @@ const deleteNewCourse = async (name,desc) => {
 	}
 };
 
-document.addEventListener("click", (e) => {
-    const addCourseBtn = e.target.closest(".add-course-popup-btn");
-    if (addCourseBtn) {
-        const name = document.querySelector(".add-course-popup-input-name");
-        const desc = document.querySelector(".add-course-popup-input-desc");
-        addNewCourse(name.value,desc.value)
-        getAllCourses();
-    }
-});
+const addCourseBtn = document.querySelector(".add-course-popup-btn");
+addCourseBtn.addEventListener("click", async () => {
+	const name = document.querySelector(".add-course-popup-input-name");
+	const desc = document.querySelector(".add-course-popup-input-desc");
+	await addNewCourse(name.value,desc.value)
+	await getAllCourses();
+	name.value = "";
+	desc.value = "";
+	closeAddPopup();
+})

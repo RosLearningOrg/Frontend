@@ -31,20 +31,17 @@ const setContent = (data) => {
                     <div class="icon-container open-materials-icon">
                         <img class="lesson-item-note-icon" src="images/info.svg" alt="">
                     </div>
+                    <!-- 
                     <div class="icon-container open-dropdown-icon">
                         <img class="lesson-item-dots-icon" src="images/dots.svg" alt="">
                     </div>
-
- <!--  -->
-                    <div class="icon-buttons">
-                        <div class="icon-container edit-lesson-btn">
-                            <img src="images/edit.svg" alt="">
-                        </div>
-                        <div class="icon-container delete-lesson-btn">
-                            <img src="images/delete.svg" alt="">
-                        </div>
+                    -->
+                    <div class="icon-container edit-lesson-btn">
+                        <img src="images/edit.svg" alt="">
                     </div>
- <!--  -->
+                    <div class="icon-container delete-lesson-btn">
+                        <img src="images/delete.svg" alt="">
+                    </div>
 
                 </div>
 
