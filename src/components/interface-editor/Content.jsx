@@ -2,10 +2,12 @@ import "./Content.css";
 import { Rnd } from "react-rnd";
 import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
+import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const InterfaceEditorContent = () => {
 	const {
 		interfaceItems,
+		selectedItemId,
 		selectedItem,
 		selectItem,
 		deselectItem,
@@ -21,7 +23,7 @@ const InterfaceEditorContent = () => {
 						size={{ width: item.width, height: item.height }}
 						position={{ x: item.posX, y: item.posY }}
 						className="interface-item"
-						variant={item.selected ? "selected" : "unselected"}
+						variant={item.id == selectedItemId ? "selected" : "unselected"}
 						bounds="parent"
 						onMouseDown={(e) => {
 							selectItem(item.id);
@@ -47,7 +49,7 @@ const InterfaceEditorContent = () => {
 							});
 						}}
 					>
-						{item.children(item.properties)}
+						{interfaceItemsTypes[item.name].children(item.properties)}
 						<div className="interface-item-id hint">
 							id: {item.id}
 						</div>

@@ -1,6 +1,10 @@
 export const children = (props) => {
+    const text = props?.text ?? "Введите текст"
+    const fontsize = props?.fontsize ?? 14
+    const textalign = props?.textalign ?? "center"
+
 	const divStyles = {
-		fontSize: props.fontsize.value + "px",
+		fontSize: fontsize + "px",
 		background: "rgba(0, 0, 0, 0.05)",
 		overflow: "hidden",
 		padding: "16px 8px",
@@ -11,13 +15,13 @@ export const children = (props) => {
 	};
 
 	const pStyles = {
-		textAlign: props.textalign.value,
+		textAlign: textalign,
 		verticalAlign: "middle",
 	};
 
 	return (
 		<div style={divStyles}>
-			<p style={pStyles}>{props.text.value}</p>
+			<p style={pStyles}>{text}</p>
 		</div>
 	);
 };

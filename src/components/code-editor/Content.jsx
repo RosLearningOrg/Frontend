@@ -3,6 +3,7 @@ import "./Content.css";
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
 import { EditorContext } from "../../context/editorContext";
+import { codeItemsTypes } from "../../code/itemsTypes";
 
 const CodeEditorContent = () => {
 	const { codeItems, moveItemDown, moveItemUp, setItem, selectedFunc } =
@@ -55,7 +56,11 @@ const CodeEditorContent = () => {
 							}}
 						>
 							<div className="code-item-inner">
-								{item.children(item, setItem, displayItems)}
+								{codeItemsTypes[item.name].children(
+									item,
+									setItem,
+									displayItems
+								)}
 							</div>
 						</Rnd>
 					);

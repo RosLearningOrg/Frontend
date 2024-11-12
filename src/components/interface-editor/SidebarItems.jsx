@@ -8,16 +8,16 @@ const InterfaceEditorSidebarItems = () => {
 
 	return (
 		<>
-			{interfaceItemsTypes.map((item, index) => (
+			{Object.entries(interfaceItemsTypes).map(([name, item], index) => (
 				<div
 					key={index}
 					className="interface-sidebar-item"
-					onClick={() => addItem(item)}
+					onClick={() => addItem(name, item)}
 				>
-					<p className="item-name">{item.name}</p>
+					<p className="item-name">{item.title}</p>
 					<p className="hint">{item.description}</p>
 					<div className="item-view">
-						{item.children(item.properties)}
+						{interfaceItemsTypes[name].children({})}
 					</div>
 				</div>
 			))}

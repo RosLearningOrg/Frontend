@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { EditorContext } from "./editorContext";
+import { interfaceItemsTypes } from "../interface/itemsTypes";
 
 function useInterface(items) {
 	const { savingInterface, setSavingInterface } = useContext(EditorContext);
 	const [interfaceItems, setInterfaceItems] = useState(items);
-	const selectedItem = interfaceItems.find((item) => item.selected) ?? {};
+    const [selectedItemId, setSelectedItemId] = useState(null);
+	const selectedItem = interfaceItems.find((item) => item.id == selectedItemId) ?? {};
 
 	const {
 		addDisplayItem,
@@ -24,45 +26,44 @@ function useInterface(items) {
 
 	const setSelected = (newItem) => {
 		setInterfaceItems((prev) =>
-			prev.map((item) => (item.selected ? newItem : item))
+			prev.map((item) => (item.id == selectedItemId ? newItem : item))
 		);
 	};
 
 	const removeSelected = () => {
-		setInterfaceItems((prev) => prev.filter((item) => !item.selected));
+		setInterfaceItems((prev) => prev.filter((item) => item.id != selectedItemId));
 
-		if (selectedItem.type == "interactive") {
-			removeInteractiveItem(selectedItem.id);
+		if (interfaceItemsTypes[selectedItem.name].type == "interactive") {
+			removeInteractiveItem(selectedItemId);
 		}
-		if (selectedItem.type == "display") {
-			removeDisplayItem(selectedItem.id);
+		if (interfaceItemsTypes[selectedItem.name].type == "display") {
+			removeDisplayItem(selectedItemId);
 		}
 	};
 
 	const selectItem = (selId) => {
-		setInterfaceItems((prev) =>
-			prev.map(({ ...props }) => ({
-				...props,
-				selected: props.id == selId ? true : false,
-			}))
-		);
+        setSelectedItemId(selId);
 	};
 
 	const deselectItem = () => {
-		setInterfaceItems((prev) =>
-			prev.map(({ ...props }) => ({ ...props, selected: false }))
-		);
+        setSelectedItemId(null);
 	};
 
-	const addItem = (item) => {
+	const addItem = (name, item) => {
+		const id =
+			interfaceItems == false
+				? 1
+				: interfaceItems[interfaceItems.length - 1].id + 1;
+
+		let properties = {};
+		Object.entries(item.properties).forEach(([name, prop]) => {
+			properties[name] = prop.value;
+		});
+
 		const newItem = {
-			...item,
-			id:
-				interfaceItems == false
-					? 1
-					: interfaceItems[interfaceItems.length - 1].id + 1,
-			properties: JSON.parse(JSON.stringify(item.properties)),
-			selected: false,
+			id: id,
+			name: name,
+			properties: properties,
 			width: item.defaultWidth,
 			height: item.defaultHeight,
 			posX: 20,
@@ -82,6 +83,7 @@ function useInterface(items) {
 	return {
 		interfaceItems,
 		selectedItem,
+		selectedItemId,
 		addItem,
 		selectItem,
 		deselectItem,

@@ -2,6 +2,7 @@ import "./SidebarAssignes.css"
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
 import { EditorContext } from "../../context/editorContext";
+import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const SidebarAssignes = () => {
 	const { codeItems } = useContext(CodeContext);
@@ -12,7 +13,7 @@ const SidebarAssignes = () => {
 			{interactiveItems.map((item) => (
 				<div key={item.id} className="code-sidebar-assign-item">
 					<p>
-						{item.id}: {item.name}
+						{item.id}: {interfaceItemsTypes[item.name].title}
 					</p>
 					<select
 						onChange={(e) => assignFunc(item.id, e.target.value)}

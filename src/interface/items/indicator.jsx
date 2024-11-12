@@ -1,4 +1,6 @@
 export const children = (props) => {
+    const state = props?.state ?? "true"
+
 	const styleOn = {
 		background: "#3a6",
 	};
@@ -7,5 +9,5 @@ export const children = (props) => {
 		background: "#b22",
 	};
 
-	return <div style={props.state.value == "true" ? styleOn : styleOff}></div>;
+	return <div style={state == "true" ? styleOn : styleOff}></div>;
 };

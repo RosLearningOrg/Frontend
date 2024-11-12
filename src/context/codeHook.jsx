@@ -36,17 +36,23 @@ function useCode(items, vars) {
 		setCodeItems(newTabs);
 	};
 
-	const addItem = (item) => {
+	const addItem = (name, item) => {
 		setCodeItems((prev) => {
 			const prevTab = prev[selectedFunc];
 			const id =
 				prevTab.length == 0 ? 1 : prevTab[prevTab.length - 1].id + 1;
 
+			let properties = {};
+
+			Object.entries(item.properties).forEach(([name, prop]) => {
+				properties[name] = prop.value;
+			});
+
 			const newItem = {
 				id: id,
+				name: name,
 				order: prevTab.length,
-				children: item.children,
-				properties: JSON.parse(JSON.stringify(item.properties)),
+				properties: properties,
 			};
 
 			return {

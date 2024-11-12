@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
 import DefaultProperties from "./SidebarMenuDefaultProps";
 import CustomProperties from "./SidebarMenuCustomProps";
+import { interfaceItemsTypes } from "../../interface/itemsTypes";
 
 const InterfaceEditorSidebarMenu = () => {
 	const { selectedItem, removeSelected } = useContext(InterfaceContext);
@@ -10,8 +11,10 @@ const InterfaceEditorSidebarMenu = () => {
 	return (
 		<>
 			<div className="menu-info">
-				<p>{selectedItem.name}</p>
-				<p className="hint">{selectedItem.description}</p>
+				<p>{interfaceItemsTypes[selectedItem.name]?.title}</p>
+				<p className="hint">
+					{interfaceItemsTypes[selectedItem.name]?.description}
+				</p>
 			</div>
 			<div className="menu-custom-property">
 				<CustomProperties />

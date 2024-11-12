@@ -8,10 +8,10 @@ const SidebarItems = () => {
 
 	return (
 		<>
-			{codeItemsTypes.map((item, index) => (
+			{Object.entries(codeItemsTypes).map(([name, item], index) => (
                 <div className="code-sidebar-item"
 					key={index}
-					onClick={() => addItem(item)}
+					onClick={() => addItem(name, item)}
                 >
 					{item.title}
                 </div>
