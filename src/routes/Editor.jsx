@@ -12,28 +12,35 @@ import EditorHeaderButtons from "../components/EditorHeaderButtons";
 
 const Editor = () => {
 	const [selected, setSelected] = useState(0);
-	const switchSelected = (index) => setSelected(index);
+	const changeSelected = (index) => setSelected(index);
+	const switchSelected = () => setSelected((prev) => (prev ? 0 : 1));
 
 	return (
-		<div className="editor-layout">
-			<EditorContextProvider>
+		<EditorContextProvider>
+			<div
+				className="editor-layout"
+				onKeyDown={(e) => {
+					e.preventDefault();
+					if (e.key == "Tab") switchSelected();
+				}}
+			>
 				<header className="editor-header">
 					<div className="editor-header-left-section"></div>
 					<div className="editor-header-tabs">
 						<button
-							onClick={() => switchSelected(0)}
+							onClick={() => changeSelected(0)}
 							data-variant={selected == 0 ? "primary" : "tonal"}
 						>
 							Редактировать код
 						</button>
 						<button
-							onClick={() => switchSelected(1)}
+							onClick={() => changeSelected(1)}
 							data-variant={selected == 1 ? "primary" : "tonal"}
 						>
 							Редактировать интерфейс
 						</button>
 					</div>
-                    <EditorHeaderButtons />
+					<EditorHeaderButtons />
 				</header>
 				<InterfaceContextProvider>
 					<div
@@ -64,8 +71,8 @@ const Editor = () => {
 						</main>
 					</div>
 				</CodeContextProvider>
-			</EditorContextProvider>
-		</div>
+			</div>
+		</EditorContextProvider>
 	);
 };
 
