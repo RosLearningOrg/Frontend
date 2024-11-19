@@ -20,8 +20,10 @@ const Editor = () => {
 			<div
 				className="editor-layout"
 				onKeyDown={(e) => {
-					e.preventDefault();
-					if (e.key == "Tab") switchSelected();
+					if (e.key == "Tab") {
+                        e.preventDefault();
+                        switchSelected();
+                    }
 				}}
 			>
 				<header className="editor-header">

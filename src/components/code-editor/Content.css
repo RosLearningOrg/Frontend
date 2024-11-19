@@ -4,7 +4,7 @@
     position: relative;
     padding: 10px 10px 0;
     box-sizing: border-box;
-    width: 100%;
+    width: fit-content;
 }
 
 .code-item-inner {
@@ -17,15 +17,25 @@
     border-radius: 4px;
     background: var(--bg-color);
     box-sizing: border-box;
+    border: 1px solid var(--outline-color);
+}
+
+.code-item.react-draggable-dragging,
+.react-draggable-dragging .code-item-inner {
+    transition: 0s;
+    cursor: pointer;
+    pointer-events: none;
 }
 
 .code-container {
     height: 100%;
     overflow: auto;
+    position: relative;
 }
 
 .code-container-inner {
     width: max(100%, fit-content);
+    position: relative;
 }
 
 .code-item-order {

@@ -1,6 +1,26 @@
 .code-sidebar-item {
     border-radius: 4px;
-    background: var(--surface-color);
-    padding: 16px;
+    padding: 16px 16px 0;
     cursor: pointer;
+    height: 56px;
+}
+
+.code-sidebar-item-inner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--outline-color);
+    border-radius: 4px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.code-sidebar-item.react-draggable-dragging,
+.code-sidebar-item-inner {
+    cursor: pointer;
+    pointer-events: none;
 }

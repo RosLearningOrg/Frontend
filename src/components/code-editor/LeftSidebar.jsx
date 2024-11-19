@@ -23,7 +23,7 @@ const CodeEditorLeftSidebar = () => {
 				</div>
 			</div>
 			<div
-				className="code-sidebar-inner"
+                className="code-items-sidebar-inner"
 				data-state={selected == 0 ? "visible" : "hidden"}
 			>
                 <SidebarItems />
