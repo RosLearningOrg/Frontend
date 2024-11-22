@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { EditorContext } from "./editorContext";
+import { codeItemsTypes } from "../code/itemsTypes";
 
 function useCode(items, vars) {
 	const { savingCode, setSavingCode } = useContext(EditorContext);
@@ -36,8 +37,9 @@ function useCode(items, vars) {
 		setCodeItems(newTabs);
 	};
 
-	const addItem = (name, item, order) => {
+	const addItem = (name, order) => {
 		order = order == -1 ? codeItems[selectedFunc].length : order;
+        const item = codeItemsTypes[name];
 
 		setCodeItems((prev) => {
 			const prevTab = prev[selectedFunc];

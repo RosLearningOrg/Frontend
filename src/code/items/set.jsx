@@ -1,92 +1,70 @@
-import SelectInput from "../../components/SelectInput";
 import { codeItemsTypes } from "../itemsTypes";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import DisplayItemSelect from "../DisplayItemSelect";
+import DisplayItemPropertySelect from "../DisplayItemPropertySelect";
+import DisplayItemPropertyValueSelect from "../DisplayItemPropertyValueSelect";
+import CodeItemChildren from "../CodeItemChildren";
 
-export const children = (item, setItem, displayItems) => {
+export const children = (item, setItem) => {
 	const itemPropsDesc = codeItemsTypes.setItem.properties;
-
-	const displayItem = displayItems.find(
-		(_item) => _item.id == item.properties.item
-	);
-
-	let property = null;
-	if (displayItem) {
-		property =
-			interfaceItemsTypes[displayItem.name].properties[
-				item.properties.property
-			];
-	}
 
 	return (
 		<>
 			<p className="code-item-order">{item.order + 1}</p>
 			<p>{itemPropsDesc.item.label}</p>
-			<SelectInput
-				name="item"
-				items={displayItems.map((item) => ({
-					value: item.id,
-					text: `${item.id}: ${interfaceItemsTypes[item.name].title}`,
-				}))}
-				selected={item.properties.item}
+			<DisplayItemSelect
+				selectedItemId={item.properties.item}
 				onChange={(id) => {
-					item.properties.item = +id;
-					item.properties.property = null;
-					item.properties.value = null;
+					item.properties.item = +id == 0 ? null : +id;
+					item.properties.property = itemPropsDesc.property.value;
+					item.properties.value = itemPropsDesc.value.value;
 					setItem(item);
 				}}
 			/>
-			{displayItem && (
+
+			{item.properties.item && (
 				<>
 					<p>{itemPropsDesc.property.label}</p>
-					<SelectInput
-						name="item"
-						items={Object.entries(
-							interfaceItemsTypes[displayItem.name].properties
-						).map(([propname, value]) => ({
-							value: propname,
-							text: value.label,
-						}))}
-						selected={item.properties.property}
-						onChange={(property) => {
-							item.properties.property = property;
-							item.properties.value = null;
+					<DisplayItemPropertySelect
+						displayItemId={item.properties.item}
+						selectedPropertyName={item.properties.property}
+						onChange={(propertyName, propertyType) => {
+							item.properties.property = propertyName;
+							item.properties.value = itemPropsDesc.value.value;
+                            item.properties.value.valueType = propertyType;
 							setItem(item);
 						}}
 					/>
 				</>
 			)}
 
-			{property?.type == "select" && displayItem && (
-				<>
-					<p>{itemPropsDesc.value.label}</p>
-					<SelectInput
-						name="item"
-						items={property.options.map((opt) => ({
-							value: opt.value,
-							text: opt.name,
-						}))}
-						selected={item.properties.value}
-						onChange={(value) => {
-							item.properties.value = value;
-							setItem(item);
-						}}
-					/>
-				</>
-			)}
+			{item.properties.value.valueType == "select" &&
+				item.properties.property && (
+					<>
+						<p>{itemPropsDesc.value.label}</p>
+						<DisplayItemPropertyValueSelect
+							displayItemId={item.properties.item}
+							property={item.properties.property}
+							selectedValue={item.properties.value.value}
+							onChange={(value) => {
+								item.properties.value = {
+									type: "value",
+                                    valueType: "select",
+									value: value,
+								};
+								setItem(item);
+							}}
+						/>
+					</>
+				)}
 
-			{property && property?.type != "select" && displayItem && (
-				<>
-					<p>{itemPropsDesc.value.label}</p>
-					<input
-						type={property.type}
-						value={(item.properties.value ??= "")}
-						onChange={(e) => {
-							item.properties.value = e.target.value;
-							setItem(item);
-						}}
-					/>
-				</>
-			)}
+			{item.properties.value.valueType != "select" &&
+				item.properties.property && (
+                    <CodeItemChildren 
+                        item={item}
+                        propName="value"
+                        setItem={setItem}
+                    />
+				)}
 		</>
 	);
 };

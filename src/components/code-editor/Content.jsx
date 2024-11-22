@@ -2,13 +2,11 @@ import { Rnd } from "react-rnd";
 import "./Content.css";
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
-import { EditorContext } from "../../context/editorContext";
 import { codeItemsTypes } from "../../code/itemsTypes";
 
 const CodeEditorContent = () => {
 	const { codeItems, moveItem, removeItem, setItem, selectedFunc } =
 		useContext(CodeContext);
-	const { displayItems } = useContext(EditorContext);
 	const ITEM_HEIGHT = 50;
 
 	return (
@@ -80,7 +78,6 @@ const CodeEditorContent = () => {
 								{codeItemsTypes[item.name].children(
 									item,
 									setItem,
-									displayItems
 								)}
 							</div>
 						</Rnd>
