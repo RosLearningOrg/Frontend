@@ -23,13 +23,13 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <a href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
+            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
                 <div class="course-item-info">
                     <p class="course-item-title">${item.title}</p>
                     <p class="hint course-item-desc">${item.description}</p>
                 </div>
                  <p class="course-item-stats">2 / 15</p>
-            </daiv>
+            </div>
         `;
 	}    
     contentContainer.innerHTML = content;
