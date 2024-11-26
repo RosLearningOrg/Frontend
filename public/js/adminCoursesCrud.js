@@ -2,27 +2,27 @@ import { API_URL, logout, getCSRF } from "/js/main.js";
 import { getAllCourses } from "/js/adminCourses.js";
 import { closeAddPopup, closeDeletePopup, closeEditPopup } from "/js/adminCoursesPopups.js";
 
-// const addNewCourse = async (name,desc) => {
-//     const csrf = await getCSRF();
-// 	const init = {
-// 		method: "POST",
-//         credentials: "include",
-//         headers: {
-// 			"Content-Type": "application/json",
-// 			"X-CSRF-TOKEN": csrf,
-// 		},
-//         body: JSON.stringify({
-//             title: name,
-//             description: desc,
-//         }),
-// 	};
+const addNewCourse = async (name,desc) => {
+    const csrf = await getCSRF();
+	const init = {
+		method: "POST",
+        credentials: "include",
+        headers: {
+			"Content-Type": "application/json",
+			"X-CSRF-TOKEN": csrf,
+		},
+        body: JSON.stringify({
+            title: name,
+            description: desc,
+        }),
+	};
 
-// 	try {
-// 		await fetch(API_URL + "/admin/createCourse", init);
-// 	} catch {
-// 		logout();
-// 	}
-// };
+	try {
+		await fetch(API_URL + "/admin/createCourse", init);
+	} catch {
+		logout();
+	}
+};
 
 const editCourse = async (name,desc,courseId) => {
     const csrf = await getCSRF();
@@ -53,9 +53,7 @@ const deleteCourse = async (courseId) => {
     };
 
     try {
-        const resp = await fetch(API_URL + `/admin/deleteCourse?course_id=${courseId}`, init);
-        const data = await resp.json();
-        setContent(data);
+        await fetch(API_URL + `/admin/deleteCourse?course_id=${courseId}`, init);
     } catch {
         logout();
     }
@@ -77,8 +75,6 @@ addCourseBtn.addEventListener("click", async () => {
 deleteCourseBtn.addEventListener("click", async () => {
 	await deleteCourse(sessionStorage.getItem("course_id"));
 	sessionStorage.removeItem("course_id");
-	sessionStorage.removeItem("course_desc");
-	sessionStorage.removeItem("course_title");
 	await getAllCourses();
 	closeDeletePopup();
 })

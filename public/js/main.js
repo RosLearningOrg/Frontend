@@ -44,3 +44,18 @@ export const logout = async () => {
 		return null;
 	}
 };
+
+export const genCourse = async (name) => {
+	const init = {
+		method: "GET",
+		credentials: "include",
+	};
+
+	try {
+        const resp = await fetch(`http://localhost:8080/generateData?course_name=${name}`, init);
+		const data = await resp.json();
+		return data;
+	} catch {
+		return null;
+	}
+}

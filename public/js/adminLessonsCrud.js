@@ -53,9 +53,7 @@ const deleteLesson = async (courseId,themeId) => {
     };
 
     try { 	
-        const resp = await fetch(API_URL + `/admin/removeCourseThemes?course_id=${courseId}&theme_id=${themeId}`, init);
-        const data = await resp.json();
-        setContent(data);
+        await fetch(API_URL + `/admin/removeCourseThemes?course_id=${courseId}&theme_id=${themeId}`, init);
     } catch {
         logout();
     }
@@ -77,8 +75,6 @@ addLessonBtn.addEventListener("click", async () => {
 deleteLessonBtn.addEventListener("click", async () => {
 	await deleteLesson(sessionStorage.getItem("course_id"), sessionStorage.getItem("lesson_id"));
 	sessionStorage.removeItem("lesson_id");
-	sessionStorage.removeItem("lesson_desc");
-	sessionStorage.removeItem("lesson_title");
 	await getLessons();
 	closeDeletePopup();
 })
