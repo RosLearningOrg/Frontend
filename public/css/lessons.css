@@ -85,3 +85,7 @@
 .back_popup-image:hover {
     background: var(--primary-surface-color);
 }
+
+.lesson-item-materials-icon:hover {
+    background: var(--primary-color);
+}

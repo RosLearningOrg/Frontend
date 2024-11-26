@@ -50,6 +50,14 @@ document.addEventListener("click", (e) => {
     }
 });
 
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".manage-materials-btn")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-materials.html";
+    }
+});
+
 (async () => {
     if(sessionStorage.getItem("course_id")==undefined || sessionStorage.getItem("course_title")==undefined || sessionStorage.getItem("course_desc")==undefined) {
         window.location.href = window.location.origin + "/admin-courses.html";
