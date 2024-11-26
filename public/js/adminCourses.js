@@ -103,6 +103,14 @@ document.addEventListener("click", (e) => {
 	}
 });
 
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".manage-materials-btn")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-materials.html";
+    }
+});
+
 (async () => {
 	await getAllCourses();
 })();
