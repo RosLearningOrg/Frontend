@@ -25,3 +25,50 @@
     height: 80%;
     width: 50%;
 }
+
+.popup-container-description {
+    color: var(--tonal-fg-color);
+    font-size: 12px;
+}
+
+.task-item-container:hover {
+    background: var(--primary-surface-color);
+}
+
+.material-open-btn {
+    cursor: pointer;
+}
+
+.popup-header-title-left {
+    display: flex;
+    gap: 8px;
+}
+
+.back_popup-image {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.back_popup-image:hover {
+    background: var(--primary-surface-color);
+}
+
+.material-popup-container-select {
+    width: 750px;
+}
+
+.text-box-select {
+    cursor: pointer;
+}
+
+.text-box-select:hover {
+    background: var(--primary-surface-color);
+}
+
+.popup-select-materials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

@@ -49,3 +49,39 @@
     color: var(--tonal-fg-color);
     font-size: 12px;
 }
+
+.lesson-item-container:hover {
+    background: var(--primary-surface-color);
+}
+
+.popup-header-title-left {
+    display: flex;
+    gap: 8px;
+}
+
+.material-popup-container-select {
+    width: 750px;
+}
+
+.popup-select-materials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.text-box-select {
+    cursor: pointer;
+}
+
+.text-box-select:hover {
+    background: var(--primary-surface-color);
+}
+
+.back_popup-image {
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.back_popup-image:hover {
+    background: var(--primary-surface-color);
+}

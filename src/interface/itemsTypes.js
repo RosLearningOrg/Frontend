@@ -2,9 +2,9 @@ import * as Button from "./items/button";
 import * as Indicator from "./items/indicator";
 import * as TextBox from "./items/textBox";
 
-export const interfaceItemsTypes = [
-    {
-        name: "Кнопка",
+export const interfaceItemsTypes = {
+    button: {
+        title: "Кнопка",
         type: "interactive",
         children: Button.children,
         defaultWidth: 100,
@@ -12,8 +12,8 @@ export const interfaceItemsTypes = [
         description: "Простой элемент интерфейса, служит для выполнения некоторых действий по нажатию на него",
         properties: {}
     },
-    {
-        name: "Индикатор",
+    indicator: {
+        title: "Индикатор",
         type: "display",
         children: Indicator.children,
         defaultWidth: 50,
@@ -37,8 +37,8 @@ export const interfaceItemsTypes = [
             }
         }
     },
-    {
-        name: "Текстовое поле",
+    textfield: {
+        title: "Текстовое поле",
         type: "display",
         children: TextBox.children,
         defaultWidth: 100,
@@ -76,5 +76,5 @@ export const interfaceItemsTypes = [
             }
         }
     },
-]
+}
 

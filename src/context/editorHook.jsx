@@ -3,6 +3,8 @@ import { useState } from "react";
 function useEditor(display, interactive) {
 	const [interactiveItems, setInteractiveItems] = useState(display);
 	const [displayItems, setDisplayItems] = useState(interactive);
+    const [savingCode, setSavingCode] = useState(false);
+    const [savingInterface, setSavingInterface] = useState(false);
 
 	const addDisplayItem = (item) => {
 		setDisplayItems((prev) => [
@@ -49,6 +51,10 @@ function useEditor(display, interactive) {
 	};
 
 	return {
+        savingCode,
+        setSavingCode,
+        savingInterface,
+        setSavingInterface,
 		interactiveItems,
 		setInteractiveItems,
 		displayItems,

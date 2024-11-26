@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="css/popups.css" />
 		<link rel="stylesheet" href="css/tasks.css" />
 		<script defer src="./js/tasksPopups.js"></script>
+		<script src="js/auth.js" type="module"></script>
+    	<script defer src="js/tasks.js" type="module"></script>
 	</head>
 	<body>
 		<div class="page">
@@ -25,24 +27,24 @@
 						<p class="progress-container-score">2 / 10</p>
 					</div>
 					<div class="sidebar-info-box">
-						<h2 class="sidebar-info-box-title">Название курса</h2>
-						<p class="sidebar-info-box-desc hint">
+						<h2 class="sidebar-info-box-title course-title">Название курса</h2>
+						<p class="sidebar-info-box-desc hint course-desc">
 							Описание курса многа текста про то какой же он
 							классный и че в нем делать надо
 						</p>
 					</div>
 					<div class="sidebar-info-box">
-						<h2 class="sidebar-info-box-title">Название урока</h2>
-						<p class="sidebar-info-box-desc hint">
+						<h2 class="sidebar-info-box-title lesson-title">Название урока</h2>
+						<p class="sidebar-info-box-desc hint lesson-desc">
 							Описание урока многа текста про то какой же он
 							классный и че в нем делать надо
 						</p>
 					</div>
 					<div class="sidebar-links">
-						<a class="material-open-btn" draggable="false">Материал урока</a>
+						<a class="material-open-btn" draggable="false">Материалы урока</a>
 						<a href="#" draggable="false">Условия использования</a>
 						<a href="#" draggable="false">Написать в поддержку</a>
-						<a href="#" draggable="false">Выйти из профиля</a>
+						<a href="#" draggable="false" class="sidebar-links-logout">Выйти из профиля</a>
 					</div>
 				</div>
 			</aside>
@@ -55,22 +57,7 @@
 					>
 				</div>
 				<div class="main-content main-content-grid">
-					<div class="task-item-container">
-                        <p class="task-item-name">Название</p>
-                        <p class="task-item-desc hint">
-                            Небольшое описание курса буквально в одну строку
-                            типа таво
-                        </p>
-                        <div class="task-item-status" data-variant="completed">Успешно пройдено</div>
-					</div>
-					<div class="task-item-container">
-                        <p class="task-item-name">Название</p>
-                        <p class="task-item-desc hint">
-                            Небольшое описание курса буквально в одну строку
-                            типа таво
-                        </p>
-                        <div class="task-item-status" data-variant="uncompleted">Успешно пройдено</div>
-					</div>
+					
 				</div>
 			</main>
 		</div>
@@ -81,33 +68,8 @@
 					<p class="popup-header-title">Название задачи</p>
 					<p class="popup-header-subtitle">Текст задания</p>
 				</div>
-				<div class="text-box">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Suspendisse ac risus at risus fermentum blandit vitae at
-					just o. Praesent laoreet magna ante, facilisis vulputate
-					tortor tristique molestie. Integer a mauris ultricies magna
-					lobortis fringilla vel alis vel ligula. Phasellus congue
-					purus ac libero molestie, sagittis scelerisque nisi gravida.
-					Sed ligula nisl, hendrerit et cursus ac, que egestas nisl.
-					Nulla facilisi. Praesent vitae posuere magna, feugiat
-					placerat tortor. Etiam viverra ultricies risus, eu tristique
-					lorem feugtristique fel spendisse at auctor ligula. Mauris
-					in tempus ligula, sodales viverra ex. Etiam tempor lectus et
-					sapien finibus, in finibus lect us placerat. Vestibulum id
-					diam a ipsum posuere cursus. Pellentesque habitant morbi
-					tristique senectus e or.psum dolor sit amet, consectetur
-					adipiscing elit. Suspendisse ac risus at risus fermentum
-					blandit vitae at justo. aoreet magna ante, facilisis
-					vulputate tortor tristique molestie. Integer a mauris
-					ultricies magna lobortis a dolor. Integer qhasellus conet
-					condimentum tortor pellentesque. Pellentesque tincidunt
-					rutrum fringilla. justo, mattis placerat porta nec,
-					ullamcorper vitae quam. Sed at pharetra mauris. Integer
-					aliquam augue id magna commodo, ac convallis metus suscipit.
-					Donec fringilla ex leo. Suspendisse at auctor ligula. Mauris
-					in tempus ligula, sodales viverra ex. Etiam tempor lectus et
-					sapien finibus, in finibus lectus placerat. Vestibulum id
-					diam a ipsum posuere cursus. Pellentesque habitant.
+				<div class="text-box task-text-content">
+					
 				</div>
 				<div class="popup-footer">
 					<button class="task-close-btn" data-variant="tonal">
@@ -119,43 +81,38 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="popup-tint popup-tint-hidden material-popup-tint">
-			<div class="popup-container material-popup-container">
+			
+		<div class="popup-tint popup-tint-hidden material-popup-tint-select">
+			<div class="popup-container material-popup-container-select">
 				<div class="popup-header">
-					<p class="popup-header-title">Название урока</p>
+					<p class="popup-header-title popup-lesson-title">Название урока</p>
 					<p class="popup-header-subtitle">Справочные материалы</p>
 				</div>
-				<div class="text-box">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Suspendisse ac risus at risus fermentum blandit vitae at
-					just o. Praesent laoreet magna ante, facilisis vulputate
-					tortor tristique molestie. Integer a mauris ultricies magna
-					lobortis fringilla vel alis vel ligula. Phasellus congue
-					purus ac libero molestie, sagittis scelerisque nisi gravida.
-					Sed ligula nisl, hendrerit et cursus ac, que egestas nisl.
-					Nulla facilisi. Praesent vitae posuere magna, feugiat
-					placerat tortor. Etiam viverra ultricies risus, eu tristique
-					lorem feugtristique fel spendisse at auctor ligula. Mauris
-					in tempus ligula, sodales viverra ex. Etiam tempor lectus et
-					sapien finibus, in finibus lect us placerat. Vestibulum id
-					diam a ipsum posuere cursus. Pellentesque habitant morbi
-					tristique senectus e or.psum dolor sit amet, consectetur
-					adipiscing elit. Suspendisse ac risus at risus fermentum
-					blandit vitae at justo. aoreet magna ante, facilisis
-					vulputate tortor tristique molestie. Integer a mauris
-					ultricies magna lobortis a dolor. Integer qhasellus conet
-					condimentum tortor pellentesque. Pellentesque tincidunt
-					rutrum fringilla. justo, mattis placerat porta nec,
-					ullamcorper vitae quam. Sed at pharetra mauris. Integer
-					aliquam augue id magna commodo, ac convallis metus suscipit.
-					Donec fringilla ex leo. Suspendisse at auctor ligula. Mauris
-					in tempus ligula, sodales viverra ex. Etiam tempor lectus et
-					sapien finibus, in finibus lectus placerat. Vestibulum id
-					diam a ipsum posuere cursus. Pellentesque habitant.
+				<div class="popup-select-materials">
+					
 				</div>
 				<div class="popup-footer">
 					<button class="material-close-btn" data-variant="primary">
+						Закрыть
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="popup-tint popup-tint-hidden material-popup-tint">
+			<div class="popup-container material-popup-container">
+				<div class="popup-header">
+					<div class="popup-header-title-left">
+						<img src="images/back_popup.svg" class="back_popup-image" alt="">
+						<p class="popup-header-title popup-lesson-title-selected">Название урока</p>
+					</div>
+					<p class="popup-header-subtitle">Справочные материалы</p>
+				</div>
+				<div class="text-box material-text-popup">
+					
+				</div>
+				<div class="popup-footer">
+					<button class="material-close-btn-end" data-variant="primary">
 						Закрыть
 					</button>
 				</div>

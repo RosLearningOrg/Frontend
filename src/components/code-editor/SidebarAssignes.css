@@ -1,0 +1,8 @@
+.code-sidebar-assign-item {
+    border-radius: 4px;
+    background: var(--surface-color);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

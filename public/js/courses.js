@@ -1,4 +1,4 @@
-import { API_URL } from "/js/main.js";
+import { API_URL, logout } from "/js/main.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
@@ -31,8 +31,9 @@ const setContent = (data) => {
                  <p class="course-item-stats">2 / 15</p>
             </div>
         `;
-	}
-	contentContainer.innerHTML = content;
+	}    
+    contentContainer.innerHTML = content;
+    
 };
 
 document.addEventListener("click", (e) => {
@@ -41,7 +42,23 @@ document.addEventListener("click", (e) => {
     if (courseItem) {
         const id = courseItem.getAttribute("data-course-id")
         sessionStorage.setItem("course_id", id)
+
+        const courseTitle = courseItem.getElementsByClassName("course-item-title")[0].innerText;
+        sessionStorage.setItem("course_title", courseTitle);
+
+        const courseDescription = courseItem.getElementsByClassName("course-item-desc")[0].innerText;
+        sessionStorage.setItem("course_description", courseDescription);
+        
 		window.location.href = window.location.origin + "/lessons.html";
+    }
+});
+
+document.addEventListener("click", (e) => {
+    const logoutDiv = e.target.closest(".sidebar-links-logout");
+
+    if (logoutDiv) {
+        logout();
+        window.location.href = window.location.origin + "/login.html";
     }
 });
 

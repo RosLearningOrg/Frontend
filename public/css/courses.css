@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 16px;
+    cursor: pointer;
 }
 
 .course-item-info {
@@ -24,4 +25,8 @@
 
 .course-item-title {
     font-size: 16px;
+}
+
+.course-item-container:hover {
+    background: var(--primary-surface-color);
 }
