@@ -6,6 +6,7 @@ const materialPopup = document.querySelector(".material-popup-tint");
 const materialCloseBtnEnd = document.querySelector(".material-close-btn-end");
 const backButton = document.querySelector(".back_popup-image");
 var themeDiv;
+var materialJSON;
 
 materialCloseBtn.addEventListener("click", closeMaterialSelectPopup);
 materialCloseBtnEnd.addEventListener("click", closeMaterialPopup);
@@ -18,8 +19,11 @@ materialPopup.addEventListener("click", (e) =>{
 	if (e.target.classList.contains("material-popup-tint")) closeMaterialPopup();
 });
 
-export function showMaterialSelectPopup(theme_id) {
+export function showMaterialSelectPopup(theme_id, theme_name) {
 	materialPopupTint.classList.remove("popup-tint-hidden");
+	const title = document.querySelector(".popup-lesson-title");
+	title.innerHTML = theme_name
+	
 	if (!themeDiv) {
 	const popupContainer = document.getElementsByClassName("popup-select-materials")[0];
 
@@ -33,6 +37,7 @@ export function showMaterialSelectPopup(theme_id) {
 			const resp = await fetch(API_URL + `/user/getThemeMaterials?course_id=${sessionStorage.getItem("course_id")}&theme_id=${theme_id}`, init)
 			const data = await resp.json();
 			setContent(data);
+			materialJSON = data;
 		} catch {
 			return null;
 		}
