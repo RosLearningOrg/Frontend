@@ -7,6 +7,7 @@ const materialPopupCloseBtn = document.querySelector(".material-close-btn");
 const materialOpenBtn = document.querySelector(".material-open-btn");
 var selectButton;
 var themeDiv;
+var materialJSON;
 const materialPopupTint = document.querySelector(".material-popup-tint");
 const backButton = document.querySelector(".back_popup-image");
 const materialCloseButton = document.querySelector(".material-close-btn-end");
@@ -51,7 +52,7 @@ function showTaskPopup() {
 	const taskTitleDiv = document.getElementsByClassName("popup-header-title")[0];
 	taskTitleDiv.innerHTML = taskTitle;
 
-	const taskDescDiv = document.getElementsByClassName("popup-container-description")[0];
+	const taskDescDiv = document.getElementsByClassName("task-text-content")[0];
 	taskDescDiv.innerHTML = taskDescription;
 }
 
@@ -74,6 +75,8 @@ function showMaterialSelectPopup() {
 		try { 
 			const resp = await fetch(API_URL + `/user/getThemeMaterials?course_id=${sessionStorage.getItem("course_id")}&theme_id=${sessionStorage.getItem("lesson_id")}`, init)
 			const data = await resp.json();
+			materialJSON = data;
+			console.log(materialJSON);
 			setContent(data);
 		} catch {
 			return null;
@@ -116,7 +119,18 @@ function closeMaterialSelectPopup() {
 function showMaterialPopup() {
 	materialPopupTint.classList.remove("popup-tint-hidden");
 	const lessonTitle = document.querySelector(".popup-lesson-title-selected");
-	lessonTitle.innerHTML = themeDiv.innerHTML;	
+	const materialtext = document.querySelector(".material-text-popup");
+	lessonTitle.innerHTML = themeDiv.innerHTML;
+
+	const materialID = themeDiv.getAttribute("data-material-id");
+
+	for (let material of materialJSON) {
+		if (material.id == materialID) {
+			materialtext.innerHTML = material.materialTextMD;
+			break;
+		}
+	}
+
 }
 
 function closeMaterialPopup() {

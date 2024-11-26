@@ -48,6 +48,7 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .back_popup-image:hover {

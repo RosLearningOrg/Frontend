@@ -167,3 +167,14 @@
 .lesson-item-container {
     cursor: pointer;
 }
+
+.lesson-item-stats, .course-item-stats {
+    width: 75px;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+}
+
+.lesson-item-desc, .course-item-desc {
+    width: 457px;
+}
