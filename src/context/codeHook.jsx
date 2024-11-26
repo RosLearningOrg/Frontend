@@ -10,6 +10,7 @@ function useCode(items, vars) {
 
 	useEffect(() => {
 		console.log(codeItems);
+        console.log(variables)
 		return setSavingCode(false);
 	}, [savingCode]);
 
