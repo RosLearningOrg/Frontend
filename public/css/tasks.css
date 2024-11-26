@@ -31,10 +31,6 @@
     font-size: 12px;
 }
 
-.task-item-container:hover {
-    background: var(--primary-surface-color);
-}
-
 .material-open-btn {
     cursor: pointer;
 }
@@ -61,10 +57,6 @@
 
 .text-box-select {
     cursor: pointer;
-}
-
-.text-box-select:hover {
-    background: var(--primary-surface-color);
 }
 
 .popup-select-materials {

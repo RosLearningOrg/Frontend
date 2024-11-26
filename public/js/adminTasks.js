@@ -24,7 +24,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
         content += `             
-                <div class="task-item-container" data-task-id=${item.id}>
+                <div class="task-item-container hoverable" data-task-id=${item.id}>
                     <p class="task-item-name">${item.title}</p>
                     <p class="task-item-desc hint">${item.description}</p>
                     <div class="icon-buttons ">

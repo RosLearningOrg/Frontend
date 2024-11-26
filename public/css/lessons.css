@@ -50,10 +50,6 @@
     font-size: 12px;
 }
 
-.lesson-item-container:hover {
-    background: var(--primary-surface-color);
-}
-
 .popup-header-title-left {
     display: flex;
     gap: 8px;
@@ -73,10 +69,6 @@
     cursor: pointer;
 }
 
-.text-box-select:hover {
-    background: var(--primary-surface-color);
-}
-
 .back_popup-image {
     cursor: pointer;
     border-radius: 50%;
@@ -84,8 +76,4 @@
 
 .back_popup-image:hover {
     background: var(--primary-surface-color);
-}
-
-.lesson-item-materials-icon:hover {
-    background: var(--primary-color);
 }
