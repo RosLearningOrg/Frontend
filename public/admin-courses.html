@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-courses.css">
     <script src="js/auth.js" type="module"></script>
-    <script defer src="js/adminCourses.js" type="module"></script>
+    
     <script defer src="js/adminCoursesPopups.js" type="module"></script>
-    <!-- <script defer src="js/adminCoursesCrud.js" type="module"></script> -->
+    <script defer src="js/adminCoursesCrud.js" type="module"></script>
+    <script defer src="js/adminCourses.js" type="module"></script>
     <title>Document</title>
 </head>
 <body>
@@ -78,12 +79,12 @@
                 <p class="popup-header-title">Изменить курс</p>
             </div>
 
-            <input type="text" placeholder="Название">
-            <input type="text" placeholder="Описание">
+            <input class="edit-course-popup-input-name" type="text" placeholder="Название">
+            <input class="edit-course-popup-input-desc" type="text" placeholder="Описание">
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
-                <button data-variant="primary">Сохранить</button>
+                <button class="close-edit-course-popup-btn" data-variant="tonal">Отмена</button>
+                <button class="edit-course-popup-btn" data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>
@@ -98,10 +99,11 @@
             <p class="hint">Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
 
             <div class="popup-footer">
-                <button data-variant="tonal">Отмена</button>
-                <button data-variant="primary">Сохранить</button>
+                <button class="close-delete-course-popup-btn" data-variant="tonal">Отмена</button>
+                <button class="delete-course-popup-btn" data-variant="primary">Удалить</button>
             </div>
         </div>
     </div>  
 </body>
 </html>
+

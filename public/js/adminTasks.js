@@ -1,8 +1,9 @@
 import { API_URL, logout } from "/js/main.js";
+import { showEditTaskPopup, showDeleteTaskPopup } from "/js/adminTasksPopups.js";
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
-const getTasks = async () => {
+export const getTasks = async () => {
 	const init = {
 		method: "GET",
 		credentials: "include",
@@ -26,11 +27,11 @@ const setContent = (data) => {
                 <div class="task-item-container" data-task-id=${item.id}>
                     <p class="task-item-name">${item.title}</p>
                     <p class="task-item-desc hint">${item.description}</p>
-                    <div class="icon-buttons">
-                        <div class="icon-container">
+                    <div class="icon-buttons ">
+                        <div class="icon-container edit-task-btn">
                             <img src="images/edit.svg" alt="">
                         </div>
-                        <div class="icon-container">
+                        <div class="icon-container delete-task-btn">
                             <img src="images/delete.svg" alt="">
                         </div>
                     </div>
@@ -41,11 +42,28 @@ const setContent = (data) => {
 };
 
 document.addEventListener("click", (e) => {
-    const lessonItem = e.target.closest(".lesson-item-container");
-
-    if (lessonItem) {
-        const id = lessonItem.getAttribute("data-lesson-id")
-        sessionStorage.setItem("lesson_id", id)
+    const taskItem = e.target.closest(".task-item-container");
+    const taskEdit = e.target.closest(".edit-task-btn");
+    const taskDelete = e.target.closest(".delete-task-btn");
+    if(taskEdit){  
+        const id = taskItem.getAttribute("data-task-id")
+        const title = taskItem.getElementsByClassName("task-item-name")[0].childNodes[0].data;
+        const desc = taskItem.getElementsByClassName("task-item-desc")[0].childNodes[0].data;
+        document.querySelector(".edit-task-popup-input-name").value = title;
+        document.querySelector(".edit-task-popup-input-desc").value = desc;
+        showEditTaskPopup();
+        sessionStorage.setItem("task_id", id)
+        return;
+    }
+    if(taskDelete){
+        showDeleteTaskPopup();
+        const id = taskItem.getAttribute("data-task-id")
+        sessionStorage.setItem("task_id", id)
+        return;
+    }
+    if (taskItem) {
+        const id = taskItem.getAttribute("data-task-id")
+        sessionStorage.setItem("task_id", id)
 		window.location.href = window.location.origin + "/admin-tasks.html";
     }
 });
