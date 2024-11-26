@@ -11,6 +11,7 @@
     <script src="js/auth.js" type="module"></script>
 
     <script defer src="js/adminTasksPopups.js" type="module"></script>
+    <script defer src="js/adminTaskCrud.js" type="module"></script>
     <script defer src="js/adminTasks.js" type="module"></script>
     
 </head>
@@ -85,12 +86,12 @@
             <div class="popup-header">
                 <p class="popup-header-title">Изменить задачу</p>
             </div>
-            <input type="text" placeholder="Название">
+            <input type="text" class="edit-task-popup-input-name" placeholder="Название">
             <input type="text" class="edit-task-popup-input-desc" placeholder="Описание">
             <textarea class="edit-task-popup-textarea" placeholder="Текст задания"></textarea>
             <div class="popup-footer">
                 <button data-variant="tonal" class="close-edit-task-popup-btn">Отмена</button>
-                <button data-variant="primary" class="edit-task-popup-create-btn">Создать</button>
+                <button data-variant="primary" class="edit-task-popup-create-btn">Сохранить</button>
             </div>
         </div>
     </div>

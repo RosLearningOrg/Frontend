@@ -11,6 +11,7 @@
     <script src="js/auth.js" type="module"></script>
     
     <script defer src="js/adminLessonsPopups.js" type="module"></script>
+    <script defer src="js/adminLessonsCrud.js" type="module"></script>
     <script defer src="js/adminLessons.js" type="module"></script>
 </head>
 <body>
@@ -65,8 +66,8 @@
             <div class="popup-header">
                 <p class="popup-header-title">Новый урок</p>
             </div>
-            <input type="text" placeholder="Название">
-            <input type="text" class="add-lesson-popup-textarea" placeholder="Описание">
+            <input type="text" class="add-lesson-popup-input-name" placeholder="Название">
+            <input type="text" class="add-lesson-popup-textarea add-lesson-popup-input-desc" placeholder="Описание">
             <div class="popup-footer">
                 <button data-variant="tonal" class="close-add-lesson-popup-btn">Отмена</button>
                 <button data-variant="primary" class="add-lesson-popup-create-btn">Создать</button>
@@ -81,12 +82,12 @@
                 <p class="popup-header-title">Изменить урок</p>
             </div>
 
-            <input type="text" placeholder="Название">
-            <input type="text" placeholder="Описание">
+            <input type="text" class="edit-lesson-popup-input-name" placeholder="Название">
+            <input type="text" class="edit-lesson-popup-input-desc" placeholder="Описание">
 
             <div class="popup-footer">
                 <button class="close-edit-lesson-popup-btn" data-variant="tonal">Отмена</button>
-                <button data-variant="primary">Сохранить</button>
+                <button class="edit-lesson-popup-btn" data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>
@@ -102,7 +103,7 @@
 
             <div class="popup-footer">
                 <button class="close-delete-lesson-popup-btn" data-variant="tonal">Отмена</button>
-                <button data-variant="primary">Сохранить</button>
+                <button class="delete-lesson-popup-btn" data-variant="primary">Удалить</button>
             </div>
         </div>
     </div>  

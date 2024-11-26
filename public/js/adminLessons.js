@@ -3,7 +3,7 @@ import { showEditLessonPopup, showDeleteLessonPopup } from "/js/adminLessonsPopu
 
 const contentContainer = document.getElementsByClassName("main-content")[0];
 
-const getLessons = async () => {
+export const getLessons = async () => {
 	const init = {
 		method: "GET",
 		credentials: "include",
@@ -57,9 +57,15 @@ document.addEventListener("click", (e) => {
     const lessonDelete = e.target.closest(".delete-lesson-btn");
     
     if(lessonEdit){
-        showEditLessonPopup();
         const id = lessonItem.getAttribute("data-lesson-id")
+        const title = lessonItem.getElementsByClassName("lesson-item-title")[0].childNodes[0].data;
+        const desc = lessonItem.getElementsByClassName("lesson-item-desc")[0].childNodes[0].data;
+        document.querySelector(".edit-lesson-popup-input-name").value = title;
+        document.querySelector(".edit-lesson-popup-input-desc").value = desc;
         sessionStorage.setItem("lesson_id", id)
+        showEditLessonPopup();
+        
+        
         return;
     }
     if(lessonDelete){

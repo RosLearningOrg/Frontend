@@ -31,7 +31,7 @@ deleteCourseTint.addEventListener("click", (e) => {
 
 
 
-function showAddCoursePopup() {
+export function showAddCoursePopup() {
     addCourseTint.classList.remove("popup-tint-hidden");
 }
 
@@ -43,7 +43,7 @@ export function showEditCoursePopup() {
     editCourseTint.classList.remove("popup-tint-hidden");
 }
 
-function closeEditPopup() {
+export function closeEditPopup() {
     editCourseTint.classList.add("popup-tint-hidden");
 }
 
@@ -51,7 +51,7 @@ export function showDeleteCoursePopup() {
     deleteCourseTint.classList.remove("popup-tint-hidden");
 }
 
-function closeDeletePopup() {
+export function closeDeletePopup() {
     deleteCourseTint.classList.add("popup-tint-hidden");
 }
 

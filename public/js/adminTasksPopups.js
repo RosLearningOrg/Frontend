@@ -35,7 +35,7 @@ function showAddTaskPopup() {
     addTaskTint.classList.remove("popup-tint-hidden");
 }
 
-function closeAddPopup() {
+export function closeAddPopup() {
     addTaskTint.classList.add("popup-tint-hidden");
 }
 
@@ -43,7 +43,7 @@ export function showEditTaskPopup() {
     editTaskTint.classList.remove("popup-tint-hidden");
 }
 
-function closeEditPopup() {
+export function closeEditPopup() {
     editTaskTint.classList.add("popup-tint-hidden");
 }
 
@@ -51,6 +51,6 @@ export function showDeleteTaskPopup() {
     deleteTaskTint.classList.remove("popup-tint-hidden");
 }
 
-function closeDeletePopup() {
+export function closeDeletePopup() {
     deleteTaskTint.classList.add("popup-tint-hidden");
 }
