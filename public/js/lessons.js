@@ -40,8 +40,8 @@ const setContent = (data) => {
                 <div class="icon-container open-materials-btn">
                     <img class="lesson-item-materials-icon" src="./images/info.svg" alt="">
                 </div>
-                <p class="lesson-item-stats">2 / 15</p>
-            </div>
+                    <p class="lesson-item-stats">2 / 15</p>
+                </div>
         `;
 	}
 	contentContainer.innerHTML = content;
