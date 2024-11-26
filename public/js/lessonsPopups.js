@@ -78,7 +78,17 @@ export function showMaterialSelectPopup(theme_id, theme_name) {
 function showMaterialPopup() {
 	materialPopup.classList.remove("popup-tint-hidden");
 	const lessonTitle = document.querySelector(".popup-lesson-title-selected");
-	lessonTitle.innerHTML = themeDiv.innerHTML;	
+	lessonTitle.innerHTML = themeDiv.innerHTML;
+
+	const lessonBody = document.querySelector(".lesson-material-content");
+	const materialID = themeDiv.getAttribute("data-material-id");
+
+	console.log(materialJSON);
+	for (let material of materialJSON) {
+		if (material.id == materialID) {
+			lessonBody.innerHTML = material.materialTextMD;
+		}
+	}
 }
 
 function closeMaterialPopup() {
