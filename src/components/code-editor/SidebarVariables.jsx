@@ -51,7 +51,7 @@ const SidebarVariables = () => {
 						className="close-creating-var"
 					/>
 					<p>Название переменной</p>
-					<input type="text" ref={varNameInput} />
+					<input type="text" ref={varNameInput} defaultValue=""/>
 					<button
 						data-variant="primary"
 						onClick={() => {

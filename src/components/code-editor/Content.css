@@ -4,7 +4,7 @@
     position: relative;
     padding: 10px 10px 0;
     box-sizing: border-box;
-    width: 100%;
+    width: fit-content;
 }
 
 .code-item-inner {
@@ -12,20 +12,71 @@
     height: 100%;
     display: flex;
     padding: 0 16px;
-    gap: 16px;
+    gap: 10px;
     align-items: center;
     border-radius: 4px;
     background: var(--bg-color);
     box-sizing: border-box;
+    border: 1px solid var(--outline-color);
+}
+
+.code-item-children {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    padding: 0 10px;
+    border-left: 1px solid var(--outline-color);
+    border-right: 1px solid var(--outline-color);
+}
+
+.code-item-children button {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    border-radius: 4px;
+}
+
+.code-item-children button:hover {
+    background: var(--surface-color);
+}
+
+.code-item-children input,
+.code-item-children select {
+    width: 150px;
+}
+
+.code-item-children-slot {
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px dashed var(--error-color);
+    background: var(--error-surface-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--error-color);
+}
+
+.code-item.react-draggable-dragging,
+.react-draggable-dragging .code-item-inner {
+    transition: 0s;
+    cursor: pointer;
+    pointer-events: none;
 }
 
 .code-container {
     height: 100%;
     overflow: auto;
+    position: relative;
 }
 
 .code-container-inner {
     width: max(100%, fit-content);
+    position: relative;
 }
 
 .code-item-order {
