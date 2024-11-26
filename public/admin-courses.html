@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-courses.css">
     <script src="js/auth.js" type="module"></script>
-    
-    <script defer src="js/adminCoursesPopups.js" type="module"></script>
-    <script defer src="js/adminCoursesCrud.js" type="module"></script>
-    <script defer src="js/adminCourses.js" type="module"></script>
+    <script defer src="js/coursesAdmin.js" type="module"></script>
     <title>Document</title>
 </head>
 <body>
@@ -29,21 +26,20 @@
                 <button data-variant="primary" class="gen-course-btn">
                     Сгенерировать курс
                 </button>
-                <button data-variant="square" class="add-course-btn">
+                <button data-variant="square" class="add-course-button">
                     <img src="images/plus.svg" alt="photo">
                     <p>Создать курс</p>
                 </button>
-                <button data-variant="square" class="manage-materials-btn">
+                <button data-variant="square" class="manage-materials-button">
                     <img src="images/info.svg" alt="photo here">
                     <p>Материалы</p>
                 </button>
-                <button data-variant="square" class="view-personal-btn">
+                <button data-variant="square" class="view-personal-button">
                     <img src="images/people.svg" alt="photo">
                     <p>Персонал</p>
                 </button>
                 <div class="sidebar-links">
-                    <a href="mailto:someone@example.com" draggable="false">Написать в поддержку</a>
-                    <a href="#" draggable="false">Выйти из профиля</a>
+                    <a href="" draggable="false" class="logout-button">Выйти из профиля</a>
                 </div>
             </div>
         </aside>
@@ -65,12 +61,12 @@
                 <p class="popup-header-title">Новый курс</p>
             </div>
 
-            <input class="add-course-popup-input-name" type="text" placeholder="Название">
-            <input class="add-course-popup-input-desc" type="text" placeholder="Описание">
+            <input class="add-course-title-input" type="text" placeholder="Название">
+            <textarea class="add-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
-                <button class="close-add-course-popup-btn" data-variant="tonal">Отмена</button>
-                <button class="add-course-popup-btn" data-variant="primary">Создать</button>
+                <button class="add-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="add-course-confirm-button" type="submit" data-variant="primary">Создать</button>
             </div>
         </div>
     </div>
@@ -83,12 +79,12 @@
                 <p class="popup-header-title">Изменить курс</p>
             </div>
 
-            <input class="edit-course-popup-input-name" type="text" placeholder="Название">
-            <input class="edit-course-popup-input-desc" type="text" placeholder="Описание">
+            <input class="edit-course-title-input" type="text" placeholder="Название">
+            <textarea class="edit-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
-                <button class="close-edit-course-popup-btn" data-variant="tonal">Отмена</button>
-                <button class="edit-course-popup-btn" data-variant="primary">Сохранить</button>
+                <button class="edit-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="edit-course-confirm-button" data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>
@@ -100,11 +96,11 @@
                 <p class="popup-header-title">Удалить курс</p>
             </div>
 
-            <p class="hint">Вы уверены, что хотите удалить курс? Данное действие необратимо</p>
+            <p class="hint">Вы уверены, что хотите удалить курс <span class="delete-course-title-text"></span>? Данное действие необратимо</p>
 
             <div class="popup-footer">
-                <button class="close-delete-course-popup-btn" data-variant="tonal">Отмена</button>
-                <button class="delete-course-popup-btn" data-variant="primary">Удалить</button>
+                <button class="delete-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="delete-course-confirm-button" data-variant="primary">Удалить</button>
             </div>
         </div>
     </div>  

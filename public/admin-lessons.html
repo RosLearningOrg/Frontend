@@ -9,10 +9,7 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-lessons.css">
     <script src="js/auth.js" type="module"></script>
-    
-    <script defer src="js/adminLessonsPopups.js" type="module"></script>
-    <script defer src="js/adminLessonsCrud.js" type="module"></script>
-    <script defer src="js/adminLessons.js" type="module"></script>
+    <script defer src="js/lessonsAdmin.js" type="module"></script>
 </head>
 <body>
     <div class="page">
@@ -24,27 +21,24 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <button data-variant="square" class="add-lesson-btn">
+                <button data-variant="square" class="add-lesson-button">
                     <img src="images/plus.svg" alt="photo again">
                     <p>Создать урок</p>
                 </button>
-                <button data-variant="square" class="manage-materials-btn">
+                <button data-variant="square" class="manage-materials-button">
                     <img src="images/info.svg" alt="photo here">
                     <p>Материалы</p>
                 </button>
-                <button data-variant="square" class="view-personal-btn">
+                <button data-variant="square" class="view-personal-button">
                     <img src="images/people.svg" alt="photo here">
                     <p>Персонал</p>
                 </button>
                 <div class="sidebar-info-box">
-
-                    <h2 class="sidebar-info-box-course-name"></h2>
-                    <p class="hint sidebar-info-box-course-desc"></p>
-                    
+                    <h2 class="sidebar-course-title"></h2>
+                    <p class="hint sidebar-course-description"></p>
                 </div>
                 <div class="sidebar-links">
-                    <a href="mailto:someone@example.com" draggable="false">Написать в поддержку</a>
-                    <a href="#" draggable="false">Выйти из профиля</a>
+                    <a href="" draggable="false" class="logout-button">Выйти из профиля</a>
                 </div>
             </div>
         </aside>
@@ -65,11 +59,11 @@
             <div class="popup-header">
                 <p class="popup-header-title">Новый урок</p>
             </div>
-            <input type="text" class="add-lesson-popup-input-name" placeholder="Название">
-            <input type="text" class="add-lesson-popup-textarea add-lesson-popup-input-desc" placeholder="Описание">
+            <input type="text" class="add-lesson-title-input" placeholder="Название">
+            <textarea class="add-lesson-description-input" placeholder="Описание"></textarea>
             <div class="popup-footer">
-                <button data-variant="tonal" class="close-add-lesson-popup-btn">Отмена</button>
-                <button data-variant="primary" class="add-lesson-popup-create-btn">Создать</button>
+                <button data-variant="tonal" class="add-lesson-cancel-button">Отмена</button>
+                <button data-variant="primary" class="add-lesson-confirm-button">Создать</button>
             </div>
         </div>
     </div>
@@ -81,12 +75,12 @@
                 <p class="popup-header-title">Изменить урок</p>
             </div>
 
-            <input type="text" class="edit-lesson-popup-input-name" placeholder="Название">
-            <input type="text" class="edit-lesson-popup-input-desc" placeholder="Описание">
+            <input type="text" class="edit-lesson-title-input" placeholder="Название">
+            <input type="text" class="edit-lesson-description-input" placeholder="Описание">
 
             <div class="popup-footer">
-                <button class="close-edit-lesson-popup-btn" data-variant="tonal">Отмена</button>
-                <button class="edit-lesson-popup-btn" data-variant="primary">Сохранить</button>
+                <button class="edit-lesson-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="edit-lesson-confirm-button" data-variant="primary">Сохранить</button>
             </div>
         </div>
     </div>
@@ -98,11 +92,11 @@
                 <p class="popup-header-title">Удалить урок</p>
             </div>
 
-            <p class="hint">Вы уверены, что хотите удалить урок? Данное действие необратимо</p>
+            <p class="hint">Вы уверены, что хотите удалить урок <span class="delete-lesson-title-text"></span>? Данное действие необратимо</p>
 
             <div class="popup-footer">
-                <button class="close-delete-lesson-popup-btn" data-variant="tonal">Отмена</button>
-                <button class="delete-lesson-popup-btn" data-variant="primary">Удалить</button>
+                <button class="delete-lesson-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="delete-lesson-confirm-button" data-variant="primary">Удалить</button>
             </div>
         </div>
     </div>  

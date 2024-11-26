@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/admin-tasks.css">
     <script src="js/auth.js" type="module"></script>
-
-    <script defer src="js/adminTasksPopups.js" type="module"></script>
-    <script defer src="js/adminTaskCrud.js" type="module"></script>
-    <script defer src="js/adminTasks.js" type="module"></script>
-    
+    <script defer src="js/tasksAdmin.js" type="module"></script>
 </head>
 <body>
     <div class="page">
@@ -25,29 +21,28 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <button data-variant="square" class="add-task-btn add-button">
+                <button data-variant="square" class="add-task-button add-button">
                     <img src="images/plus.svg" alt="photo again">
                     <p>Создать задачу</p>
                 </button>
-                <button data-variant="square" class="manage-materials-btn">
+                <button data-variant="square" class="manage-materials-button">
                     <img src="images/info.svg" alt="photo here">
                     <p>Материалы</p>
                 </button>
-                <button data-variant="square" class="view-personal-btn">
+                <button data-variant="square" class="view-personal-button">
                     <img src="images/people.svg" alt="photo here">
                     <p>Персонал</p>
                 </button>
                 <div class="sidebar-info-box">
-                    <h2 class="sidebar-info-box-name"></h2>
-                    <p class="hint sidebar-info-box-desc"></p>
+                    <h2 class="sidebar-course-title"></h2>
+                    <p class="hint sidebar-course-description"></p>
                 </div>
                 <div class="sidebar-info-box">
-                    <h2 class="sidebar-lesson-info-box-name"></h2>
-                    <p class="hint sidebar-lesson-info-box-desc"></p>
+                    <h2 class="sidebar-lesson-title"></h2>
+                    <p class="hint sidebar-lesson-title"></p>
                 </div>
                 <div class="sidebar-links">
-                    <a href="mailto:someone@example.com" draggable="false">Написать в поддержку</a>
-                    <a href="#" draggable="false">Выйти из профиля</a>
+                    <a href="#" draggable="false" class="logout-button">Выйти из профиля</a>
                 </div>
             </div>
         </aside>
@@ -66,16 +61,15 @@
             <div class="popup-header">
                 <p class="popup-header-title">Новый урок</p>
             </div>
-            <input type="text" placeholder="Название">
-            <input type="text" class="add-task-popup-input-desc" placeholder="Описание">
-            <textarea class="add-task-popup-textarea" placeholder="Текст задания"></textarea>
-            <button data-variant="square" class="add-emulation-popup-btn add-button">
+            <input type="text" placeholder="Название" class="add-task-title-input">
+            <textarea class="add-task-description-input" placeholder="Текст задания"></textarea>
+            <button data-variant="square" class="add-emulation-button">
                 <img src="images/plus.svg" alt="photo again">
                 <p>Создать эмуляцию</p>
             </button>
             <div class="popup-footer">
-                <button data-variant="tonal" class="close-add-task-popup-btn">Отмена</button>
-                <button data-variant="primary" class="add-task-popup-create-btn">Создать</button>
+                <button data-variant="tonal" class="add-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="add-task-confirm-button">Создать</button>
             </div>
         </div>
     </div>
@@ -85,12 +79,11 @@
             <div class="popup-header">
                 <p class="popup-header-title">Изменить задачу</p>
             </div>
-            <input type="text" class="edit-task-popup-input-name" placeholder="Название">
-            <input type="text" class="edit-task-popup-input-desc" placeholder="Описание">
-            <textarea class="edit-task-popup-textarea" placeholder="Текст задания"></textarea>
+            <input type="text" class="edit-task-title-input" placeholder="Название">
+            <textarea class="edit-task-description-input" placeholder="Описание"></textarea>
             <div class="popup-footer">
-                <button data-variant="tonal" class="close-edit-task-popup-btn">Отмена</button>
-                <button data-variant="primary" class="edit-task-popup-create-btn">Сохранить</button>
+                <button data-variant="tonal" class="edit-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="edit-task-confirm-button">Сохранить</button>
             </div>
         </div>
     </div>
@@ -100,10 +93,10 @@
             <div class="popup-header">
                 <p class="popup-header-title">Удалить задачу</p>
             </div>
-            <p class="popup-warning">Вы уверены, что хотите удалить задачу? Данное действие необратимо</p>
+            <p class="popup-warning">Вы уверены, что хотите удалить задачу <span class="delete-task-title-text"></span>? Данное действие необратимо</p>
             <div class="popup-footer">
-                <button data-variant="tonal" class="close-delete-task-popup-btn">Отмена</button>
-                <button data-variant="primary" class="delete-task-popup-delete-btn">Удалить</button>
+                <button data-variant="tonal" class="delete-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="delete-task-confirm-button">Удалить</button>
             </div>
         </div>
     </div>

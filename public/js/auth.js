@@ -18,5 +18,7 @@ const userNameContainer = document.querySelector(".profile-name");
 })();
 
 const setUserData = (user) => {
-    userNameContainer.innerText = user.name;
+    if (userNameContainer) {
+        userNameContainer.innerText = user.name;
+    }
 }
