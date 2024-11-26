@@ -52,7 +52,7 @@ function showTaskPopup() {
 	const taskTitleDiv = document.getElementsByClassName("popup-header-title")[0];
 	taskTitleDiv.innerHTML = taskTitle;
 
-	const taskDescDiv = document.getElementsByClassName("popup-container-description")[0];
+	const taskDescDiv = document.getElementsByClassName("task-text-content")[0];
 	taskDescDiv.innerHTML = taskDescription;
 }
 
