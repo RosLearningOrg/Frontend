@@ -180,3 +180,11 @@ logoutButton.addEventListener("click", async (e) => {
     sidebarCourseTitle.innerText = sessionStorage.getItem("course_title") ?? "";
     sidebarCourseDescription.innerText = sessionStorage.getItem("course_description") ?? "";
 })();
+
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".manage-materials-button")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-materials.html";
+    }
+});

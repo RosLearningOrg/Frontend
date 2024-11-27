@@ -183,3 +183,11 @@ logoutButton.addEventListener("click", async (e) => {
     sidebarLessonTitle.innerText = sessionStorage.getItem("lesson_title") ?? "";
     sidebarLessonDescription.innerText = sessionStorage.getItem("lesson_description") ?? "";
 })();
+
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".manage-materials-button")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-materials.html";
+    }
+});

@@ -183,3 +183,11 @@ genCourseButton.addEventListener("click", processGenCourse);
 (async () => {
 	await updateContent();
 })();
+
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".manage-materials-button")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-materials.html";
+    }
+});
