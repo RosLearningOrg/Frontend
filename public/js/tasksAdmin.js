@@ -1,4 +1,4 @@
-import { logout, editLesson, deleteLesson, getAllTasks, addTask, addLessonTask, editTask, deleteLessonTask, deleteTask } from "./api.js";
+import { logout, getAllTasks, addTask, addLessonTask, editTask, deleteLessonTask, deleteTask } from "./api.js";
 import { genTaskAdmin } from "./templates.js";
 
 let selected = {};
@@ -6,6 +6,8 @@ const contentContainer = document.querySelector(".main-content");
 const logoutButton = document.querySelector(".logout-button");
 const sidebarCourseTitle = document.querySelector(".sidebar-course-title");
 const sidebarCourseDescription = document.querySelector(".sidebar-course-description");
+const sidebarLessonTitle = document.querySelector(".sidebar-lesson-title");
+const sidebarLessonDescription = document.querySelector(".sidebar-lesson-description");
 
 const addButton = document.querySelector(".add-task-button");
 const addCancelButton = document.querySelector(".add-task-cancel-button");
@@ -166,7 +168,18 @@ logoutButton.addEventListener("click", async (e) => {
 });
 
 (async () => {
+    sessionStorage.removeItem("task_id");
+    if (!sessionStorage.getItem("course_id")) {
+        location.href = location.origin + "/admin-courses.html";
+        return;
+    }
+    if (!sessionStorage.getItem("lesson_id")) {
+        location.href = location.origin + "/admin-lessons.html";
+        return;
+    }
 	await updateContent();
     sidebarCourseTitle.innerText = sessionStorage.getItem("course_title") ?? "";
     sidebarCourseDescription.innerText = sessionStorage.getItem("course_description") ?? "";
+    sidebarLessonTitle.innerText = sessionStorage.getItem("lesson_title") ?? "";
+    sidebarLessonDescription.innerText = sessionStorage.getItem("lesson_description") ?? "";
 })();

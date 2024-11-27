@@ -21,11 +21,12 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <input type="text" id="gen-course-input">
-                <p style="display: none;" class="gen-course-msg">Создание...</p>
-                <button data-variant="primary" class="gen-course-btn">
-                    Сгенерировать курс
-                </button>
+                <div class="gen-course-container">
+                    <input type="text" class="gen-course-input">
+                    <button data-variant="primary" class="gen-course-button">
+                        Сгенерировать курс
+                    </button>
+                </div>
                 <button data-variant="square" class="add-course-button">
                     <img src="images/plus.svg" alt="photo">
                     <p>Создать курс</p>
@@ -62,7 +63,7 @@
             </div>
 
             <input class="add-course-title-input" type="text" placeholder="Название">
-            <textarea class="add-course-description-input" placeholder="Описание"></textarea>
+            <textarea rows="6" class="add-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
                 <button class="add-course-cancel-button" data-variant="tonal">Отмена</button>
@@ -80,7 +81,7 @@
             </div>
 
             <input class="edit-course-title-input" type="text" placeholder="Название">
-            <textarea class="edit-course-description-input" placeholder="Описание"></textarea>
+            <textarea rows="6" class="edit-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
                 <button class="edit-course-cancel-button" data-variant="tonal">Отмена</button>

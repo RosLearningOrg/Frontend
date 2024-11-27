@@ -1,6 +1,6 @@
 export const genCourseAdmin = (id, title, description) => {
 	return `
-        <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${id}>
+        <div href="lessons.html" class="course-item-container hoverable" draggable="false" data-course-id=${id}>
             <div class="course-item-info">
                 <p class="course-item-title">${title}</p>
                 <p class="course-item-description hint">${description}</p>
@@ -21,7 +21,7 @@ export const genCourseAdmin = (id, title, description) => {
 
 export const genLessonAdmin = (id, title, description) => {
 	return `
-        <div class="lesson-item-container" draggable="false" data-lesson-id=${id}>
+        <div class="lesson-item-container hoverable" draggable="false" data-lesson-id=${id}>
             <div class="lesson-item-info">
                 <p class="lesson-item-title">${title}</p>
                 <p class="lesson-item-description hint">${description}</p>
@@ -41,7 +41,7 @@ export const genLessonAdmin = (id, title, description) => {
 
 export const genTaskAdmin = (id, title, description) => {
 	return `
-        <div class="task-item-container" data-task-id=${id}>
+        <div class="task-item-container hoverable" data-task-id=${id}>
             <p class="task-item-title">${title}</p>
             <p class="task-item-description hint" style="display: none;">${description}</p>
             <div class="icon-buttons ">

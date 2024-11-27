@@ -171,6 +171,11 @@ logoutButton.addEventListener("click", async (e) => {
 });
 
 (async () => {
+    sessionStorage.removeItem("lesson_id");
+    if (!sessionStorage.getItem("course_id")) {
+        location.href = location.origin + "/admin-courses.html";
+        return;
+    }
 	await updateContent();
     sidebarCourseTitle.innerText = sessionStorage.getItem("course_title") ?? "";
     sidebarCourseDescription.innerText = sessionStorage.getItem("course_description") ?? "";

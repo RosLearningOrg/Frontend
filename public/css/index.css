@@ -137,7 +137,7 @@ button[data-variant="primary"] {
 }
 
 button[data-variant="square"]:hover {
-    background: var(--primary-surface-color);
+    outline: 1px solid var(--primary-color);
 }
 
 button:disabled {

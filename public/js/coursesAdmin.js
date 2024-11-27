@@ -1,9 +1,11 @@
-import { getAllCourses, addCourse, editCourse, deleteCourse, logout } from "./api.js";
+import { getAllCourses, addCourse, editCourse, deleteCourse, genCourse, logout } from "./api.js";
 import { genCourseAdmin } from "./templates.js";
 
 let selected = {};
 const contentContainer = document.querySelector(".main-content");
 const logoutButton = document.querySelector(".logout-button");
+const genCourseButton = document.querySelector(".gen-course-button");
+const genCourseInput = document.querySelector(".gen-course-input");
 
 const addButton = document.querySelector(".add-course-button");
 const addCancelButton = document.querySelector(".add-course-cancel-button");
@@ -24,6 +26,16 @@ const addPopupTint = document.querySelector(".add-course-popup-tint");
 const editPopupTint = document.querySelector(".edit-course-popup-tint");
 const deletePopupTint = document.querySelector(".delete-course-popup-tint");
 const hiddenTintClass = "popup-tint-hidden";
+
+const processGenCourse = async () => {
+    const prompt = genCourseInput.value;
+    genCourseButton.disabled = true;
+    genCourseButton.innerText = "Генерация...";
+    await genCourse(prompt);
+    await updateContent();
+    genCourseButton.disabled = false;
+    genCourseButton.innerText = "Сгенерировать курс";
+}
 
 const processAdd = async () => {
     const title = addTitleInput.value;    
@@ -165,6 +177,8 @@ logoutButton.addEventListener("click", async (e) => {
     await logout();
     location.href = location.origin + "/login.html"
 });
+
+genCourseButton.addEventListener("click", processGenCourse);
 
 (async () => {
 	await updateContent();

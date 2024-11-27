@@ -34,14 +34,6 @@ export const deleteCourse = async (id) => {
 	}
 };
 
-export const genCourse = async (name) => {
-	try {
-		return await getRequest(`/generateData?course_name=${name}`);
-	} catch {
-		return null;
-	}
-};
-
 export const getAllCourses = async () => {
 	try {
 		return await getRequest("/api/admin/getAllCourses");
@@ -162,7 +154,15 @@ export const getAllTasks = async (lessonId) => {
 	try {
 		return await getRequest(`/api/admin/getThemeTasks?theme_id=${lessonId}`);
 	} catch {
-		logout();
+        return null;
+	}
+};
+
+export const genCourse = async (name) => {
+	try {
+		return await getRequest(`/generateData?course_name=${name}`);
+	} catch {
+        return null;
 	}
 };
 

@@ -3,6 +3,10 @@
     color: var(--tonal-fg-color);
 }
 
+.hoverable:hover {
+    outline: 1px solid var(--primary-color);
+}
+
 .text-box {
     border-radius: 8px;
     overflow: auto;
@@ -20,6 +24,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .icon-container:hover {
@@ -37,11 +42,13 @@
     padding: 0 16px;
     width: 300px;
     height: 100%;
-    position: sticky;
     top: 0;
 }
 
 .sidebar-header {
+    background: var(--bg-color);
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     height: 100px;
@@ -66,6 +73,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-top: 2px;
+    margin-bottom: 20px;
 }
 
 .sidebar-info-box {
@@ -134,8 +143,8 @@
 }
 
 .main-content {
-    overflow: hidden;
     padding-bottom: 20px;
+    margin-top: 2px;
 }
 
 .main-content-flex {

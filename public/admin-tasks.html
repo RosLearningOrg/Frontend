@@ -39,7 +39,7 @@
                 </div>
                 <div class="sidebar-info-box">
                     <h2 class="sidebar-lesson-title"></h2>
-                    <p class="hint sidebar-lesson-title"></p>
+                    <p class="hint sidebar-lesson-description"></p>
                 </div>
                 <div class="sidebar-links">
                     <a href="#" draggable="false" class="logout-button">Выйти из профиля</a>
@@ -62,7 +62,7 @@
                 <p class="popup-header-title">Новый урок</p>
             </div>
             <input type="text" placeholder="Название" class="add-task-title-input">
-            <textarea class="add-task-description-input" placeholder="Текст задания"></textarea>
+            <textarea rows="10" class="add-task-description-input" placeholder="Текст задания"></textarea>
             <button data-variant="square" class="add-emulation-button">
                 <img src="images/plus.svg" alt="photo again">
                 <p>Создать эмуляцию</p>
@@ -80,7 +80,11 @@
                 <p class="popup-header-title">Изменить задачу</p>
             </div>
             <input type="text" class="edit-task-title-input" placeholder="Название">
-            <textarea class="edit-task-description-input" placeholder="Описание"></textarea>
+            <textarea rows="10" class="edit-task-description-input" placeholder="Описание"></textarea>
+            <button data-variant="square" class="edit-emulation-button">
+                <img src="images/edit.svg" alt="photo again">
+                <p>Изменить эмуляцию</p>
+            </button>
             <div class="popup-footer">
                 <button data-variant="tonal" class="edit-task-cancel-button">Отмена</button>
                 <button data-variant="primary" class="edit-task-confirm-button">Сохранить</button>
@@ -93,7 +97,7 @@
             <div class="popup-header">
                 <p class="popup-header-title">Удалить задачу</p>
             </div>
-            <p class="popup-warning">Вы уверены, что хотите удалить задачу <span class="delete-task-title-text"></span>? Данное действие необратимо</p>
+            <p class="hint">Вы уверены, что хотите удалить задачу <span class="delete-task-title-text"></span>? Данное действие необратимо</p>
             <div class="popup-footer">
                 <button data-variant="tonal" class="delete-task-cancel-button">Отмена</button>
                 <button data-variant="primary" class="delete-task-confirm-button">Удалить</button>
