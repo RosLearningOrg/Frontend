@@ -20,7 +20,6 @@ const getCourseLessons = async () => {
 	try {
         const resp = await fetch(API_URL + `/user/getCourseThemes?course_id=${course_id}`, init)
         const data = await resp.json();
-        console.log(data)
 		setContent(data)
 	} catch {
         return null;

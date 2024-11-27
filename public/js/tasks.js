@@ -26,7 +26,6 @@ const getLessonTasks = async () => {
 	try { 
         const resp = await fetch(API_URL + `/user/getThemeTasks?course_id=${course_id}&theme_id=${lesson_id}`, init)
         const data = await resp.json();
-        console.log(data);
 		setContent(data);
 	} catch {
         return null;

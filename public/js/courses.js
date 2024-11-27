@@ -11,7 +11,6 @@ const getUserCourses = async () => {
 	try {
         const resp = await fetch(API_URL + "/user/getUserCourses", init)
         const data = await resp.json();
-        console.log(data)
 		setContent(data)
 	} catch {
         return null;
