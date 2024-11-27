@@ -156,11 +156,13 @@ const setContent = (data) => {
 
     editPopupButton.addEventListener("click", (e) => {
         // TODO: edit
+        // post /admin/updateThemeMaterial
         console.log("EDIT");
     });
 
     deletePopupButton.addEventListener("click", (e) => {
         // TODO: delete
+        // get /admin/deleteThemeMaterial
         console.log("DELETE");
     });
 
