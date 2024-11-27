@@ -202,7 +202,7 @@ export const getRequest = async (endpoint) => {
 	return data;
 };
 
-const postRequest = async (endpoint, body) => {
+export const postRequest = async (endpoint, body) => {
     const csrf = await getCSRF();
 	const init = {
 		method: "POST",

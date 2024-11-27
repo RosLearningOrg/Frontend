@@ -19,3 +19,26 @@
     flex-direction: column;
     gap: 6px;
 }
+
+.add-material-popup-container, .edit-material-popup-container {
+    width: 600px;
+}
+
+.add-material-popup-textarea, .edit-material-popup-textarea {
+    height: 237px;
+}
+
+.edit-material, .delete-material {
+    cursor: pointer;
+}
+
+.delete-material-popup-container {
+    width: 400px;
+}
+
+.popup-warning {
+    width: 352px;
+    font-size: 14px;
+    color: var(--tonal-fg-color);
+}
+

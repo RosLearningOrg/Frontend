@@ -26,7 +26,6 @@ const getLessonTasks = async () => {
 	try { 
         const resp = await fetch(API_URL + `/user/getThemeTasks?course_id=${course_id}&theme_id=${lesson_id}`, init)
         const data = await resp.json();
-        console.log(data);
 		setContent(data);
 	} catch {
         return null;
@@ -38,7 +37,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <div class="task-item-container" data-task-id=${item.id}>
+            <div class="task-item-container hoverable" data-task-id=${item.id}>
                 <p class="task-item-name">${item.title}</p>
                 <p class="task-item-desc hint">${item.description}</p>
                 <div class="task-item-status" data-variant="completed">Не пройдено</div>

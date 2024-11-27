@@ -11,7 +11,6 @@ const getUserCourses = async () => {
 	try {
         const resp = await fetch(API_URL + "/user/getUserCourses", init)
         const data = await resp.json();
-        console.log(data)
 		setContent(data)
 	} catch {
         return null;
@@ -23,7 +22,7 @@ const setContent = (data) => {
 
 	for (let item of data) {
 		content += `
-            <div href="lessons.html" class="course-item-container" draggable="false" data-course-id=${item.id}>
+            <div href="lessons.html" class="course-item-container hoverable" draggable="false" data-course-id=${item.id}>
                 <div class="course-item-info">
                     <p class="course-item-title">${item.title}</p>
                     <p class="hint course-item-desc">${item.description}</p>
