@@ -11,6 +11,10 @@ const addMaterialTint = document.querySelector(".add-material-popup-tint");
 const closeAddPopupButton = document.querySelector(".close-add-material-popup-btn");
 const createAddPopupButton = document.querySelector(".add-material-popup-create-btn");
 
+var allMaterials;
+var currentMaterial;
+var materialIDToDelete;
+
 createAddPopupButton.addEventListener("click", (e) => {
     const inputTitle = document.querySelector(".create-input-title");
     const inputText = document.querySelector(".add-material-popup-textarea");
@@ -66,6 +70,7 @@ closeAddPopupButton.addEventListener("click", (e) => {
 const getMaterials = async () => {
     const data = await getRequest(`/api/admin/getAllMaterials`);
     setContent(data);
+    allMaterials = data;
 };
 
 const setContent = (data) => {
@@ -130,16 +135,68 @@ const setContent = (data) => {
         closeDeleteMaterials();
     });
 
-    editPopupButton.addEventListener("click", (e) => {
-        // TODO: edit
-        // post /admin/updateThemeMaterial
-        console.log("EDIT");
+    document.addEventListener("click", (e) => {
+        const editButton = e.target.closest(".edit-material");
+
+        if (editButton) {
+            const materialID = editButton.parentNode.getAttribute("data-material-id");
+
+            for (let material of allMaterials) {
+                if (material.id == materialID) {
+                    currentMaterial = material;
+                    break;
+                }
+            }
+            showEditMaterialPopup();
+            const titleDIv = document.querySelector(".edit-input-title");
+            const textDiv = document.querySelector(".edit-material-popup-textarea");
+            titleDIv.value = currentMaterial.title;
+            textDiv.value = currentMaterial.materialTextMD;
+        }
     });
 
-    deletePopupButton.addEventListener("click", (e) => {
-        // TODO: delete
-        // get /admin/deleteThemeMaterial
-        console.log("DELETE");
+    editPopupButton.addEventListener("click", async (e) => {
+        const title = document.querySelector(".edit-input-title").value;
+        const text = document.querySelector(".edit-material-popup-textarea").value;
+
+        const body = {
+            title: title,
+            materialType: "Учебник",
+            materialURL: "https://example.com/",
+            materialText: text,
+            materialTextMD: text
+        }
+        
+        const data = await postRequest(`/api/admin/updateThemeMaterial?material_id=${currentMaterial.id}`, body);
+        if (data) {
+            closeEditMaterials();
+            alert(`Материал ${title} успешно обновлен`)
+            getMaterials();
+        } else {
+            alert("Ошибка!");
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        const deleteButton = e.target.closest(".delete-material");
+        
+        if (deleteButton) {
+            const materialID = deleteButton.parentNode.getAttribute("data-material-id");
+            materialIDToDelete = materialID;
+            showDeleteMaterialPopup();
+        }
+    });
+
+    deletePopupButton.addEventListener("click", async (e) => {
+        const resp = await getRequest(`/api/admin/deleteThemeMaterial?material_id=${materialIDToDelete}`);
+        console.log(resp);
+        if (resp) {
+            closeDeleteMaterials();
+            alert(`Материал с id: ${materialIDToDelete} успешно удален`);
+            getMaterials();
+        } else {
+            alert("Ошибка!");
+        }
     });
 
     function showEditMaterialPopup() {
