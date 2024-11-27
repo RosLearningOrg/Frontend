@@ -1,4 +1,5 @@
-import { API_URL, logout, getCSRF } from "/js/main.js";
+import { API_URL, logout } from "/js/main.js";
+import { getRequest, postRequest } from "/js/api.js";
 
 const materialAddPopupTint = document.querySelector(".add-material-popup-tint");
 const contentContainer = document.getElementsByClassName("main-content")[0];
@@ -11,42 +12,28 @@ const closeAddPopupButton = document.querySelector(".close-add-material-popup-bt
 const createAddPopupButton = document.querySelector(".add-material-popup-create-btn");
 
 createAddPopupButton.addEventListener("click", (e) => {
-    
     const inputTitle = document.querySelector(".create-input-title");
     const inputText = document.querySelector(".add-material-popup-textarea");
 
     if (inputTitle.value != null && inputText.value != null) {
 
         const createMaterial = async () => {
-            const csrf = await getCSRF();
-            const init = {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrf,
-                },
-                body: JSON.stringify({
-                    title: inputTitle.value,
-                    materialType: "Учебник",
-                    materialURL: "https://example.com/",
-                    materialText: inputText.value,
-                    materialTextMD: inputText.value
-                }),
-            };
+            const data = await postRequest("/api/admin/createThemeMaterial", {
+                        title: inputTitle.value,
+                        materialType: "Учебник",
+                        materialURL: "https://example.com/",
+                        materialText: inputText.value,
+                        materialTextMD: inputText.value
+            });
 
-            try {
-                const resp = await fetch(API_URL + "/admin/createThemeMaterial", init);
-                if (resp.status == 200) {
-                    closeAddMaterials();
-                    alert("Материал успешно создан");
-                    getMaterials();
-                } else {
-                    alert("Ошибка! Status code: " + resp.status);
-                }
-            } catch {
-                logout();
+            if (data) {
+                closeAddMaterials();
+                alert(`Материал ${data.title} успешно создан`);
+                getMaterials();
+            } else {
+                alert("Ошибка!");
             }
+  
             };
 
             (async () => {
@@ -77,19 +64,8 @@ closeAddPopupButton.addEventListener("click", (e) => {
 
 
 const getMaterials = async () => {
-	const init = {
-		method: "GET",
-		credentials: "include",
-	};
-
-	try {
-        const resp = await fetch(API_URL + `/admin/getAllMaterials`,init);
-		const data = await resp.json();
-		setContent(data);
-        console.log(data);
-	} catch {
-		logout();
-	}
+    const data = await getRequest(`/api/admin/getAllMaterials`);
+    setContent(data);
 };
 
 const setContent = (data) => {
