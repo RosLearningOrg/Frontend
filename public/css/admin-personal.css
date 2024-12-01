@@ -1,0 +1,38 @@
+.personal-item-container {
+    display: flex;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.personal-item-info {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.personal-item-name {
+    font-size: 16px;
+    color: var(--fg-color)
+}
+
+.personal-item-email {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+
+.add-personal-popup-container,
+.edit-personal-popup-container,
+.delete-personal-popup-container {
+    width: 400px;
+}
+
