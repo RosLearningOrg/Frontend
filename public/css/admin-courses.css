@@ -55,3 +55,52 @@
     background: var(--surface-color);
     border-radius: 4px;
 }
+
+.personal-course-popup-container{
+    width: 43%;
+    height: 84%;
+}
+
+.split-line{
+    height: 100%;
+    width: 1px;
+    background-color: var(--outline-color);
+}
+
+.personal-main-container{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    height: 100%;
+    width: 100%;
+}
+
+.personal-item-container {
+    box-sizing: border-box;
+    display: flex;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px;
+    gap: 4px;
+}
+
+.personal-title-input{
+    width: 100%;
+}
+
+.personal-added,
+.personal-not-added{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+
+
+.personal-delete,
+.personal-add{
+    color: var(--primary-color);
+}
