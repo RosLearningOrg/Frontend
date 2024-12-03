@@ -47,18 +47,12 @@ const setContent = (data) => {
 	contentContainer.innerHTML = content;
 };
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
     const logoutDiv = e.target.closest(".sidebar-links-logout");
 
     if (logoutDiv) {
-        logout();
+        await logout();
         window.location.href = window.location.origin + "/login.html";
-		const cookieNames = document.cookie.split('; ').map(cookie => cookie.split('=')[0]);
-		sessionStorage.clear();
-		  
-		cookieNames.forEach(name => {
-		  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-		});
     }
 });
 

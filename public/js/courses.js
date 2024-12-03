@@ -52,11 +52,11 @@ document.addEventListener("click", (e) => {
     }
 });
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
     const logoutDiv = e.target.closest(".sidebar-links-logout");
 
     if (logoutDiv) {
-        logout();
+        await logout();
         window.location.href = window.location.origin + "/login.html";
     }
 });

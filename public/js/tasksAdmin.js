@@ -14,11 +14,15 @@ const addCancelButton = document.querySelector(".add-task-cancel-button");
 const addConfirmButton = document.querySelector(".add-task-confirm-button");
 const addTitleInput = document.querySelector(".add-task-title-input");
 const addDescriptionInput = document.querySelector(".add-task-description-input");
+const addTitleError = document.querySelector(".add-task-title-error");
+const addDescriptionError = document.querySelector(".add-task-description-error");
 
 const editCancelButton = document.querySelector(".edit-task-cancel-button");
 const editConfirmButton = document.querySelector(".edit-task-confirm-button");
 const editTitleInput = document.querySelector(".edit-task-title-input");
 const editDescriptionInput = document.querySelector(".edit-task-description-input");
+const editTitleError = document.querySelector(".edit-task-title-error");
+const editDescriptionError = document.querySelector(".edit-task-description-error");
 
 const deleteCancelButton = document.querySelector(".delete-task-cancel-button");
 const deleteConfirmButton = document.querySelector(".delete-task-confirm-button");
@@ -29,9 +33,31 @@ const editPopupTint = document.querySelector(".edit-task-popup-tint");
 const deletePopupTint = document.querySelector(".delete-task-popup-tint");
 const hiddenTintClass = "popup-tint-hidden";
 
+const setAddPopupErrors = (errors) => {
+    addTitleError.style.display = errors.title ? "inline" : "none";
+    addTitleError.innerText = errors.title ?? "";
+    errors.title
+        ? addTitleInput.classList.add("error-input")
+        : addTitleInput.classList.remove("error-input");
+
+    addDescriptionError.style.display = errors.description ? "inline" : "none";
+    addDescriptionError.innerText = errors.description ?? "";
+    errors.description
+        ? addDescriptionInput.classList.add("error-input")
+        : addDescriptionInput.classList.remove("error-input");
+}
+
 const processAdd = async () => {
     const title = addTitleInput.value;    
     const description = addDescriptionInput.value;
+
+    if (!title || !description) {
+        return setAddPopupErrors({
+            title: !title ? "Введите название" : "",
+            description: !description ? "Введите описание" : ""
+        })
+    }
+
     addConfirmButton.disable = true;
     const data = await addTask(title, description);
     await addLessonTask(data.id, sessionStorage.getItem("lesson_id"));
@@ -40,9 +66,31 @@ const processAdd = async () => {
     addConfirmButton.disable = false;
 };
 
+const setEditPopupErrors = (errors) => {
+    editTitleError.style.display = errors.title ? "inline" : "none";
+    editTitleError.innerText = errors.title ?? "";
+    errors.title
+        ? editTitleInput.classList.add("error-input")
+        : editTitleInput.classList.remove("error-input");
+
+    editDescriptionError.style.display = errors.description ? "inline" : "none";
+    editDescriptionError.innerText = errors.description ?? "";
+    errors.description
+        ? editDescriptionInput.classList.add("error-input")
+        : editDescriptionInput.classList.remove("error-input");
+}
+
 const processEdit = async () => {
     const title = editTitleInput.value;
     const description = editDescriptionInput.value;
+
+    if (!title || !description) {
+        return setEditPopupErrors({
+            title: !title ? "Введите название" : "",
+            description: !description ? "Введите описание" : ""
+        })
+    }
+
     editConfirmButton.disabled = true;
     await editTask(selected.id, title, description);
     await updateContent();
@@ -60,6 +108,10 @@ const processDelete = async () => {
 }
 
 const showAddPopup = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
     addTitleInput.value = "";
     addDescriptionInput.value = "";
 	addPopupTint.classList.remove(hiddenTintClass);
@@ -70,6 +122,10 @@ const hideAddPopup = () => {
 };
 
 const showEditPopup = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
     editTitleInput.value = selected.title;
     editDescriptionInput.value = selected.description;
 	editPopupTint.classList.remove(hiddenTintClass);
@@ -144,6 +200,18 @@ addPopupTint.addEventListener("click", (e) => {
 		hideAddPopup();
 	}
 });
+addTitleInput.oninput = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
+}
+addDescriptionInput.oninput = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
+}
 
 editCancelButton.addEventListener("click", hideEditPopup);
 editConfirmButton.addEventListener("click", processEdit);
@@ -152,6 +220,18 @@ editPopupTint.addEventListener("click", (e) => {
 		hideEditPopup();
 	}
 });
+editTitleInput.oninput = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
+}
+editDescriptionInput.oninput = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
+}
 
 deleteCancelButton.addEventListener("click", hideDeletePopup);
 deleteConfirmButton.addEventListener("click", processDelete);
@@ -165,6 +245,15 @@ logoutButton.addEventListener("click", async (e) => {
     e.preventDefault();
     await logout();
     location.href = location.origin + "/login.html"
+});
+
+setAddPopupErrors({
+    title: "",
+    description: ""
+});
+setEditPopupErrors({
+    title: "",
+    description: ""
 });
 
 (async () => {
@@ -199,3 +288,4 @@ document.addEventListener("click", (e) => {
         window.location.href = window.location.origin + "/admin-personal.html";
     }
 });
+

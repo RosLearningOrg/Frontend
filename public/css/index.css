@@ -143,13 +143,3 @@ button[data-variant="square"]:hover {
 button:disabled {
   opacity: 0.3;
 }
-
-.hoverable:hover {
-	outline: 2px solid var(--primary-color);
-    z-index: 50;
-}
-
-.text-box-select:hover {
-    outline: 2px solid var(--primary-color);
-    z-index: 50;
-}

@@ -21,12 +21,10 @@
                 </div>
             </div>
             <div class="sidebar-content">
-                <div class="gen-course-container">
-                    <input type="text" class="gen-course-input">
-                    <button data-variant="primary" class="gen-course-button">
-                        Сгенерировать курс
-                    </button>
-                </div>
+                <button data-variant="square" class="gen-course-button">
+                    <img src="images/ai.svg" alt="photo">
+                    <p>Сгенерировать курс</p>
+                </button>
                 <button data-variant="square" class="add-course-button">
                     <img src="images/plus.svg" alt="photo">
                     <p>Создать курс</p>
@@ -62,7 +60,9 @@
                 <p class="popup-header-title">Новый курс</p>
             </div>
 
+            <p class="error-text add-course-title-error"></p>
             <input class="add-course-title-input" type="text" placeholder="Название">
+            <p class="error-text add-course-description-error"></p>
             <textarea rows="6" class="add-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
@@ -80,7 +80,9 @@
                 <p class="popup-header-title">Изменить курс</p>
             </div>
 
+            <p class="error-text edit-course-title-error"></p>
             <input class="edit-course-title-input" type="text" placeholder="Название">
+            <p class="error-text edit-course-description-error"></p>
             <textarea rows="6" class="edit-course-description-input" placeholder="Описание"></textarea>
 
             <div class="popup-footer">
@@ -139,6 +141,34 @@
             <div class="popup-footer">
                 <button class="personal-course-cancel-button" data-variant="tonal">Отмена</button>
                 <button class="personal-course-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+  
+    <div class="popup-tint popup-tint-hidden gen-course-popup-tint">
+        <div class="popup-container gen-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Генерация курса</p>
+            </div>
+
+            <p class="error-text gen-course-title-error"></p>
+            <input class="gen-course-title-input" type="text" placeholder="Название курса">
+
+            <div class="popup-footer">
+                <button class="gen-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="gen-course-confirm-button" data-variant="primary">Сгенерировать</button>
+            </div>
+        </div>
+        <div class="popup-container popup-completed-container gen-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Курс сгенерирован</p>
+            </div>
+            <p class="hint">Курс "<span class="gen-course-title-text"></span>" успешно сгенерирован</p>
+
+            <div class="popup-footer">
+                <button class="gen-course-ok-button" data-variant="primary">Ок</button>
             </div>
         </div>
     </div>  

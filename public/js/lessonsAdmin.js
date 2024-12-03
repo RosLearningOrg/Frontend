@@ -12,11 +12,15 @@ const addCancelButton = document.querySelector(".add-lesson-cancel-button");
 const addConfirmButton = document.querySelector(".add-lesson-confirm-button");
 const addTitleInput = document.querySelector(".add-lesson-title-input");
 const addDescriptionInput = document.querySelector(".add-lesson-description-input");
+const addTitleError = document.querySelector(".add-lesson-title-error");
+const addDescriptionError = document.querySelector(".add-lesson-description-error");
 
 const editCancelButton = document.querySelector(".edit-lesson-cancel-button");
 const editConfirmButton = document.querySelector(".edit-lesson-confirm-button");
 const editTitleInput = document.querySelector(".edit-lesson-title-input");
 const editDescriptionInput = document.querySelector(".edit-lesson-description-input");
+const editTitleError = document.querySelector(".edit-lesson-title-error");
+const editDescriptionError = document.querySelector(".edit-lesson-description-error");
 
 const deleteCancelButton = document.querySelector(".delete-lesson-cancel-button");
 const deleteConfirmButton = document.querySelector(".delete-lesson-confirm-button");
@@ -27,9 +31,31 @@ const editPopupTint = document.querySelector(".edit-lesson-popup-tint");
 const deletePopupTint = document.querySelector(".delete-lesson-popup-tint");
 const hiddenTintClass = "popup-tint-hidden";
 
+const setAddPopupErrors = (errors) => {
+    addTitleError.style.display = errors.title ? "inline" : "none";
+    addTitleError.innerText = errors.title ?? "";
+    errors.title
+        ? addTitleInput.classList.add("error-input")
+        : addTitleInput.classList.remove("error-input");
+
+    addDescriptionError.style.display = errors.description ? "inline" : "none";
+    addDescriptionError.innerText = errors.description ?? "";
+    errors.description
+        ? addDescriptionInput.classList.add("error-input")
+        : addDescriptionInput.classList.remove("error-input");
+}
+
 const processAdd = async () => {
     const title = addTitleInput.value;    
     const description = addDescriptionInput.value;
+
+    if (!title || !description) {
+        return setAddPopupErrors({
+            title: !title ? "Введите название" : "",
+            description: !description ? "Введите описание" : ""
+        })
+    }
+
     addConfirmButton.disable = true;
     const data = await addLesson(title, description);
     await addCourseLesson(data.id, sessionStorage.getItem("course_id"));
@@ -38,9 +64,31 @@ const processAdd = async () => {
     addConfirmButton.disable = false;
 };
 
+const setEditPopupErrors = (errors) => {
+    editTitleError.style.display = errors.title ? "inline" : "none";
+    editTitleError.innerText = errors.title ?? "";
+    errors.title
+        ? editTitleInput.classList.add("error-input")
+        : editTitleInput.classList.remove("error-input");
+
+    editDescriptionError.style.display = errors.description ? "inline" : "none";
+    editDescriptionError.innerText = errors.description ?? "";
+    errors.description
+        ? editDescriptionInput.classList.add("error-input")
+        : editDescriptionInput.classList.remove("error-input");
+}
+
 const processEdit = async () => {
     const title = editTitleInput.value;
     const description = editDescriptionInput.value;
+
+    if (!title || !description) {
+        return setEditPopupErrors({
+            title: !title ? "Введите название" : "",
+            description: !description ? "Введите описание" : ""
+        })
+    }
+
     editConfirmButton.disabled = true;
     await editLesson(selected.id, title, description);
     await updateContent();
@@ -58,6 +106,10 @@ const processDelete = async () => {
 }
 
 const showAddPopup = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
     addTitleInput.value = "";
     addDescriptionInput.value = "";
 	addPopupTint.classList.remove(hiddenTintClass);
@@ -68,6 +120,10 @@ const hideAddPopup = () => {
 };
 
 const showEditPopup = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
     editTitleInput.value = selected.title;
     editDescriptionInput.value = selected.description;
 	editPopupTint.classList.remove(hiddenTintClass);
@@ -147,6 +203,18 @@ addPopupTint.addEventListener("click", (e) => {
 		hideAddPopup();
 	}
 });
+addTitleInput.oninput = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
+}
+addDescriptionInput.oninput = () => {
+    setAddPopupErrors({
+        title: "",
+        description: ""
+    });
+}
 
 editCancelButton.addEventListener("click", hideEditPopup);
 editConfirmButton.addEventListener("click", processEdit);
@@ -155,6 +223,18 @@ editPopupTint.addEventListener("click", (e) => {
 		hideEditPopup();
 	}
 });
+editTitleInput.oninput = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
+}
+editDescriptionInput.oninput = () => {
+    setEditPopupErrors({
+        title: "",
+        description: ""
+    });
+}
 
 deleteCancelButton.addEventListener("click", hideDeletePopup);
 deleteConfirmButton.addEventListener("click", processDelete);
@@ -168,6 +248,15 @@ logoutButton.addEventListener("click", async (e) => {
     e.preventDefault();
     await logout();
     location.href = location.origin + "/login.html"
+});
+
+setAddPopupErrors({
+    title: "",
+    description: ""
+});
+setEditPopupErrors({
+    title: "",
+    description: ""
 });
 
 (async () => {
