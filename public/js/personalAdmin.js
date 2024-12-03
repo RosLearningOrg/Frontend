@@ -1,5 +1,4 @@
 import { API_URL, logout } from "/js/main.js";
-import { getRequest, postRequest } from "/js/api.js";
 import { genUserPersonalAdmin } from "/js/templates.js";
 
 let selected = {};

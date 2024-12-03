@@ -226,3 +226,10 @@ document.addEventListener("click", (e) => {
     }
 });
 
+document.addEventListener("click", (e) => {
+    const personalButton = e.target.closest(".view-personal-btn")
+
+    if (personalButton) {
+        window.location.href = window.location.origin + "/admin-personal.html";
+    }
+});
