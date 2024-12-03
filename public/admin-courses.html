@@ -108,6 +108,43 @@
         </div>
     </div>  
 
+    <div class="popup-tint popup-tint-hidden personal-course-popup-tint">
+        <div class="popup-container personal-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Название курса</p>
+                <p class="popup-header-desc hint">Редактирование доступа</p>
+            </div>
+            <div class="popup-container personal-main-container">
+                <div class="personal-not-added">
+                    <input class="personal-title-input" type="text" placeholder="Поиск">
+                    <div class="personal-item-container" draggable="false" data-person-id=${id}>
+                        <p class="course-item-title">Имя Фамилия</p>
+                        <div>
+                            <p class="personal-add hint">Добавить</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-line">
+
+                </div >
+                <div class="personal-added">
+                    <input class="personal-title-input" type="text" placeholder="Поиск">
+                    <div class="personal-item-container" draggable="false" data-person-id=${id}>
+                        <p class="course-item-title">Имя Фамилия</p>
+                        <div>
+                            <p class="personal-delete hint">Удалить</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="personal-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="personal-course-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+  
     <div class="popup-tint popup-tint-hidden gen-course-popup-tint">
         <div class="popup-container gen-course-popup-container">
 

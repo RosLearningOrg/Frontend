@@ -280,3 +280,12 @@ document.addEventListener("click", (e) => {
         window.location.href = window.location.origin + "/admin-materials.html";
     }
 });
+
+document.addEventListener("click", (e) => {
+    const manageButton = e.target.closest(".view-personal-button")
+
+    if (manageButton) {
+        window.location.href = window.location.origin + "/admin-personal.html";
+    }
+});
+

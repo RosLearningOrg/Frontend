@@ -55,3 +55,22 @@ export const genTaskAdmin = (id, title, description) => {
         </div>
     `;
 };
+
+export const genUserPersonalAdmin = (id, name, email) => {
+	return `
+        <div class="personal-item-container hoverable" draggable="false" data-personal-id=${id}>
+            <div class="personal-item-info">
+                <p class="personal-item-name">${item.name}</p>
+                <p class="personal-item-email hint">${item.email}</p>
+            </div>
+            <div class="icon-container edit-personal-button">
+                <img src="images/edit.svg" alt="">
+            </div>
+            <div class="icon-container delete-personal-button">
+                <img src="images/delete.svg" alt="">
+            </div>
+        </div>
+    `;
+};
+
+
