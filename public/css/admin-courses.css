@@ -11,7 +11,7 @@
 }
 
 .course-item-info {
-    flex-grow: 0;
+    flex-grow: 2;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -43,6 +43,7 @@
 
 .add-course-popup-container, 
 .edit-course-popup-container,
+.gen-course-popup-container,
 .delete-course-popup-container {
     width: 400px;
 }
