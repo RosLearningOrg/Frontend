@@ -11,11 +11,17 @@ const addConfirmButton = document.querySelector(".add-personal-popup-create-btn"
 const addFullnameInput = document.querySelector(".create-input-fullname");
 const addEmailInput = document.querySelector(".create-input-email");
 const addPasswordInput = document.querySelector(".create-input-password");
+const addFullnameError = document.querySelector(".add-personal-fullname-error");
+
+const addEmailError = document.querySelector(".add-personal-email-error");
+const addPasswordError = document.querySelector(".add-personal-password-error");
 
 const editCancelButton = document.querySelector(".close-edit-personal-popup-btn");
 const editConfirmButton = document.querySelector(".edit-personal-popup-create-btn");
 const editFullnameInput = document.querySelector(".edit-input-fullname");
 const editEmailInput = document.querySelector(".edit-input-email");
+const editFullnameError = document.querySelector(".edit-personal-username-error");
+const editEmailError = document.querySelector(".edit-personal-email-error");
 
 const deleteCancelButton = document.querySelector(".close-delete-personal-popup-btn");
 const deleteConfirmButton = document.querySelector(".personal-popup-delete-btn");
@@ -26,10 +32,53 @@ const editPopupTint = document.querySelector(".edit-personal-popup-tint");
 const deletePopupTint = document.querySelector(".delete-personal-popup-tint");
 const hiddenTintClass = "popup-tint-hidden";
 
+const setAddPopupErrors = (errors) => {
+    addFullnameError.style.display = errors.fullname ? "inline" : "none";
+    addFullnameError.innerText = errors.fullname ?? "";
+    errors.fullname
+        ? addFullnameInput.classList.add("error-input")
+        : addFullnameInput.classList.remove("error-input");
+
+    addEmailError.style.display = errors.email ? "inline" : "none";
+    addEmailError.innerText = errors.email ?? "";
+    errors.email
+        ? addEmailInput.classList.add("error-input")
+        : addEmailInput.classList.remove("error-input");
+
+    addPasswordError.style.display = errors.password ? "inline" : "none";
+    addPasswordError.innerText = errors.password ?? "";
+    errors.password
+        ? addPasswordInput.classList.add("error-input")
+        : addPasswordInput.classList.remove("error-input");
+    
+}
+
+const setEditPopupErrors = (errors) => {
+    editFullnameError.style.display = errors.fullname ? "inline" : "none";
+    editFullnameError.innerText = errors.fullname ?? "";
+    errors.fullname
+        ? editFullnameInput.classList.add("error-input")
+        : editFullnameInput.classList.remove("error-input");
+
+    editEmailError.style.display = errors.email ? "inline" : "none";
+    editEmailError.innerText = errors.email ?? "";
+    errors.email
+        ? editEmailInput.classList.add("error-input")
+        : editEmailInput.classList.remove("error-input");
+}
+
 const processAdd = async () => {
-    const fullname = addFullnameInput.value;    
-    const email = addEmailInput.value;
-    const password = addPasswordInput.value;
+    const fullname = addFullnameInput.value.trim();    
+    const email = addEmailInput.value.trim();
+    const password = addPasswordInput.value.trim();
+
+    if (!fullname || !email || !password) {
+        return setAddPopupErrors({
+            fullname: !fullname ? "Введите ФИО" : "",
+            email: !email ? "Введите почту" : "",
+            password: !password ? "Введите пароль" : ""
+        })
+    }
     addConfirmButton.disable = true;
     // const data = await addUser(fullname, email, password);
     await updateContent();
@@ -37,14 +86,71 @@ const processAdd = async () => {
     addConfirmButton.disable = false;
 };
 
+setAddPopupErrors({
+    fullname: "",
+    email: "",
+    password: ""
+});
+
+addFullnameInput.oninput = () => {
+    setAddPopupErrors({
+        fullname: "",
+        email: "",
+        password: ""
+    });
+}
+addEmailInput.oninput = () => {
+    setAddPopupErrors({
+        fullname: "",
+        email: "",
+        password: ""
+    });
+}
+
+addPasswordInput.oninput = () => {
+    setAddPopupErrors({
+        fullname: "",
+        email: "",
+        password: ""
+    });
+}
+
+
 const processEdit = async () => {
-    const fullname = editFullnameInput.value;
-    const email = editEmailInput.value;
+    const fullname = editFullnameInput.value.trim();
+    const email = editEmailInput.value.trim();
+
+    if (!fullname || !email ) {
+        return setEditPopupErrors({
+            fullname: !fullname ? "Введите ФИО" : "",
+            email: !email ? "Введите почту" : ""
+        })
+    }
+
     editConfirmButton.disabled = true;
     // await editUser(selected.id, fullname, email);
     await updateContent();
     hideEditPopup();
     editConfirmButton.disabled = false;
+}
+
+
+setEditPopupErrors({
+    fullname: "",
+    email: ""
+});
+
+editFullnameInput.oninput = () => {
+    setEditPopupErrors({
+        fullname: "",
+        email: ""
+    });
+}
+editEmailInput.oninput = () => {
+    setEditPopupErrors({
+        fullname: "",
+        email: ""
+    });
 }
 
 const processDelete = async () => {
@@ -56,6 +162,11 @@ const processDelete = async () => {
 }
 
 const showAddPopup = () => {
+    setAddPopupErrors({
+        fullname: "",
+        email: "",
+        password: ""
+    })
     addFullnameInput.value = "";
     addEmailInput.value = "";
     addPasswordInput.value = "";
@@ -67,6 +178,11 @@ const hideAddPopup = () => {
 };
 
 const showEditPopup = () => {
+    setEditPopupErrors({
+        fullname: "",
+        email: "",
+        password: ""
+    })
     editFullnameInput.value = selected.fullname;
     editEmailInput.value = selected.email;
 	editPopupTint.classList.remove(hiddenTintClass);
