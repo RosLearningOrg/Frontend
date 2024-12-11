@@ -72,6 +72,8 @@ const setGenPopup = (genPopupState) => {
     genTitleInput.disabled = isGeneration;
     genConfirmButton.disabled = isGeneration;
     genCancelButton.disabled = isGeneration;
+    genPopupTint.querySelector(".progress-bar").style.display = 
+        isGeneration ? "block" : "none";
     genConfirmButton.innerText = 
         isGeneration ? "Генерация..." : "Сгенерировать курс";
 }

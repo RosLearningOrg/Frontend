@@ -1,3 +1,36 @@
+
+@keyframes progress-bar {
+    0% {
+        width: 0%;
+        align-self: start;
+    }
+    25% {
+        width: 100%;
+        align-self: start;
+    }
+    50% {
+        width: 100%;
+        align-self: end;
+    }
+    75% {
+        width: 0%;
+        align-self: end;
+    }
+    100% {
+        width: 0%;
+        align-self: start;
+    }
+}
+
+.progress-bar {
+    animation-name: progress-bar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transition: .5s;
+    height: 3px;
+    background: var(--primary-color);
+}
+
 .course-item-container {
     box-sizing: border-box;
     display: flex;
