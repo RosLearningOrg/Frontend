@@ -39,7 +39,7 @@ export const codeItemsTypes = {
 		title: "Конец условия",
 		type: "block",
 		children: Endif.children,
-        propertis: {}
+        properties: {}
     },
 	setItem: {
 		title: "Установить значение компонента",
