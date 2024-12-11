@@ -8,7 +8,20 @@ function useCode(items, vars) {
 	const [variables, setVariables] = useState(vars);
 	const [selectedFunc, setSelectedFunc] = useState("Главная");
 
+    useEffect(() => {
+        if (sessionStorage.getItem("code")) {
+            setCodeItems(JSON.parse(sessionStorage.getItem("code")));
+        }
+        if (sessionStorage.getItem("vars")) {
+            setVariables(JSON.parse(sessionStorage.getItem("vars")));
+        }
+    }, [])
+
 	useEffect(() => {
+        if (savingCode) {
+            sessionStorage.setItem("code", JSON.stringify(codeItems));
+            sessionStorage.setItem("vars", JSON.stringify(variables));
+        }
 		console.log(codeItems);
         console.log(variables)
 		return setSavingCode(false);

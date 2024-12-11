@@ -15,7 +15,16 @@ function useInterface(items) {
 		removeInteractiveItem,
 	} = useContext(EditorContext);
 
+    useEffect(() => {
+        if (sessionStorage.getItem("interface")) {
+            setInterfaceItems(JSON.parse(sessionStorage.getItem("interface")));
+        }
+    }, [])
+
 	useEffect(() => {
+        if (savingInterface) {
+            sessionStorage.setItem("interface", JSON.stringify(interfaceItems));
+        }
 		console.log(interfaceItems);
 		return setSavingInterface(false);
 	}, [savingInterface]);
