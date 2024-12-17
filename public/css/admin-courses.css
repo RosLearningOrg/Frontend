@@ -22,6 +22,52 @@
     }
 }
 
+.course-personal-body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.course-personal-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: var(--surface-color);
+    border-radius: 4px;
+}
+
+.course-personal-name {
+    width: 100%;
+}
+
+.course-personal-add-button,
+.course-personal-remove-button {
+    color: var(--primary-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.course-personal-body-left-container {
+    padding-right: 4px;
+    border-right: 1px solid var(--outline-color);
+}
+
+.course-personal-body-right-container {
+    padding-left: 4px;
+    border-left: 1px solid var(--outline-color);
+}
+
+.course-personal-body-left-container,
+.course-personal-body-right-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    gap: 8px;
+}
+
 .progress-bar {
     animation-name: progress-bar;
     animation-duration: 2s;
@@ -79,6 +125,11 @@
 .gen-course-popup-container,
 .delete-course-popup-container {
     width: 400px;
+}
+
+.course-personal-popup-container {
+    height: 80%;
+    width: 750px;
 }
 
 .gen-course-container {

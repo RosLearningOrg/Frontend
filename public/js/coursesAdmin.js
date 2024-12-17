@@ -1,13 +1,19 @@
-import { getAllCourses, addCourse, editCourse, deleteCourse, genCourse, logout } from "./api.js";
-import { genCourseAdmin } from "./templates.js";
+import { getAllUsers, getCourseUsers, addCourseUsers, deleteCourseUsers, getAllCourses, addCourse, editCourse, deleteCourse, genCourse, logout } from "./api.js";
+import { genCourseAdmin, genCoursePersonalItem } from "./templates.js";
 
 let selected = {};
 let genPopup = {};
+
 const genPopupStates = {
     default: "default",
     generation: "generation",
     completed: "completed"
 };
+
+const courseUsersPopupState = {
+    addedUsers: [],
+    notAddedUsers: []
+}
 
 const contentContainer = document.querySelector(".main-content");
 const logoutButton = document.querySelector(".logout-button");
@@ -38,11 +44,91 @@ const genOkButton = document.querySelector(".gen-course-ok-button");
 const genTitleInput = document.querySelector(".gen-course-title-input");
 const genTitleError = document.querySelector(".gen-course-title-error");
 
+const courseUsersConfirmButton = document.querySelector(".course-personal-confirm-button")
+const courseUsersCancelButton = document.querySelector(".course-personal-cancel-button")
+const courseUsersAddedContainer = document.querySelector(".course-personal-body-right-container")
+const courseUsersNotAddedContainer = document.querySelector(".course-personal-body-left-container")
+const courseUsersContainer = document.querySelector(".course-personal-body")
+
 const addPopupTint = document.querySelector(".add-course-popup-tint");
 const editPopupTint = document.querySelector(".edit-course-popup-tint");
 const deletePopupTint = document.querySelector(".delete-course-popup-tint");
 const genPopupTint = document.querySelector(".gen-course-popup-tint");
+const courseUsersPopupTint = document.querySelector(".course-personal-popup-tint");
 const hiddenTintClass = "popup-tint-hidden";
+
+const processSaveCourseUsers = async () => {
+    const addUsernames = courseUsersPopupState.addedUsers.map((user) => user.username);
+    const deleteUsernames = courseUsersPopupState.notAddedUsers.map((user) => user.username);
+    await addCourseUsers(selected.id, addUsernames);
+    await deleteCourseUsers(selected.id, deleteUsernames);
+    hideCourseUsersPopup();
+}
+
+const courseUserAdd = (username) => {
+    const user = courseUsersPopupState.notAddedUsers.find((user) => user.username == username);
+    const notAddedUsers = courseUsersPopupState.notAddedUsers.filter((user) => user.username != username);
+    const addedUsers = [...courseUsersPopupState.addedUsers, user];
+    setCourseUsersPopupState({
+        addedUsers: addedUsers,
+        notAddedUsers: notAddedUsers
+    })
+}
+
+const courseUserRemove = (username) => {
+    const user = courseUsersPopupState.addedUsers.find((user) => user.username == username);
+    const addedUsers = courseUsersPopupState.addedUsers.filter((user) => user.username != username);
+    const notAddedUsers = [...courseUsersPopupState.notAddedUsers, user];
+    setCourseUsersPopupState({
+        addedUsers: addedUsers,
+        notAddedUsers: notAddedUsers
+    })
+}
+
+const courseUsersPopupSetUsers = async () => {
+    const allUsers = await getAllUsers();
+    const addedUsers = await getCourseUsers(selected.id);
+    const notAddedUsers = allUsers.filter((user) => !addedUsers.find((u) => u.username == user.username));
+    setCourseUsersPopupState({
+        addedUsers: addedUsers,
+        notAddedUsers: notAddedUsers
+    })
+}
+
+const setCourseUsersPopupState = (state) => {
+    courseUsersPopupState.notAddedUsers = state.notAddedUsers;
+    courseUsersPopupState.addedUsers = state.addedUsers;
+    updateCourseUsersPopup();
+}
+
+const updateCourseUsersPopup = () => {
+    let leftContent = ""
+    let rightContent = ""
+
+    for (let user of courseUsersPopupState.notAddedUsers) {
+        leftContent += genCoursePersonalItem(user.username, user.name, false);
+    }
+
+    for (let user of courseUsersPopupState.addedUsers) {
+        rightContent += genCoursePersonalItem(user.username, user.name, true);
+    }
+
+    courseUsersNotAddedContainer.innerHTML = leftContent;
+    courseUsersAddedContainer.innerHTML = rightContent;
+}
+
+courseUsersContainer.addEventListener("click", (e) => {
+    const removeButton = e.target.closest(".course-personal-remove-button");
+    const addButton = e.target.closest(".course-personal-add-button");
+
+    if (removeButton) {
+        courseUserRemove(removeButton.parentElement.getAttribute("data-user-id"));
+    }
+    if (addButton) {
+        courseUserAdd(addButton.parentElement.getAttribute("data-user-id"));
+    }
+    e.stopPropagation();
+})
 
 const setGenPopup = (genPopupState) => {
     genPopup = genPopupState;
@@ -225,6 +311,15 @@ const hideDeletePopup = () => {
 	deletePopupTint.classList.add(hiddenTintClass);
 };
 
+const showCourseUsersPopup = async () => {
+	courseUsersPopupTint.classList.remove(hiddenTintClass);
+    await courseUsersPopupSetUsers();
+};
+
+const hideCourseUsersPopup = () => {
+	courseUsersPopupTint.classList.add(hiddenTintClass);
+};
+
 const showGenPopup = () => {
     setGenPopup({
         state: genPopupStates.default,
@@ -280,6 +375,12 @@ document.addEventListener("click", (e) => {
     if (e.target.closest(".delete-course-button")) {
         setSelected(id, title, description);
         showDeletePopup();
+        return;
+    }
+
+    if (e.target.closest(".edit-course-personal-button")) {
+        setSelected(id, title, description);
+        showCourseUsersPopup();
         return;
     }
     
@@ -359,6 +460,14 @@ genTitleInput.addEventListener("input", (e) => {
         });
     }
 })
+
+courseUsersCancelButton.addEventListener("click", hideCourseUsersPopup);
+courseUsersConfirmButton.addEventListener("click", processSaveCourseUsers);
+courseUsersPopupTint.addEventListener("click", (e) => {
+	if (!e.target.closest(".popup-container")) {
+		hideCourseUsersPopup();
+	}
+});
 
 logoutButton.addEventListener("click", async (e) => {
     e.preventDefault();

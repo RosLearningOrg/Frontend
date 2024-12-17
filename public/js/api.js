@@ -1,5 +1,85 @@
 export const API_URL = "http://localhost:8080";
 
+export const addUser = async (name, username, email, password) => {
+    const body = {
+        name: name,
+        username: username,
+        email: email,
+        password: password,
+        role: ""
+    };
+
+	try {
+		return await postRequest(`/api/admin/createUser`, body);
+	} catch {
+        return null;
+	}
+};
+
+export const editUser = async (name, username, email, password) => {
+    const body = {
+        name: name,
+        username: username,
+        email: email,
+        password: password,
+        role: ""
+    };
+
+	try {
+		return await postRequest(`/api/admin/updateUser`, body);
+	} catch {
+        return null;
+	}
+};
+
+export const deleteUser = async (username) => {
+	try {
+		return await getRequest(`/api/admin/deleteUser?username=${username}`);
+	} catch {
+        return null;
+	}
+};
+
+export const getAllUsers = async () => {
+	try {
+		return await getRequest(`/api/admin/getAllUsers`);
+	} catch {
+        return null;
+	}
+};
+
+export const getCourseUsers = async (courseId) => {
+	try {
+		return await getRequest(`/api/admin/getCoursesUsers?course_id=${courseId}`);
+	} catch {
+        return null;
+	}
+};
+
+export const addCourseUsers = async (courseId, usernames) => {
+    const body = {
+        usernames: usernames
+    }
+
+	try {
+		return await postRequest(`/api/admin/addCourseUsers?course_id=${courseId}`, body);
+	} catch {
+        return null;
+	}
+};
+
+export const deleteCourseUsers = async (courseId, usernames) => {
+    const body = {
+        usernames: usernames
+    }
+
+	try {
+		return await postRequest(`/api/admin/deleteCourseUsers?course_id=${courseId}`, body);
+	} catch {
+        return null;
+	}
+};
+
 export const addCourse = async (title, description) => {
     const body = {
         title: title,

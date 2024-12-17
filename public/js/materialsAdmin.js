@@ -1,4 +1,4 @@
-import { API_URL, logout } from "/js/main.js";
+import { logout } from "/js/main.js";
 import { getRequest, postRequest } from "/js/api.js";
 
 const materialAddPopupTint = document.querySelector(".add-material-popup-tint");
@@ -217,11 +217,11 @@ const setContent = (data) => {
 
 })();
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
     const logoutDiv = e.target.closest(".sidebar-links-logout");
 
     if (logoutDiv) {
-        logout();
+        await logout();
         window.location.href = window.location.origin + "/login.html";
     }
 });
