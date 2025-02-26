@@ -16,18 +16,18 @@ function useInterface(items) {
 	} = useContext(EditorContext);
 
     useEffect(() => {
-        if (sessionStorage.getItem("interface")) {
-            setInterfaceItems(JSON.parse(sessionStorage.getItem("interface")));
-        }
-    }, [])
-
-	useEffect(() => {
         if (savingInterface) {
             sessionStorage.setItem("interface", JSON.stringify(interfaceItems));
-        }
-		console.log(interfaceItems);
-		return setSavingInterface(false);
-	}, [savingInterface]);
+			return setSavingInterface(false);
+        } 
+
+		let items = sessionStorage.getItem("interface");
+		if (!items) return;
+		console.log(JSON.parse(items));
+		setInterfaceItems(JSON.parse(items));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [savingInterface])
 
 	const setSelectedProperty = (property, value) => {
 		setSelected({ ...selectedItem, [property]: value });

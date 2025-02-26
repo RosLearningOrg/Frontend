@@ -45,33 +45,31 @@ const Editor = () => {
 					<EditorHeaderButtons />
 				</header>
 				<InterfaceContextProvider>
-					<div
-						className="editor-wrapper"
-						data-state={selected == 1 ? "visible" : "hidden"}
-					>
-						<aside className="editor-sidebar" data-pos="left">
-							<InterfaceEditorSidebar />
-						</aside>
-						<main className="editor-content">
-							<InterfaceEditorContent />
-						</main>
-					</div>
+					{selected == 1 && 
+						<div className="editor-wrapper">
+							<aside className="editor-sidebar" data-pos="left">
+								<InterfaceEditorSidebar />
+							</aside>
+							<main className="editor-content">
+								<InterfaceEditorContent />
+							</main>
+						</div>
+					}
 				</InterfaceContextProvider>
 				<CodeContextProvider>
-					<div
-						className="editor-wrapper"
-						data-state={selected == 0 ? "visible" : "hidden"}
-					>
-						<aside className="editor-sidebar" data-pos="left">
-							<CodeEditorLeftSidebar />
-						</aside>
-						<main className="editor-content">
-							<CodeEditorContent />
-						</main>
-						<main className="editor-sidebar" data-pos="right">
-							<CodeEditorRightSidebar />
-						</main>
-					</div>
+					{selected == 0 && 
+						<div className="editor-wrapper">
+							<aside className="editor-sidebar" data-pos="left">
+								<CodeEditorLeftSidebar />
+							</aside>
+							<main className="editor-content">
+								<CodeEditorContent />
+							</main>
+							<main className="editor-sidebar" data-pos="right">
+								<CodeEditorRightSidebar />
+							</main>
+						</div>
+					}
 				</CodeContextProvider>
 			</div>
 		</EditorContextProvider>
