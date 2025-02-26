@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import SelectInput from "../components/SelectInput";
+import SelectInput from "../../components/SelectInput";
 import { interfaceItemsTypes } from "../interface/itemsTypes";
-import { EditorContext } from "../context/editorContext";
+import { EditorContext } from "../../context/editorContext";
 
 const DisplayItemPropertySelect = ({
 	displayItemId,

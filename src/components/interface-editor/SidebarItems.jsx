@@ -1,6 +1,6 @@
 import "./SidebarItems.css"
 import { useContext } from "react";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 import { InterfaceContext } from "../../context/interfaceContext";
 
 const InterfaceEditorSidebarItems = () => {

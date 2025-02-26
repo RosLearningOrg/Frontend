@@ -1,10 +1,7 @@
-import { codeItemsTypes } from "../itemsTypes";
 import CodeItemChildren from "../CodeItemChildren";
-import SelectInput from "../../components/SelectInput";
+import SelectInput from "../../../components/SelectInput";
 
 export const children = (item, setItem) => {
-	const itemPropsDesc = codeItemsTypes.setItem.properties;
-
 	const operators = [
 		{
 			text: "=",

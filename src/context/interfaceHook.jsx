@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { EditorContext } from "./editorContext";
-import { interfaceItemsTypes } from "../interface/itemsTypes";
+import { interfaceItemsTypes } from "../blocks/interface/itemsTypes";
 
 function useInterface(items) {
 	const { savingInterface, setSavingInterface } = useContext(EditorContext);

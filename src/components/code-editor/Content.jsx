@@ -2,7 +2,7 @@ import { Rnd } from "react-rnd";
 import "./Content.css";
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
-import { codeItemsTypes } from "../../code/itemsTypes";
+import { codeItemsTypes } from "../../blocks/code/itemsTypes";
 
 const CodeEditorContent = () => {
 	const { codeItems, moveItem, removeItem, setItem, selectedFunc } =

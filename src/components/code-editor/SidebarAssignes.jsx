@@ -2,7 +2,7 @@ import "./SidebarAssignes.css"
 import { useContext } from "react";
 import { CodeContext } from "../../context/codeContext";
 import { EditorContext } from "../../context/editorContext";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
 const SidebarAssignes = () => {
 	const { codeItems } = useContext(CodeContext);

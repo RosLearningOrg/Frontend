@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
 import DefaultProperties from "./SidebarMenuDefaultProps";
 import CustomProperties from "./SidebarMenuCustomProps";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
 const InterfaceEditorSidebarMenu = () => {
 	const { selectedItem, removeSelected } = useContext(InterfaceContext);

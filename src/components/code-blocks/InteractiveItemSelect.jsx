@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import SelectInput from "../components/SelectInput";
-import { EditorContext } from "../context/editorContext";
-import { interfaceItemsTypes } from "../interface/itemsTypes";
+import SelectInput from "../../components/SelectInput";
+import { EditorContext } from "../../context/editorContext";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
 const InteractiveItemSelect = ({ selectedItemId, onChange }) => {
 	const { interactiveItems } = useContext(EditorContext);

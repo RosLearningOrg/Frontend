@@ -1,6 +1,6 @@
 import "./SidebarItems.css";
 import { useContext } from "react";
-import { codeItemsTypes } from "../../code/itemsTypes";
+import { codeItemsTypes } from "../../blocks/code/itemsTypes";
 import { CodeContext } from "../../context/codeContext";
 import { Rnd } from "react-rnd";
 

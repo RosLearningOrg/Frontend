@@ -2,7 +2,7 @@ import "./Content.css";
 import { Rnd } from "react-rnd";
 import { useContext } from "react";
 import { InterfaceContext } from "../../context/interfaceContext";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
 const InterfaceEditorContent = () => {
 	const {

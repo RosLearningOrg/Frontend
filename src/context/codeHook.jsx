@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { EditorContext } from "./editorContext";
-import { codeItemsTypes } from "../code/itemsTypes";
+import { codeItemsTypes } from "../blocks/code/itemsTypes";
 
 function useCode(items, vars) {
 	const { savingCode, setSavingCode } = useContext(EditorContext);
@@ -35,6 +35,7 @@ function useCode(items, vars) {
 	};
 
 	const removeVar = (name) => {
+		// eslint-disable-next-line no-unused-vars
 		const { [name]: _, ...newVars } = variables;
 		setVariables(newVars);
 	};
@@ -47,6 +48,7 @@ function useCode(items, vars) {
 	};
 
 	const removeFunc = (name) => {
+		// eslint-disable-next-line no-unused-vars
 		const { [name]: _, ...newTabs } = codeItems;
 		setCodeItems(newTabs);
 	};

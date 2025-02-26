@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import SelectInput from "../SelectInput";
 import { InterfaceContext } from "../../context/interfaceContext";
-import { interfaceItemsTypes } from "../../interface/itemsTypes";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
 const CustomProperties = () => {
 	const { selectedItem, setSelectedProperty } = useContext(InterfaceContext);
