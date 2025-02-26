@@ -1,26 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ros Learning</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-    <div class="page">
-        <div class="background">
-            <p class="enter info">Вход</p>
-            <p class="text info">Войдите в ваш аккаунт, чтобы воспользоваться сервисом</p>
-            <input class="login block" type="text" placeholder="Логин" onclick="logLoginAndPassword(this)">
-            <input class="password block" type="password" placeholder="Пароль" required>
-            <button class="button" id="button">Продолжить</button>
-        </div>
-    </div>
-    <script>
-        const submitButton = document.getElementById("button");
-        function logLoginAndPassword(elem){
-            console.log(elem.value);
-        }
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ros Learning</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<script src="js/login.js" type="module"></script>
+	</head>
+	<body>
+		<div class="page">
+			<form action="/login" method="post" id="login-form">
+				<p class="login-title">Вход</p>
+				<p class="login-text">
+					Войдите в ваш аккаунт, чтобы воспользоваться сервисом
+				</p>
+				<input type="text" placeholder="Логин" id="login-input" />
+				<input type="password" placeholder="Пароль" id="passwd-input" />
+				<button type="submit" data-variant="primary" id="login-btn" disabled>
+					Продолжить
+				</button>
+                <p id="error-msg" data-visible="false"></p>
+			</form>
+		</div>
+	</body>
 </html>

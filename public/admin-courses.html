@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/admin-courses.css">
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/coursesAdmin.js" type="module"></script>
+    <title>Admin Courses</title>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-profile">
+                    <div class="profile-photo"></div>
+                    <p class="profile-name"></p>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <button data-variant="square" class="gen-course-button">
+                    <img src="images/ai.svg" alt="photo">
+                    <p>Сгенерировать курс</p>
+                </button>
+                <button data-variant="square" class="add-course-button">
+                    <img src="images/plus.svg" alt="photo">
+                    <p>Создать курс</p>
+                </button>
+                <button data-variant="square" class="manage-materials-button">
+                    <img src="images/info.svg" alt="photo">
+                    <p>Материалы</p>
+                </button>
+                <button data-variant="square" class="view-personal-button">
+                    <img src="images/people.svg" alt="photo">
+                    <p>Персонал</p>
+                </button>
+                <div class="sidebar-links">
+                    <a href="" draggable="false" class="logout-button">Выйти из профиля</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <h2 class="main-header-title">Курсы</h2>
+            </div>
+
+            <div class="main-content main-content-flex">
+            </div>
+        </main>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden add-course-popup-tint">
+        <div class="popup-container add-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Новый курс</p>
+            </div>
+
+            <p class="error-text add-course-title-error"></p>
+            <input class="add-course-title-input" type="text" placeholder="Название">
+            <p class="error-text add-course-description-error"></p>
+            <textarea rows="6" class="add-course-description-input" placeholder="Описание"></textarea>
+
+            <div class="popup-footer">
+                <button class="add-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="add-course-confirm-button" type="submit" data-variant="primary">Создать</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="popup-tint popup-tint-hidden edit-course-popup-tint">
+        <div class="popup-container edit-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить курс</p>
+            </div>
+
+            <p class="error-text edit-course-title-error"></p>
+            <input class="edit-course-title-input" type="text" placeholder="Название">
+            <p class="error-text edit-course-description-error"></p>
+            <textarea rows="6" class="edit-course-description-input" placeholder="Описание"></textarea>
+
+            <div class="popup-footer">
+                <button class="edit-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="edit-course-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-course-popup-tint">
+        <div class="popup-container delete-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить курс</p>
+            </div>
+
+            <p class="hint">Вы уверены, что хотите удалить курс <span class="delete-course-title-text"></span>? Данное действие необратимо</p>
+
+            <div class="popup-footer">
+                <button class="delete-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="delete-course-confirm-button" data-variant="primary">Удалить</button>
+            </div>
+        </div>
+    </div>  
+
+    <div class="popup-tint popup-tint-hidden personal-course-popup-tint">
+        <div class="popup-container personal-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Название курса</p>
+                <p class="popup-header-desc hint">Редактирование доступа</p>
+            </div>
+            <div class="popup-container personal-main-container">
+                <div class="personal-not-added">
+                    <input class="personal-title-input" type="text" placeholder="Поиск">
+                    <div class="personal-item-container" draggable="false" data-person-id=${id}>
+                        <p class="course-item-title">Имя Фамилия</p>
+                        <div>
+                            <p class="personal-add hint">Добавить</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-line">
+
+                </div >
+                <div class="personal-added">
+                    <input class="personal-title-input" type="text" placeholder="Поиск">
+                    <div class="personal-item-container" draggable="false" data-person-id=${id}>
+                        <p class="course-item-title">Имя Фамилия</p>
+                        <div>
+                            <p class="personal-delete hint">Удалить</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="personal-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="personal-course-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+  
+    <div class="popup-tint popup-tint-hidden gen-course-popup-tint">
+        <div class="popup-container gen-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Генерация курса</p>
+            </div>
+
+            <p class="error-text gen-course-title-error"></p>
+            <input class="gen-course-title-input" type="text" placeholder="Название курса">
+
+            <div class="progress-bar"></div>
+
+            <div class="popup-footer">
+                <button class="gen-course-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="gen-course-confirm-button" data-variant="primary">Сгенерировать</button>
+            </div>
+        </div>
+        <div class="popup-container popup-completed-container gen-course-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Курс сгенерирован</p>
+            </div>
+            <p class="hint">Курс "<span class="gen-course-title-text"></span>" успешно сгенерирован</p>
+
+            <div class="popup-footer">
+                <button class="gen-course-ok-button" data-variant="primary">Ок</button>
+            </div>
+        </div>
+    </div>  
+
+    <div class="popup-tint popup-tint-hidden course-personal-popup-tint">
+        <div class="popup-container course-personal-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Персонал курса</p>
+            </div>
+
+            <div class="course-personal-body">
+                <div class="course-personal-body-left-container">
+                </div>
+                <div class="course-personal-body-right-container">
+                </div>
+            </div>
+
+            <div class="popup-footer">
+                <button class="course-personal-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="course-personal-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
+

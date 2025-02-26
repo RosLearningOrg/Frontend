@@ -6,8 +6,8 @@
 .interface-item > div {
     border-radius: 4px;
     position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
 }
 
 .interface-item-id {
@@ -22,5 +22,4 @@
 .interface-content-inner {
     width: 100%;
     height: 100%;
-    background: var(--surface-color);
 }

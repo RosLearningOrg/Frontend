@@ -1,15 +1,18 @@
 import "./Content.css";
-import React from "react";
 import { Rnd } from "react-rnd";
+import { useContext } from "react";
+import { InterfaceContext } from "../../context/interfaceContext";
+import { interfaceItemsTypes } from "../../blocks/interface/itemsTypes";
 
-const InterfaceEditorContent = (props) => {
+const InterfaceEditorContent = () => {
 	const {
 		interfaceItems,
+		selectedItemId,
 		selectedItem,
 		selectItem,
 		deselectItem,
 		setSelected,
-	} = props.context;
+	} = useContext(InterfaceContext);
 
 	return (
 		<div className="interface-content-inner" onMouseDown={deselectItem}>
@@ -20,7 +23,7 @@ const InterfaceEditorContent = (props) => {
 						size={{ width: item.width, height: item.height }}
 						position={{ x: item.posX, y: item.posY }}
 						className="interface-item"
-						variant={item.selected ? "selected" : "unselected"}
+						variant={item.id == selectedItemId ? "selected" : "unselected"}
 						bounds="parent"
 						onMouseDown={(e) => {
 							selectItem(item.id);
@@ -29,14 +32,14 @@ const InterfaceEditorContent = (props) => {
 						onResizeStart={() => {
 							selectItem(item.id);
 						}}
-						onDrag={(e, d) => {
+						onDrag={(_e, d) => {
 							setSelected({
 								...selectedItem,
 								posX: d.x,
 								posY: d.y,
 							});
 						}}
-						onResize={(e, direction, ref, delta, position) => {
+						onResize={(_e, _direction, ref, _delta, position) => {
 							setSelected({
 								...selectedItem,
 								width: ref.offsetWidth,
@@ -46,8 +49,10 @@ const InterfaceEditorContent = (props) => {
 							});
 						}}
 					>
-                        {item.children(item.properties)}
-                        <div className="interface-item-id hint">id: {item.id}</div>
+						{interfaceItemsTypes[item.name].children(item.properties)}
+						<div className="interface-item-id hint">
+							id: {item.id}
+						</div>
 					</Rnd>
 				);
 			})}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/admin-materials.css">
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/materialsAdmin.js" type="module"></script>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-profile">
+                    <div class="profile-photo"></div>
+                    <p class="profile-name"></p>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <button data-variant="square" class="add-lesson-btn add-button">
+                    <img src="images/plus.svg" alt="photo again">
+                    <p>Создать материал</p>
+                </button>
+                <button data-variant="square" class="view-personal-btn">
+                    <img src="images/people.svg" alt="photo here">
+                    <p>Персонал</p>
+                </button>
+                <div class="sidebar-links">
+                    <a class="sidebar-links-logout" href="#" draggable="false">Выйти из профиля</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <h2 class="main-header-title">Материалы</h2>
+                <a class="main-header-return-button" href="admin-courses.html">← Назад</a>
+            </div>
+            <div class="main-content main-content-flex">
+                
+            </div>
+        </main>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden add-material-popup-tint">
+        <div class="popup-container add-material-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Добавить материал</p>
+            </div>
+            <input class="create-input-title" type="text" placeholder="Название">
+            <textarea class="add-material-popup-textarea" placeholder="Текст материала"></textarea>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-add-material-popup-btn">Отмена</button>
+                <button data-variant="primary" class="add-material-popup-create-btn">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden edit-material-popup-tint">
+        <div class="popup-container edit-material-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить материал</p>
+            </div>
+            <input class="edit-input-title" type="text" placeholder="Название">
+            <textarea class="edit-material-popup-textarea" placeholder="Текст материала"></textarea>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-edit-material-popup-btn">Отмена</button>
+                <button data-variant="primary" class="edit-material-popup-create-btn">Изменить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-material-popup-tint">
+        <div class="popup-container delete-material-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить материал</p>
+            </div>
+            <p class="popup-warning">Вы уверены, что хотите удалить материал? Данное действие необратимо</p>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-delete-material-popup-btn">Отмена</button>
+                <button data-variant="primary" class="material-popup-delete-btn">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

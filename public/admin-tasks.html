@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Tasks</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/admin-tasks.css">
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/tasksAdmin.js" type="module"></script>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-profile">
+                    <div class="profile-photo"></div>
+                    <p class="profile-name"></p>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <button data-variant="square" class="add-task-button add-button">
+                    <img src="images/plus.svg" alt="photo again">
+                    <p>Создать задачу</p>
+                </button>
+                <button data-variant="square" class="manage-materials-button">
+                    <img src="images/info.svg" alt="photo here">
+                    <p>Материалы</p>
+                </button>
+                <button data-variant="square" class="view-personal-button">
+                    <img src="images/people.svg" alt="photo here">
+                    <p>Персонал</p>
+                </button>
+                <div class="sidebar-info-box">
+                    <h2 class="sidebar-course-title"></h2>
+                    <p class="hint sidebar-course-description"></p>
+                </div>
+                <div class="sidebar-info-box">
+                    <h2 class="sidebar-lesson-title"></h2>
+                    <p class="hint sidebar-lesson-description"></p>
+                </div>
+                <div class="sidebar-links">
+                    <a href="#" draggable="false" class="logout-button">Выйти из профиля</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <h2 class="main-header-title">Задачи</h2>
+                <a class="main-header-return-button" href="admin-lessons.html">← Вернуться к темам</a>
+            </div>
+            <div class="main-content main-content-grid"></div>
+        </main>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden add-task-popup-tint">
+        <div class="popup-container add-task-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Новый урок</p>
+            </div>
+
+            <p class="error-text add-task-title-error"></p>
+            <input type="text" placeholder="Название" class="add-task-title-input">
+            <p class="error-text add-task-description-error"></p>
+            <textarea rows="10" class="add-task-description-input" placeholder="Текст задания"></textarea>
+
+            <button data-variant="square" class="add-emulation-button">
+                <img src="images/plus.svg" alt="photo again">
+                <p>Создать эмуляцию</p>
+            </button>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="add-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="add-task-confirm-button">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden edit-task-popup-tint">
+        <div class="popup-container edit-task-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить задачу</p>
+            </div>
+            
+            <p class="error-text edit-task-title-error"></p>
+            <input type="text" class="edit-task-title-input" placeholder="Название">
+            <p class="error-text edit-task-description-error"></p>
+            <textarea rows="10" class="edit-task-description-input" placeholder="Описание"></textarea>
+
+            <button data-variant="square" class="edit-emulation-button">
+                <img src="images/edit.svg" alt="photo again">
+                <p>Изменить эмуляцию</p>
+            </button>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="edit-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="edit-task-confirm-button">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-task-popup-tint">
+        <div class="popup-container delete-task-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить задачу</p>
+            </div>
+            <p class="hint">Вы уверены, что хотите удалить задачу <span class="delete-task-title-text"></span>? Данное действие необратимо</p>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="delete-task-cancel-button">Отмена</button>
+                <button data-variant="primary" class="delete-task-confirm-button">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

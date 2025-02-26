@@ -1,0 +1,34 @@
+.code-sidebar-item {
+    border-radius: 4px;
+    padding: 16px 16px 0;
+    cursor: pointer;
+    height: 56px;
+}
+
+.code-sidebar-item-inner, .code-sidebar-item-children-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.code-sidebar-item-inner {
+    border: 1px solid var(--outline-color);
+}
+
+.code-sidebar-item-children-inner {
+    border: 1px dashed var(--outline-color);
+}
+
+.code-sidebar-item.react-draggable-dragging,
+.code-sidebar-item-inner,
+.code-sidebar-item-children-inner {
+    cursor: pointer;
+    pointer-events: none;
+}

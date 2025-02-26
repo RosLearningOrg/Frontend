@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Themes</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/admin-lessons.css">
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/lessonsAdmin.js" type="module"></script>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-profile">
+                    <div class="profile-photo"></div>
+                    <p class="profile-name"></p>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <button data-variant="square" class="add-lesson-button">
+                    <img src="images/plus.svg" alt="photo again">
+                    <p>Создать урок</p>
+                </button>
+                <button data-variant="square" class="manage-materials-button">
+                    <img src="images/info.svg" alt="photo here">
+                    <p>Материалы</p>
+                </button>
+                <button data-variant="square" class="view-personal-button">
+                    <img src="images/people.svg" alt="photo here">
+                    <p>Персонал</p>
+                </button>
+                <div class="sidebar-info-box">
+                    <h2 class="sidebar-course-title"></h2>
+                    <p class="hint sidebar-course-description"></p>
+                </div>
+                <div class="sidebar-links">
+                    <a href="" draggable="false" class="logout-button">Выйти из профиля</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <h2 class="main-header-title">Темы</h2>
+                <a class="main-header-return-button" href="admin-courses.html">← Вернуться к курсам</a>
+            </div>
+            <div class="main-content main-content-flex">
+
+            </div>
+        </main>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden add-lesson-popup-tint">
+        <div class="popup-container add-lesson-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Новый урок</p>
+            </div>
+            <p class="error-text add-lesson-title-error"></p>
+            <input type="text" class="add-lesson-title-input" placeholder="Название">
+            <p class="error-text add-lesson-description-error"></p>
+            <textarea rows="6" class="add-lesson-description-input" placeholder="Описание"></textarea>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="add-lesson-cancel-button">Отмена</button>
+                <button data-variant="primary" class="add-lesson-confirm-button">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden edit-lesson-popup-tint">
+        <div class="popup-container edit-lesson-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить урок</p>
+            </div>
+
+            <p class="error-text edit-lesson-title-error"></p>
+            <input type="text" class="edit-lesson-title-input" placeholder="Название">
+            <p class="error-text edit-lesson-description-error"></p>
+            <textarea rows="6" class="edit-lesson-description-input" placeholder="Описание"></textarea>
+
+            <div class="popup-footer">
+                <button class="edit-lesson-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="edit-lesson-confirm-button" data-variant="primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-lesson-popup-tint">
+        <div class="popup-container delete-lesson-popup-container">
+
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить урок</p>
+            </div>
+
+            <p class="hint">Вы уверены, что хотите удалить урок <span class="delete-lesson-title-text"></span>? Данное действие необратимо</p>
+
+            <div class="popup-footer">
+                <button class="delete-lesson-cancel-button" data-variant="tonal">Отмена</button>
+                <button class="delete-lesson-confirm-button" data-variant="primary">Удалить</button>
+            </div>
+        </div>
+    </div>  
+</div>
+</body>
+</html>
+

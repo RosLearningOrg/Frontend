@@ -1,71 +1,27 @@
+:root {
+    --bg-color: #FFFFFF;
+    --fg-color: #1A1C15;
+    --tonal-fg-color: #74786C;
+    --surface-color: #F2F2F2;
+    --primary-surface-color: #D9E1D7;
+    --primary-color: #3F6836;
+    --primary-fg-color: #ffffff;
+    --outline-color: #c1c9be;
+    --error-color: #BA1A1A;
+    --error-surface-color: #F1D1D1;
+    --tint-color: rgba(0, 0, 0, 0.5);
+}
+
 * {
     margin: 0;
     padding: 0;
     width: auto;
     font-size: 1em;
     line-height: 120%;
-}
-
-body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
-}
-
-:root {
-    --bg-color: #FFFFFF;
-    --fg-color: rgba(0, 0, 0, 0.9);
-    --tonal-fg-color: rgba(0, 0, 0, 0.5);
-    --surface-color: rgba(0, 0, 0, 0.05);
-    --primary-surface-color: rgba(63, 104, 54, 0.25);
-    --primary-color: #3F6836;
-    --primary-fg-color: #ffffff;
-    --outline-color: #c1c9be;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type="text"],
-input[type="number"] {
-    appearance: textfield;
-	-moz-appearance: textfield;
-	border: 1px solid var(--outline-color);
-    padding: 8px;
-    border-radius: 4px;
-}
-
-select {
-	border: 1px solid var(--outline-color);
-    background: var(--surface-color);
-    padding: 8px;
-    border-radius: 4px;
-}
-
-button {
-	box-sizing: border-box;
-	width: 100%;
-	max-width: 300px;
-	padding: 8px 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 500;
-	font-size: 1em;
-	border-radius: 100px;
-	transition: 0.2s;
-	border: none;
+    color: var(--fg-color);
+    text-decoration: none;
+    font-weight: normal;
+    box-sizing: border-box;
 	font-family:
 		system-ui,
 		-apple-system,
@@ -78,22 +34,111 @@ button {
 		"Open Sans",
 		"Helvetica Neue",
 		sans-serif;
+}
+
+body {
+    min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+    appearance: textfield;
+	-moz-appearance: textfield;
+	border: 1px solid var(--outline-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: inherit;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--tonal-fg-color);
+    font-size: 1em;
+}
+
+select {
+	border: 1px solid var(--outline-color);
+    background: var(--surface-color);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+*:focus {
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+	outline: 2px solid var(--primary-color);
+}
+
+button {
+    width: 100%;
+	max-width: 300px;
+	display: flex;
+	font-weight: 500;
+	font-size: 1em;
+	transition: 0.2s;
+	border: none;
+	font-family: inherit;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
+    box-sizing: border-box;
 }
 
-*:focus {
-	outline: 2px solid var(--primary-color);
+button img {
+    width: 22px;
+    height: 16px;
+    object-fit: contain;
+    object-position: center;
 }
 
-button[variant="tonal"] {
+button[data-variant="square"] {
+    height: 50px;
+	padding: 0 16px;
+	align-items: center;
+    border-radius: 8px;
+    gap: 16px;
 	background: var(--surface-color);
 	color: var(--fg-color);
 }
 
-button[variant="primary"] {
+button[data-variant="tonal"] {
+	padding: 8px 24px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
+	background: var(--surface-color);
+	color: var(--fg-color);
+}
+
+button[data-variant="primary"] {
+	padding: 8px 24px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
 	background: var(--primary-color);
 	color: var(--primary-fg-color);
 }
+
+button:disabled {
+    opacity: 0.3;
+}
+

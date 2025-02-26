@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/admin-personal.css">
+    <script src="js/auth.js" type="module"></script>
+    <script defer src="js/personalAdmin.js" type="module"></script>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-header-profile">
+                    <div class="profile-photo"></div>
+                    <p class="profile-name"></p>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <button data-variant="square" class="add-user-btn add-button">
+                    <img src="images/plus.svg" alt="photo again">
+                    <p>Создать участника</p>
+                </button>
+                <button data-variant="square" class="view-material-btn">
+                    <img src="images/info.svg" alt="photo here">
+                    <p>Управление материалами</p>
+                </button>
+                <div class="sidebar-links">
+                    <a class="sidebar-links-logout" href="#" draggable="false">Выйти из профиля</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <h2 class="main-header-title">Персонал</h2>
+                <a class="main-header-return-button" href="admin-courses.html">← Назад</a>
+            </div>
+            <div class="main-content main-content-flex">
+                
+            </div>
+        </main>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden add-personal-popup-tint">
+        <div class="popup-container add-personal-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Новый участник</p>
+            </div>
+            <p class="error-text add-personal-fullname-error"></p>
+            <input class="create-input-fullname" type="text" placeholder="ФИО">
+            <p class="error-text add-personal-username-error"></p>
+            <input class="create-input-username" type="text" placeholder="Юзернейм">
+            <p class="error-text add-personal-email-error"></p>
+            <input class="create-input-email" type="text" placeholder="Почта">
+            <p class="error-text add-personal-password-error"></p>
+            <input class="create-input-password" type="text" placeholder="Пароль">
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-add-personal-popup-btn">Отмена</button>
+                <button data-variant="primary" class="add-personal-popup-create-btn">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden edit-personal-popup-tint">
+        <div class="popup-container edit-personal-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Изменить участника</p>
+            </div>
+            <p class="error-text edit-personal-fullname-error"></p>
+            <input class="edit-input-fullname" type="text" placeholder="ФИО">
+            <p class="error-text edit-personal-username-error"></p>
+            <input class="edit-input-username" type="text" placeholder="Юзернейм">
+            <p class="error-text edit-personal-email-error"></p>
+            <input class="edit-input-email" type="text" placeholder="Почта">
+            <p class="error-text edit-personal-password-error"></p>
+            <input class="edit-input-password" type="text" placeholder="Пароль">
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-edit-personal-popup-btn">Отмена</button>
+                <button data-variant="primary" class="edit-personal-popup-create-btn">Изменить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-tint popup-tint-hidden delete-personal-popup-tint">
+        <div class="popup-container delete-personal-popup-container">
+            <div class="popup-header">
+                <p class="popup-header-title">Удалить участника</p>
+            </div>
+            <p class="popup-warning hint">Вы уверены, что хотите удалить участника? Данное действие необратимо</p>
+            <div class="popup-footer">
+                <button data-variant="tonal" class="close-delete-personal-popup-btn">Отмена</button>
+                <button data-variant="primary" class="personal-popup-delete-btn">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

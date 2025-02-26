@@ -1,0 +1,28 @@
+.icon-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+
+.task-item-container {
+    justify-content: space-between;
+}
+
+.add-emulation-button,
+.edit-emulation-button {
+    max-width: none;
+}
+
+.edit-emulation-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.delete-task-popup-container {
+    width: 400px;    
+}
+
+.add-task-popup-container,
+.edit-task-popup-container {
+    width: 500px;
+}
